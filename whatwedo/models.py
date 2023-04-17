@@ -37,7 +37,7 @@ class mil4edu(models.Model):
     # Fields
     image = models.ImageField(upload_to="upload/images/whatwedo/mil4edu/")
     name = models.CharField(max_length=30)
-    content = models.CharField()
+    content = models.CharField(max_length=3000)
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
 
@@ -89,7 +89,7 @@ class wtd(models.Model):
     # Fields
     created = models.DateTimeField(auto_now_add=True, editable=False)
     image = models.ImageField(upload_to="upload/images/whatwedo/wtd/")
-    content = models.CharField()
+    content = models.CharField(max_length=3000)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     name = models.CharField(max_length=30)
     teachers = models.IntegerField()

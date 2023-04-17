@@ -1,5 +1,12 @@
-Django>=4
-django-extensions
-djangorestframework
-channels
-channels_redis
+asgiref==3.6.0
+async-timeout==4.0.2
+channels==4.0.0
+channels-redis==4.1.0
+Django==4.2
+django-extensions==3.2.1
+djangorestframework==3.14.0
+msgpack==1.0.5
+Pillow==9.5.0
+pytz==2023.3
+redis==4.5.4
+sqlparse==0.4.3

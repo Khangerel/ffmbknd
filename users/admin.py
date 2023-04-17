@@ -7,7 +7,7 @@ from . import models
 class UserAdminForm(forms.ModelForm):
 
     class Meta:
-        model = models.User
+        model = models.CustomUser
         fields = "__all__"
 
 
@@ -17,20 +17,18 @@ class UserAdmin(admin.ModelAdmin):
         "email",
         "created",
         "first_name",
-        "uuid",
         "last_updated",
-        "is_admin",
+        "is_staff",
         "last_name",
     ]
     readonly_fields = [
         "email",
         "created",
         "first_name",
-        "uuid",
         "last_updated",
-        "is_admin",
+        "is_staff",
         "last_name",
     ]
 
 
-admin.site.register(models.User, UserAdmin)
+admin.site.register(models.CustomUser, UserAdmin)

@@ -9,7 +9,7 @@ class partnerViewSet(viewsets.ModelViewSet):
 
     queryset = models.partner.objects.all()
     serializer_class = serializers.partnerSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class landingViewSet(viewsets.ModelViewSet):

@@ -13,8 +13,8 @@ class main(models.Model):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     image_title = models.TextField(max_length=100)
     image_description = models.TextField(max_length=200)
-    whoweare = models.CharField()
-    our_vision = models.CharField()
+    whoweare = models.CharField(max_length=2000)
+    our_vision = models.CharField(max_length=2000)
 
     class Meta:
         pass

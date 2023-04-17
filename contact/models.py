@@ -34,7 +34,7 @@ class attendee(models.Model):
 
     # Fields
     is_partnership_opportunity = models.BooleanField()
-    message = models.CharField()
+    message = models.CharField(max_length=2000)
     last_name = models.TextField(max_length=100)
     is_generail_inquiry = models.BooleanField()
     phone = models.CharField(max_length=30)

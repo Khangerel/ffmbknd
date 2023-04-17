@@ -39,7 +39,7 @@ class post(models.Model):
     image_thumbnail = models.ImageField(upload_to="upload/images/post/thumbnails")
     image_banner = models.ImageField(upload_to="upload/images/post/banners")
     title = models.CharField(max_length=200)
-    content = models.CharField()
+    content = models.CharField(max_length=4000)
     is_featured = models.BooleanField()
 
     class Meta:
