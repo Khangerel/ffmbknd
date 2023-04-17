@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'contact_attendee_list' %}">
+    attendee Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>is_partnership_opportunity</td><td>{{ object.is_partnership_opportunity }}</td></tr>
+    <tr><td>message</td><td>{{ object.message }}</td></tr>
+    <tr><td>last_name</td><td>{{ object.last_name }}</td></tr>
+    <tr><td>is_generail_inquiry</td><td>{{ object.is_generail_inquiry }}</td></tr>
+    <tr><td>phone</td><td>{{ object.phone }}</td></tr>
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>first_name</td><td>{{ object.first_name }}</td></tr>
+    <tr><td>is_training</td><td>{{ object.is_training }}</td></tr>
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+    <tr><td>email</td><td>{{ object.email }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}

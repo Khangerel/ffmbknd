@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'contact_info_list' %}">
+    info Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+    <tr><td>title</td><td>{{ object.title }}</td></tr>
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>helper</td><td>{{ object.helper }}</td></tr>
+    <tr><td>phone</td><td>{{ object.phone }}</td></tr>
+    <tr><td>email</td><td>{{ object.email }}</td></tr>
+    <tr><td>address</td><td>{{ object.address }}</td></tr>
+    <tr><td>lang_id</td><td>{{ object.lang_id }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}
