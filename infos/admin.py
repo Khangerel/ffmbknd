@@ -22,8 +22,6 @@ class partnerAdmin(admin.ModelAdmin):
     readonly_fields = [
         "created",
         "last_updated",
-        "name",
-        "logo",
     ]
 
 
