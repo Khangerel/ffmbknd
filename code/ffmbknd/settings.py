@@ -7,6 +7,8 @@ https://docs.djangoproject.com/
 """
 
 from pathlib import Path
+from datetime import timedelta
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +23,8 @@ SECRET_KEY = '^l)7d*%h&db4uft@dk%h-w&nup#pu%)a!d)c7jwgoixo5_hm0$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['192.168.2.72', '0.0.0.0']
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
@@ -41,6 +44,9 @@ INSTALLED_APPS = [
     'languages',
     'users',
     'contact',
+    'corsheaders',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 
@@ -81,8 +87,12 @@ WSGI_APPLICATION = 'ffmbknd.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ffngobknd',
+        'USER': 'ffngobknd',
+        'PASSWORD': 'ffngobknd',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 
@@ -122,8 +132,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = 'upload'
-MEDIA_URL = '/upload/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
