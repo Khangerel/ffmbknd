@@ -14,45 +14,16 @@ class howwedoAdminForm(forms.ModelForm):
 class howwedoAdmin(admin.ModelAdmin):
     form = howwedoAdminForm
     list_display = [
-        "icon",
-        "description",
         "title",
-        "created",
-        "last_updated",
         "color",
-    ]
-    readonly_fields = [
-        "icon",
         "description",
-        "title",
-        "created",
-        "last_updated",
-        "color",
-    ]
-
-
-class mil4eduAdminForm(forms.ModelForm):
-
-    class Meta:
-        model = models.mil4edu
-        fields = "__all__"
-
-
-class mil4eduAdmin(admin.ModelAdmin):
-    form = mil4eduAdminForm
-    list_display = [
-        "image",
-        "name",
-        "content",
+        "icon",
         "created",
         "last_updated",
     ]
     readonly_fields = [
-        "image",
-        "name",
-        "content",
-        "created",
         "last_updated",
+        "created",
     ]
 
 
@@ -67,50 +38,43 @@ class cardAdmin(admin.ModelAdmin):
     form = cardAdminForm
     list_display = [
         "title",
-        "created",
-        "color",
-        "last_updated",
         "description",
+        "color",
+        "created",
+        "last_updated",
     ]
     readonly_fields = [
-        "title",
         "created",
-        "color",
         "last_updated",
-        "description",
     ]
 
 
-class wtdAdminForm(forms.ModelForm):
+class projectAdminForm(forms.ModelForm):
 
     class Meta:
-        model = models.wtd
+        model = models.project
         fields = "__all__"
 
 
-class wtdAdmin(admin.ModelAdmin):
-    form = wtdAdminForm
+class projectAdmin(admin.ModelAdmin):
+    form = projectAdminForm
     list_display = [
-        "created",
+        "title",
+        "description",
         "image",
-        "content",
+        "impact",
+        "color",
+        "issue",
+        "method",
+        "created",
         "last_updated",
-        "name",
-        "teachers",
-        "attendees",
     ]
     readonly_fields = [
         "created",
-        "image",
-        "content",
         "last_updated",
-        "name",
-        "teachers",
-        "attendees",
     ]
 
 
 admin.site.register(models.howwedo, howwedoAdmin)
-admin.site.register(models.mil4edu, mil4eduAdmin)
 admin.site.register(models.card, cardAdmin)
-admin.site.register(models.wtd, wtdAdmin)
+admin.site.register(models.project, projectAdmin)

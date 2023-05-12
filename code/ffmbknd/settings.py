@@ -23,7 +23,7 @@ SECRET_KEY = '^l)7d*%h&db4uft@dk%h-w&nup#pu%)a!d)c7jwgoixo5_hm0$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.2.72', '0.0.0.0']
+ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -88,9 +88,9 @@ WSGI_APPLICATION = 'ffmbknd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ffngobknd',
-        'USER': 'ffngobknd',
-        'PASSWORD': 'ffngobknd',
+        'NAME': 'ffngo',
+        'USER': 'ffngo',
+        'PASSWORD': 'ffngo',
         'HOST': 'db',
         'PORT': '5432',
     }

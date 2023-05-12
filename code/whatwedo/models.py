@@ -9,11 +9,11 @@ class howwedo(models.Model):
 
     # Fields
     icon = models.ImageField(upload_to="upload/images/whatwedo/howwedo/")
-    description = models.TextField(max_length=200)
-    title = models.TextField(max_length=100)
-    created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    title = models.TextField(max_length=100)
     color = models.CharField(max_length=30)
+    description = models.TextField(max_length=200)
 
     class Meta:
         pass
@@ -29,43 +29,17 @@ class howwedo(models.Model):
 
 
 
-class mil4edu(models.Model):
-
-    # Relationships
-    lang_id = models.ForeignKey("languages.language", on_delete=models.CASCADE)
-
-    # Fields
-    image = models.ImageField(upload_to="upload/images/whatwedo/mil4edu/")
-    name = models.CharField(max_length=30)
-    content = models.CharField(max_length=3000)
-    created = models.DateTimeField(auto_now_add=True, editable=False)
-    last_updated = models.DateTimeField(auto_now=True, editable=False)
-
-    class Meta:
-        pass
-
-    def __str__(self):
-        return str(self.name)
-
-    def get_absolute_url(self):
-        return reverse("whatwedo_mil4edu_detail", args=(self.pk,))
-
-    def get_update_url(self):
-        return reverse("whatwedo_mil4edu_update", args=(self.pk,))
-
-
-
 class card(models.Model):
 
     # Relationships
     lang_id = models.ForeignKey("languages.language", on_delete=models.CASCADE)
 
     # Fields
-    title = models.TextField(max_length=100)
+    description = models.TextField(max_length=200)
     created = models.DateTimeField(auto_now_add=True, editable=False)
+    title = models.TextField(max_length=100)
     color = models.CharField(max_length=30)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    description = models.TextField(max_length=200)
 
     class Meta:
         pass
@@ -81,29 +55,31 @@ class card(models.Model):
 
 
 
-class wtd(models.Model):
+class project(models.Model):
 
     # Relationships
     lang_id = models.ForeignKey("languages.language", on_delete=models.CASCADE)
 
     # Fields
+    description = models.TextField(max_length=500)
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    image = models.ImageField(upload_to="upload/images/whatwedo/wtd/")
-    content = models.CharField(max_length=3000)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    name = models.CharField(max_length=30)
-    teachers = models.IntegerField()
-    attendees = models.IntegerField()
+    title = models.TextField(max_length=100)
+    image = models.ImageField(upload_to="upload/images/projects/")
+    impact = models.IntegerField()
+    color = models.CharField(max_length=30)
+    issue = models.TextField(max_length=300)
+    method = models.TextField(max_length=300)
 
     class Meta:
         pass
 
     def __str__(self):
-        return str(self.name)
+        return str(self.pk)
 
     def get_absolute_url(self):
-        return reverse("whatwedo_wtd_detail", args=(self.pk,))
+        return reverse("whatwedo_project_detail", args=(self.pk,))
 
     def get_update_url(self):
-        return reverse("whatwedo_wtd_update", args=(self.pk,))
+        return reverse("whatwedo_project_update", args=(self.pk,))
 

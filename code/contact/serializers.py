@@ -1,7 +1,13 @@
 from rest_framework import serializers
-
+from django_filters import rest_framework as filters
 from . import models
 
+class infoFilter(filters.FilterSet):
+    lang_id = filters.NumberFilter(field_name='lang_id')
+
+    class Meta:
+        model = models.info
+        fields = ['lang_id']
 
 class infoSerializer(serializers.ModelSerializer):
 

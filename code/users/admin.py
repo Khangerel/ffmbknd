@@ -14,20 +14,16 @@ class UserAdminForm(forms.ModelForm):
 class UserAdmin(admin.ModelAdmin):
     form = UserAdminForm
     list_display = [
-        "email",
-        "created",
         "first_name",
-        "last_updated",
-        "is_staff",
         "last_name",
+        "email",
+        "is_staff",
+        "created",
+        "last_updated",
     ]
     readonly_fields = [
-        "email",
         "created",
-        "first_name",
         "last_updated",
-        "is_staff",
-        "last_name",
     ]
 
 

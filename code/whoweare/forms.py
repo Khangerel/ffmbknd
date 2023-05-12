@@ -8,8 +8,8 @@ class mainForm(forms.ModelForm):
     class Meta:
         model = models.main
         fields = [
-            "image_banner",
             "image_title",
+            "image_banner",
             "image_description",
             "whoweare",
             "our_vision",
@@ -26,8 +26,10 @@ class timelineForm(forms.ModelForm):
     class Meta:
         model = models.timeline
         fields = [
+            "sub_title",
             "title",
-            "color",
+            "image",
+            "year",
             "description",
             "lang_id",
         ]

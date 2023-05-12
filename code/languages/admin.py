@@ -14,12 +14,11 @@ class languageAdminForm(forms.ModelForm):
 class languageAdmin(admin.ModelAdmin):
     form = languageAdminForm
     list_display = [
-        "created",
         "name",
+        "created",
     ]
     readonly_fields = [
         "created",
-        "name",
     ]
 
 

@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'whatwedo_project_list' %}">
+    project Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>description</td><td>{{ object.description }}</td></tr>
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+    <tr><td>title</td><td>{{ object.title }}</td></tr>
+    <tr><td>image</td><td>{{ object.image }}</td></tr>
+    <tr><td>impact</td><td>{{ object.impact }}</td></tr>
+    <tr><td>color</td><td>{{ object.color }}</td></tr>
+    <tr><td>issue</td><td>{{ object.issue }}</td></tr>
+    <tr><td>method</td><td>{{ object.method }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}

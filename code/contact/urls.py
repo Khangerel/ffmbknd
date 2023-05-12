@@ -10,7 +10,8 @@ router.register("info", api.infoViewSet)
 router.register("attendee", api.attendeeViewSet)
 
 urlpatterns = (
-    path("api/v1/", include(router.urls)),
+    path("v1/", include(router.urls)),
+    path('contact/create/attendee', api.create_attendee, name='create_attendee'),
     path("contact/info/", views.infoListView.as_view(), name="contact_info_list"),
     path("contact/info/create/", views.infoCreateView.as_view(), name="contact_info_create"),
     path("contact/info/detail/<int:pk>/", views.infoDetailView.as_view(), name="contact_info_detail"),

@@ -9,4 +9,4 @@ class languageViewSet(viewsets.ModelViewSet):
 
     queryset = models.language.objects.all()
     serializer_class = serializers.languageSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]

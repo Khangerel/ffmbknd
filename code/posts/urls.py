@@ -8,9 +8,10 @@ from . import views
 router = routers.DefaultRouter()
 router.register("category", api.categoryViewSet)
 router.register("post", api.postViewSet)
+router.register("tags", api.tagsViewSet)
 
 urlpatterns = (
-    path("api/v1/", include(router.urls)),
+    path("v1/", include(router.urls)),
     path("posts/category/", views.categoryListView.as_view(), name="posts_category_list"),
     path("posts/category/create/", views.categoryCreateView.as_view(), name="posts_category_create"),
     path("posts/category/detail/<slug:slug>/", views.categoryDetailView.as_view(), name="posts_category_detail"),
@@ -21,5 +22,10 @@ urlpatterns = (
     path("posts/post/detail/<int:pk>/", views.postDetailView.as_view(), name="posts_post_detail"),
     path("posts/post/update/<int:pk>/", views.postUpdateView.as_view(), name="posts_post_update"),
     path("posts/post/delete/<int:pk>/", views.postDeleteView.as_view(), name="posts_post_delete"),
+    path("posts/tags/", views.tagsListView.as_view(), name="posts_tags_list"),
+    path("posts/tags/create/", views.tagsCreateView.as_view(), name="posts_tags_create"),
+    path("posts/tags/detail/<slug:slug>/", views.tagsDetailView.as_view(), name="posts_tags_detail"),
+    path("posts/tags/update/<slug:slug>/", views.tagsUpdateView.as_view(), name="posts_tags_update"),
+    path("posts/tags/delete/<slug:slug>/", views.tagsDeleteView.as_view(), name="posts_tags_delete"),
 
 )

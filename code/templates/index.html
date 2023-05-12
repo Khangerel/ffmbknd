@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="m-2"><h4>whoweare</h4></div>
-<div class="m-2"><a class="btn btn-light" href="{% url 'whoweare_main_list' %}">main Listing</a></div>
-<div class="m-2"><a class="btn btn-light" href="{% url 'whoweare_timeline_list' %}">timeline Listing</a></div>
 <div class="m-2"><h4>infos</h4></div>
 <div class="m-2"><a class="btn btn-light" href="{% url 'infos_partner_list' %}">partner Listing</a></div>
 <div class="m-2"><a class="btn btn-light" href="{% url 'infos_landing_list' %}">landing Listing</a></div>
+<div class="m-2"><h4>contact</h4></div>
+<div class="m-2"><a class="btn btn-light" href="{% url 'contact_info_list' %}">info Listing</a></div>
+<div class="m-2"><a class="btn btn-light" href="{% url 'contact_attendee_list' %}">attendee Listing</a></div>
+<div class="m-2"><h4>whoweare</h4></div>
+<div class="m-2"><a class="btn btn-light" href="{% url 'whoweare_main_list' %}">main Listing</a></div>
+<div class="m-2"><a class="btn btn-light" href="{% url 'whoweare_timeline_list' %}">timeline Listing</a></div>
 <div class="m-2"><h4>whatwedo</h4></div>
 <div class="m-2"><a class="btn btn-light" href="{% url 'whatwedo_howwedo_list' %}">howwedo Listing</a></div>
-<div class="m-2"><a class="btn btn-light" href="{% url 'whatwedo_mil4edu_list' %}">mil4edu Listing</a></div>
 <div class="m-2"><a class="btn btn-light" href="{% url 'whatwedo_card_list' %}">card Listing</a></div>
-<div class="m-2"><a class="btn btn-light" href="{% url 'whatwedo_wtd_list' %}">wtd Listing</a></div>
+<div class="m-2"><a class="btn btn-light" href="{% url 'whatwedo_project_list' %}">project Listing</a></div>
 <div class="m-2"><h4>posts</h4></div>
 <div class="m-2"><a class="btn btn-light" href="{% url 'posts_category_list' %}">category Listing</a></div>
 <div class="m-2"><a class="btn btn-light" href="{% url 'posts_post_list' %}">post Listing</a></div>
+<div class="m-2"><a class="btn btn-light" href="{% url 'posts_tags_list' %}">tags Listing</a></div>
 <div class="m-2"><h4>languages</h4></div>
 <div class="m-2"><a class="btn btn-light" href="{% url 'languages_language_list' %}">language Listing</a></div>
 <div class="m-2"><h4>users</h4></div>
 <div class="m-2"><a class="btn btn-light" href="{% url 'users_User_list' %}">User Listing</a></div>
-<div class="m-2"><h4>contact</h4></div>
-<div class="m-2"><a class="btn btn-light" href="{% url 'contact_info_list' %}">info Listing</a></div>
-<div class="m-2"><a class="btn btn-light" href="{% url 'contact_attendee_list' %}">attendee Listing</a></div>
 {% endblock %}

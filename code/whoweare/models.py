@@ -8,13 +8,13 @@ class main(models.Model):
     lang_id = models.ForeignKey("languages.language", on_delete=models.CASCADE)
 
     # Fields
-    image_banner = models.ImageField(upload_to="upload/images/whoweare/main/")
-    last_updated = models.DateTimeField(auto_now=True, editable=False)
-    created = models.DateTimeField(auto_now_add=True, editable=False)
     image_title = models.TextField(max_length=100)
+    image_banner = models.ImageField(upload_to="upload/images/whoweare/main/")
     image_description = models.TextField(max_length=200)
-    whoweare = models.CharField(max_length=2000)
-    our_vision = models.CharField(max_length=2000)
+    whoweare = models.TextField()
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    our_vision = models.TextField()
 
     class Meta:
         pass
@@ -36,11 +36,15 @@ class timeline(models.Model):
     lang_id = models.ForeignKey("languages.language", on_delete=models.CASCADE)
 
     # Fields
-    title = models.CharField(max_length=30)
-    last_updated = models.DateTimeField(auto_now=True, editable=False)
-    color = models.CharField(max_length=30)
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    description = models.CharField(max_length=100)
+    sub_title = models.TextField(max_length=200)
+    title = models.TextField(max_length=100)
+    image = models.ImageField(upload_to="upload/images/timeline/", blank=True)
+    year = models.IntegerField()
+    description = models.TextField(max_length=300)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+
+    REQUIRED_FIELDS = ['title', 'sub_title']
 
     class Meta:
         pass

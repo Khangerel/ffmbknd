@@ -2,6 +2,8 @@ from django import forms
 from languages.models import language
 from posts.models import category
 from languages.models import language
+from posts.models import tags
+from languages.models import language
 from . import models
 
 
@@ -26,15 +28,32 @@ class postForm(forms.ModelForm):
         fields = [
             "image_thumbnail",
             "image_banner",
-            "title",
-            "content",
             "is_featured",
+            "content",
+            "title",
             "categories",
             "lang_id",
+            "tags",
         ]
 
     def __init__(self, *args, **kwargs):
         super(postForm, self).__init__(*args, **kwargs)
         self.fields["categories"].queryset = category.objects.all()
+        self.fields["lang_id"].queryset = language.objects.all()
+        self.fields["tags"].queryset = tags.objects.all()
+
+
+
+class tagsForm(forms.ModelForm):
+    class Meta:
+        model = models.tags
+        fields = [
+            "slug",
+            "name",
+            "lang_id",
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super(tagsForm, self).__init__(*args, **kwargs)
         self.fields["lang_id"].queryset = language.objects.all()
 

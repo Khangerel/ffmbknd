@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  db:
+    container_name: inv_skeleton_db
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    # environment:
+    #   - "POSTGRES_HOST_AUTH_METHOD=trust"
+  python:
+    container_name: inv_skeleton_python
+    build: 
+      context: '../'
+      dockerfile: './docker/dev/dockerfile'
+    working_dir: /var/www/ffngo/code/
+    command: python manage.py runserver 0:9000
+    volumes:
+      - '../:/var/www/ffngo'
+      - /var/www/ffngo/var
+      - ../var/upload:/var/www/ffngo/var/upload
+    ports:
+      - 9000:9000
+    depends_on:
+      - db
+  nginx: 
+    restart: unless-stopped
+    build:
+        context: '../'
+        dockerfile: ./docker/nginx/Dockerfile
+    ports:
+        - 81:81
+        - 82:82
+    depends_on: 
+      - python
+
+volumes:
+  static_volume: {}
+  postgres_data:
+    driver: local

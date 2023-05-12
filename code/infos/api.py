@@ -17,4 +17,4 @@ class landingViewSet(viewsets.ModelViewSet):
 
     queryset = models.landing.objects.all()
     serializer_class = serializers.landingSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]

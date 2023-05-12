@@ -19,17 +19,18 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.conf import settings
-
+from ckeditor_uploader import views as ckeditor_views
 
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
-    path('whoweare/', include('whoweare.urls')),
-    path('infos/', include('infos.urls')),
-    path('whatwedo/', include('whatwedo.urls')),
-    path('posts/', include('posts.urls')),
-    path('languages/', include('languages.urls')),
-    path('users/', include('users.urls')),
-    path('contact/', include('contact.urls')),
+    path('api/', include('whoweare.urls')),
+    path('api/', include('infos.urls')),
+    path('api/', include('whatwedo.urls')),
+    path('api/', include('posts.urls')),
+    path('api/', include('languages.urls')),
+    path('api/', include('users.urls')),
+    path('api/', include('contact.urls')),
     path('admin/', admin.site.urls),
+    path('api/ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

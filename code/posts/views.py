@@ -55,3 +55,30 @@ class postUpdateView(generic.UpdateView):
 class postDeleteView(generic.DeleteView):
     model = models.post
     success_url = reverse_lazy("posts_post_list")
+
+
+class tagsListView(generic.ListView):
+    model = models.tags
+    form_class = forms.tagsForm
+
+
+class tagsCreateView(generic.CreateView):
+    model = models.tags
+    form_class = forms.tagsForm
+
+
+class tagsDetailView(generic.DetailView):
+    model = models.tags
+    form_class = forms.tagsForm
+    slug_url_kwarg = "slug"
+
+
+class tagsUpdateView(generic.UpdateView):
+    model = models.tags
+    form_class = forms.tagsForm
+    slug_url_kwarg = "slug"
+
+
+class tagsDeleteView(generic.DeleteView):
+    model = models.tags
+    success_url = reverse_lazy("posts_tags_list")

@@ -15,10 +15,9 @@ class landingForm(forms.ModelForm):
     class Meta:
         model = models.landing
         fields = [
-            "trainings",
-            "image_swipe2",
-            "image_swipe3",
-            "citizens",
-            "image_background",
             "image_swipe1",
+            "image_swipe2",
+            "citizens",
+            "trainings",
+            "image_swipe3",
         ]

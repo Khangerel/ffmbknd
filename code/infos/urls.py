@@ -10,7 +10,7 @@ router.register("partner", api.partnerViewSet)
 router.register("landing", api.landingViewSet)
 
 urlpatterns = (
-    path("api/v1/", include(router.urls)),
+    path("v1/", include(router.urls)),
     path("infos/partner/", views.partnerListView.as_view(), name="infos_partner_list"),
     path("infos/partner/create/", views.partnerCreateView.as_view(), name="infos_partner_create"),
     path("infos/partner/detail/<int:pk>/", views.partnerDetailView.as_view(), name="infos_partner_detail"),

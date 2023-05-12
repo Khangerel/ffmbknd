@@ -1,7 +1,27 @@
 from rest_framework import serializers
-
+from django_filters import rest_framework as filters
 from . import models
 
+class howwedoFilter(filters.FilterSet):
+    lang_id = filters.NumberFilter(field_name='lang_id')
+
+    class Meta:
+        model = models.howwedo
+        fields = ['lang_id']
+
+class cardFilter(filters.FilterSet):
+    lang_id = filters.NumberFilter(field_name='lang_id')
+
+    class Meta:
+        model = models.card
+        fields = ['lang_id']
+
+class projectFilter(filters.FilterSet):
+    lang_id = filters.NumberFilter(field_name='lang_id')
+
+    class Meta:
+        model = models.project
+        fields = ['lang_id']
 
 class howwedoSerializer(serializers.ModelSerializer):
 
@@ -9,24 +29,11 @@ class howwedoSerializer(serializers.ModelSerializer):
         model = models.howwedo
         fields = [
             "icon",
-            "description",
+            "last_updated",
+            "created",
             "title",
-            "created",
-            "last_updated",
             "color",
-            "lang_id",
-        ]
-
-class mil4eduSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = models.mil4edu
-        fields = [
-            "image",
-            "name",
-            "content",
-            "created",
-            "last_updated",
+            "description",
             "lang_id",
         ]
 
@@ -35,25 +42,27 @@ class cardSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.card
         fields = [
-            "title",
+            "description",
             "created",
+            "title",
             "color",
             "last_updated",
-            "description",
             "lang_id",
         ]
 
-class wtdSerializer(serializers.ModelSerializer):
+class projectSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = models.wtd
+        model = models.project
         fields = [
+            "description",
             "created",
-            "image",
-            "content",
             "last_updated",
-            "name",
-            "teachers",
-            "attendees",
+            "title",
+            "image",
+            "impact",
+            "color",
+            "issue",
+            "method",
             "lang_id",
         ]

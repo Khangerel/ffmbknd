@@ -8,10 +8,10 @@ class partnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.partner
         fields = [
-            "created",
-            "last_updated",
             "name",
             "logo",
+            "last_updated",
+            "created",
         ]
 
 class landingSerializer(serializers.ModelSerializer):
@@ -19,12 +19,11 @@ class landingSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.landing
         fields = [
+            "image_swipe1",
             "last_updated",
-            "trainings",
             "image_swipe2",
             "created",
-            "image_swipe3",
             "citizens",
-            "image_background",
-            "image_swipe1",
+            "trainings",
+            "image_swipe3",
         ]

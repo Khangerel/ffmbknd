@@ -14,14 +14,14 @@ class partnerAdminForm(forms.ModelForm):
 class partnerAdmin(admin.ModelAdmin):
     form = partnerAdminForm
     list_display = [
-        "created",
-        "last_updated",
         "name",
         "logo",
+        "last_updated",
+        "created",
     ]
     readonly_fields = [
-        "created",
         "last_updated",
+        "created",
     ]
 
 
@@ -35,24 +35,17 @@ class landingAdminForm(forms.ModelForm):
 class landingAdmin(admin.ModelAdmin):
     form = landingAdminForm
     list_display = [
-        "last_updated",
-        "trainings",
-        "image_swipe2",
-        "created",
-        "image_swipe3",
         "citizens",
-        "image_background",
+        "trainings",
         "image_swipe1",
+        "image_swipe2",
+        "image_swipe3",
+        "last_updated",
+        "created",
     ]
     readonly_fields = [
         "last_updated",
-        "trainings",
-        "image_swipe2",
         "created",
-        "image_swipe3",
-        "citizens",
-        "image_background",
-        "image_swipe1",
     ]
 
 

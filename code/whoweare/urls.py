@@ -10,7 +10,7 @@ router.register("main", api.mainViewSet)
 router.register("timeline", api.timelineViewSet)
 
 urlpatterns = (
-    path("api/v1/", include(router.urls)),
+    path("v1/", include(router.urls)),
     path("whoweare/main/", views.mainListView.as_view(), name="whoweare_main_list"),
     path("whoweare/main/create/", views.mainCreateView.as_view(), name="whoweare_main_create"),
     path("whoweare/main/detail/<int:pk>/", views.mainDetailView.as_view(), name="whoweare_main_detail"),

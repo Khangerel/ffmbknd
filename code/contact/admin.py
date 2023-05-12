@@ -14,22 +14,17 @@ class infoAdminForm(forms.ModelForm):
 class infoAdmin(admin.ModelAdmin):
     form = infoAdminForm
     list_display = [
-        "last_updated",
         "title",
-        "created",
         "helper",
         "phone",
         "email",
         "address",
+        "last_updated",
+        "created",
     ]
     readonly_fields = [
         "last_updated",
-        "title",
         "created",
-        "helper",
-        "phone",
-        "email",
-        "address",
     ]
 
 
@@ -43,16 +38,16 @@ class attendeeAdminForm(forms.ModelForm):
 class attendeeAdmin(admin.ModelAdmin):
     form = attendeeAdminForm
     list_display = [
-        "is_partnership_opportunity",
-        "message",
-        "last_name",
-        "is_generail_inquiry",
-        "phone",
-        "created",
         "first_name",
-        "is_training",
-        "last_updated",
+        "last_name",
         "email",
+        "message",
+        "phone",
+        "is_generail_inquiry",
+        "is_training",
+        "is_partnership_opportunity",
+        "created",
+        "last_updated",
     ]
     readonly_fields = [
         "is_partnership_opportunity",

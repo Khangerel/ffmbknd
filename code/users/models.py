@@ -34,17 +34,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+    def __str__(self):
+        return str(self.first_name + " " + self.last_name)
+
     def get_full_name(self):
         return f'{self.first_name} {self.last_name}'
 
     def get_short_name(self):
         return self.first_name
-
-    def __str__(self):
-        return self.email
-
-    def __str__(self):
-        return str(self.pk)
 
     def get_absolute_url(self):
         return reverse("users_User_detail", args=(self.pk,))

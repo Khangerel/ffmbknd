@@ -14,22 +14,17 @@ class mainAdminForm(forms.ModelForm):
 class mainAdmin(admin.ModelAdmin):
     form = mainAdminForm
     list_display = [
-        "image_banner",
-        "last_updated",
-        "created",
-        "image_title",
-        "image_description",
         "whoweare",
         "our_vision",
+        "image_title",
+        "image_banner",
+        "image_description",
+        "created",
+        "last_updated",
     ]
     readonly_fields = [
-        "image_banner",
-        "last_updated",
         "created",
-        "image_title",
-        "image_description",
-        "whoweare",
-        "our_vision",
+        "last_updated",
     ]
 
 
@@ -44,17 +39,16 @@ class timelineAdmin(admin.ModelAdmin):
     form = timelineAdminForm
     list_display = [
         "title",
-        "last_updated",
-        "color",
-        "created",
+        "sub_title",
         "description",
+        "year",
+        "image",
+        "created",
+        "last_updated",
     ]
     readonly_fields = [
-        "title",
-        "last_updated",
-        "color",
         "created",
-        "description",
+        "last_updated",
     ]
 
 

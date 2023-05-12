@@ -5,10 +5,10 @@ from django.urls import reverse
 class partner(models.Model):
 
     # Fields
-    created = models.DateTimeField(auto_now_add=True, editable=False)
-    last_updated = models.DateTimeField(auto_now=True, editable=False)
     name = models.CharField(max_length=50)
     logo = models.ImageField(upload_to="upload/images/partners/")
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
         pass
@@ -27,14 +27,13 @@ class partner(models.Model):
 class landing(models.Model):
 
     # Fields
+    image_swipe1 = models.ImageField(upload_to="upload/images/infos/landing/")
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    trainings = models.IntegerField()
     image_swipe2 = models.ImageField(upload_to="upload/images/infos/landing/")
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    image_swipe3 = models.ImageField(upload_to="upload/images/infos/landing/")
     citizens = models.IntegerField()
-    image_background = models.ImageField(upload_to="upload/images/infos/landing/")
-    image_swipe1 = models.ImageField(upload_to="upload/images/infos/landing/")
+    trainings = models.IntegerField()
+    image_swipe3 = models.ImageField(upload_to="upload/images/infos/landing/")
 
     class Meta:
         pass
