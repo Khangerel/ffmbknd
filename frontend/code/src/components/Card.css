@@ -1,0 +1,11 @@
+.border-none{
+    border: none;
+}
+.bg-none{
+    background: none!important;
+    border: none!important;
+}
+.bg-none:hover{
+    background: none!important;
+    border: none!important;
+}

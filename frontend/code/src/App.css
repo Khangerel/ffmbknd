@@ -1,0 +1,114 @@
+
+*,
+html,
+body,
+::before,
+::after{
+  font-family: 'Okta Neue', sans-serif !important;
+  color: rgba(16, 22, 54, 1);
+}
+
+.header {
+  text-align: center;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bg-gray{
+  background-color: #F1F4F7;
+}
+
+.get-involved-swiper .swiper-slide-prev{
+  opacity: 0.5!important;
+  z-index: 1;  
+}
+.get-involved-swiper .swiper-slide-next{
+  opacity: 0.5!important;
+  z-index: 1;
+}
+
+.get-involved-swiper .swiper-slide-active{
+  z-index:999;
+  opacity: 1!important;
+  transition: 0.5s all ease;
+}
+
+.get-involved-swiper:not(.swiper-slide-active){
+  transition: 0.5s all ease;
+}
+.min-h-100vh{
+  min-height: 100vh!important;
+}
+.min-h-50vh{
+  min-height: 50vh!important;
+  background-size: cover!important;
+}
+
+.nav-space{
+  height: 147px;
+}
+
+.text-bold, h1,h2,h3,h4,h5,h6{
+  font-weight: 800!important;
+}
+p,a{
+  font-size: 20px;
+}
+
+.text-gray{
+  color: rgba(16, 22, 54, 0.42);
+}
+
+
+
+.bg-blue-light{
+  background: rgba(71, 128, 235);
+  color: #fff!important;
+  box-shadow: -1px -1px 20px 14px rgb(71 128 235 / 27%);
+}
+.bg-pink-light{
+  background: rgba(231, 111, 149);
+  color: #fff!important;
+  box-shadow: -1px -1px 20px 14px rgb(231 111 149 / 27%);
+}
+.bg-yellow-light{
+  background: rgba(243, 177, 97);
+  color: #fff!important;
+  box-shadow: -1px -1px 20px 14px rgb(243 177 97 / 27%);
+}

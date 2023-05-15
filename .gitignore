@@ -1,0 +1,19 @@
+# Django #
+*.log
+*.pot
+*.pyc
+/__pycache__/
+*/__pycache__/*
+
+*/*pycache*/*
+
+# Backup files # 
+*.bak
+
+
+# uploaded files #
+*/uploads/*
+
+# node modules
+*/node_modules
+frontend/code/node_modules

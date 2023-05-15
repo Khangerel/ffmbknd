@@ -1,0 +1,19 @@
+FROM nginx
+
+RUN apt-get update && apt-get install -qy vim
+RUN usermod -s /bin/bash www-data
+
+FROM node
+
+RUN apt-get update \
+    && apt-get install -y 
+
+# RUN cd $(npm root -g)/npm
+
+COPY . /var/www/frontend/
+WORKDIR /var/www/frontend/code
+
+EXPOSE 3000
+USER node
+
+CMD npm install --legacy-peer-deps && npm start
