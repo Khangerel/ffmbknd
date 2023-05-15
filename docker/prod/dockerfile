@@ -7,11 +7,9 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /code
+COPY . /var/www/ffngo/
+WORKDIR /var/www/ffngo/
 
 # Install dependencies
-COPY ./requirements.txt .
+COPY /docker/prod/requirements.txt /var/www/ffngo/
 RUN pip install -r requirements.txt
-
-# Copy project
-COPY . .
