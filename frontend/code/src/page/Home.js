@@ -50,15 +50,32 @@ function Home() {
           <HeroImage/>
         </div>
       </div>
-      <div className="p-2">
-          <div className="row">
-            <div className="col">
-              
+      <div className="ps-5 pe-5">
+          <div className="row w-100 min-vh-75">
+            <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 bg-primary d-flex justify-content-center align-items-center p">
+              <h1 className="text-white">Who We Are</h1>
             </div>
-            <div className="col">
+            <div className="col-xl-8 col-lg-8 col-md-7 col-sm-6 d-flex align-items-center">
+              <div className="ps-5 pe-5">
+                <h4>Faro Foundation NGO</h4>
+                <p className="pe-5">
+                    FF is a non-governmental organization that has focused
+                  on promoting adequate and accessible use of social media and digital literacy.
+                  Our work includes but is not limited to, promoting online safety, digital literacy, child
+                  protection programs, proper use of social media, public awareness regarding cyber
+                  bullying and such. 
+                </p>
+              </div>
               
             </div>
           </div>
+      </div>
+      <div>
+          <Container className="pt-5 pb-5">
+            <div className="d-flex bd-highlight pb-5">
+              <h1>What We Do</h1>
+            </div>
+          </Container>
       </div>
     </div>
   );

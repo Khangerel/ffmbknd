@@ -112,3 +112,18 @@ p,a{
   color: #fff!important;
   box-shadow: -1px -1px 20px 14px rgb(243 177 97 / 27%);
 }
+
+.bg-aqua-light{
+  background: rgba(139, 216, 242, 1);
+  color: #fff!important;
+  box-shadow: -1px -1px 20px 14px rgb(139 216 242 / 27%);
+}
+
+
+.bg-primary{
+  background-color: rgba(117, 156, 255, 1) ;
+}
+
+.min-vh-50{
+  min-height: 50vh;
+}
