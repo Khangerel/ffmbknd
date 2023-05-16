@@ -17,13 +17,13 @@ services:
       context: '../'
       dockerfile: './docker/prod/dockerfile'
     working_dir: /var/www/ffngo/code/
-    command: python manage.py runserver 0.0.0.0:9000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - '../:/var/www/ffngo'
       - /var/www/ffngo/var
       - ../var/upload:/var/www/ffngo/var/upload
-    expose:
-      - "8100"
+    ports:
+      - 8000:8000
     links:
       - db
   # certbot:
@@ -40,7 +40,7 @@ services:
       dockerfile: ./docker/nginx/dockerfile
     ports:
       - 80:80
-      - 443:443
+      # - 443:443
     volumes:
       - static_volume:/app/backend/server/django_static
       # - ./docker/nginx/certbot/conf:/etc/letsencrypt
