@@ -10,16 +10,16 @@ function Home() {
   return (
     <div>
       <div className="position-relative">
-        
+
         <Container className="min-vh-100 d-flex align-items-center">
           <div>
             <h1 className="hero-title">
-              Advancing <br/>
-              Digital literacy,<br/>
-              Online safety and more.<br/>
+              Advancing <br />
+              Digital literacy,<br />
+              Online safety and more.<br />
             </h1>
             <p className="text-gray pt-5">FFM has focused
-            on promoting adequate and accessible use of social media and digital literacy in Mongolia.
+              on promoting adequate and accessible use of social media and digital literacy in Mongolia.
             </p>
             <div className="d-flex  align-items-center pt-5">
               <div className="pe-5">
@@ -36,7 +36,7 @@ function Home() {
                   710+
                 </h1>
                 <p className="text-gray">
-                  Trainings conducted 
+                  Trainings conducted
                 </p>
               </div>
             </div>
@@ -50,115 +50,114 @@ function Home() {
           zIndex: '-1',
           top: '50%',
           /* left: 50%; */
-          transform: 'translate(120%, -60%)'}}>
-          <HeroImage/>
+          transform: 'translate(120%, -60%)'
+        }}>
+          <HeroImage />
         </div>
       </div>
       <div className="ps-5 pe-5">
-          <div className="row w-100 min-vh-50">
-            <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 bg-primary d-flex justify-content-center align-items-center p">
-              <h1 className="text-white hero-title text-center">Who <br/> We Are</h1>
-            </div>
-            <div className="col-xl-8 col-lg-8 col-md-7 col-sm-6 d-flex align-items-center">
-              <div className="ps-5 pe-5">
-                <h4>Faro Foundation NGO</h4>
-                <p className="pe-5 text-black">
-                    FF is a non-governmental organization that has focused
-                  on promoting adequate and accessible use of social media and digital literacy.
-                  Our work includes but is not limited to, promoting online safety, digital literacy, child
-                  protection programs, proper use of social media, public awareness regarding cyber
-                  bullying and such. 
-                </p>
-              </div>
-              
-            </div>
+        <div className="row w-100 min-vh-50">
+          <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 bg-primary d-flex justify-content-center align-items-center p">
+            <h1 className="text-white hero-title text-center">Who <br /> We Are</h1>
           </div>
+          <div className="col-xl-8 col-lg-8 col-md-7 col-sm-6 d-flex align-items-center">
+            <div className="ps-5 pe-5">
+              <h4>Faro Foundation NGO</h4>
+              <p className="pe-5 text-black">
+                FF is a non-governmental organization that has focused
+                on promoting adequate and accessible use of social media and digital literacy.
+                Our work includes but is not limited to, promoting online safety, digital literacy, child
+                protection programs, proper use of social media, public awareness regarding cyber
+                bullying and such.
+              </p>
+            </div>
+
+          </div>
+        </div>
       </div>
       <div>
-          <Container className="pt-5 pb-5 mt-5"> 
-            <div className="d-flex bd-highlight pb-5">
-              <h1>What We Do</h1>
-            </div>
-            <Row>
-              <Col xl={3} lg={3} sm={1} md={2}>
-                <Card className="bg-blue-light border-none position-relative rounded-15 ">
-                  <Card.Body>
-                    <Card.Text className="text-white">
+        <Container className="pt-5 pb-5 mt-5">
+          <div className="d-flex bd-highlight pb-5">
+            <h1>What We Do</h1>
+          </div>
+          <Row>
+            <Col xl={3} lg={3} sm={1} md={2}>
+              <Card className="bg-blue-light border-none position-relative rounded-15 ">
+                <Card.Body>
+                  <Card.Text className="text-white">
                     We have share our journey and some story
-                    </Card.Text>
-                    <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
-                    <Image src={computer_outline_svg} style={{position: 'absolute', bottom: 15, right: 15}}/>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col xl={3} lg={3} sm={1} md={2}>
-                <Card className="bg-pink-light border-none position-relative rounded-15 ">
-                  <Card.Body>
-                    <Card.Text className="text-white">
+                  </Card.Text>
+                  <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
+                  <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xl={3} lg={3} sm={1} md={2}>
+              <Card className="bg-pink-light border-none position-relative rounded-15 ">
+                <Card.Body>
+                  <Card.Text className="text-white">
                     We have share our journey and some story
-                    </Card.Text>
-                    <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
-                    <Image src={computer_outline_svg} style={{position: 'absolute', bottom: 15, right: 15}}/>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col xl={3} lg={3} sm={1} md={2}>
-                <Card className="bg-aqua-light border-none position-relative rounded-15 ">
-                  <Card.Body>
-                    <Card.Text className="text-white">
+                  </Card.Text>
+                  <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
+                  <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xl={3} lg={3} sm={1} md={2}>
+              <Card className="bg-aqua-light border-none position-relative rounded-15 ">
+                <Card.Body>
+                  <Card.Text className="text-white">
                     We have share our journey and some story
-                    </Card.Text>
-                    <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
-                    <Image src={computer_outline_svg} style={{position: 'absolute', bottom: 15, right: 15}}/>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col xl={3} lg={3} sm={1} md={2}>
-                <Card className="bg-yellow-light border-none position-relative rounded-15 ">
-                  <Card.Body>
-                    <Card.Text className="text-white">
+                  </Card.Text>
+                  <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
+                  <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xl={3} lg={3} sm={1} md={2}>
+              <Card className="bg-yellow-light border-none position-relative rounded-15 ">
+                <Card.Body>
+                  <Card.Text className="text-white">
                     We have share our journey and some story
-                    </Card.Text>
-                    <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
-                    <Image src={computer_outline_svg} style={{position: 'absolute', bottom: 15, right: 15}}/>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
+                  </Card.Text>
+                  <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
+                  <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </div>
       <div className="pt-5">
-          <Partners/>
+        <Partners />
       </div>
       <div className="pt-5">
         <Container>
           <h1 className="title mb-3" >Recent news</h1>
           <p className="text-center text-gray">(FFM) is a non-governmental organization that has focused on promoting adequate </p>
           <Row className="w-100">
-            <Col xl={4} lg={4} sm={12} md={12}>
-              <div className="p-5 min-vh-50" style={{
-                background: `url(${VerticalCardImage2}), linear-gradient(rgba(0,0,0,0), rgba())`, 
-                backgroundSize: 'cover', 
-                backgroundPosition: 'center center'
-                
-                }}>
-                <div className="">
-                  <Button bg="secondary" className="px-4">
-                    <b>MEDIA</b>
-                  </Button>
-                  <h4 className="pt-3 text-white">
-                    Digital Literacy in Mongolia
-                  </h4>
-                  <p className="pt-3 text-white">
-                    (FFM) is a non-governmental organization that has focused on promoting adequate non-governmental organization
-                  </p>
-                  <div className="d-flex justify-content-end">
-                    <Link className="text-dark me-4 text-bold">Continue reading</Link>
-                  </div>
+            <Col xl={5} lg={5} sm={12} md={12}>
+              <div className="p-3 min-vh-50 position-relative" style={{
+                background: `url(${VerticalCardImage2}), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center center',
+              }}>
+
+                <Button bg="secondary" className="px-4">
+                  <b>MEDIA</b>
+                </Button>
+                <h3 className="pt-3 text-white">
+                  Digital Literacy in Mongolia
+                </h3>
+                <p className="pt-3 text-white">
+                  (FFM) is a non-governmental organization that has focused on promoting adequate non-governmental organization
+                </p>
+                <div className="position-absolute" style={{bottom: 20, right: 20}}>
+                  <Link className="text-white me-4 text-bold">Continue reading</Link>
                 </div>
               </div>
             </Col>
-            <Col xl={8} lg={8} sm={12} md={12}>
+            <Col xl={7} lg={7} sm={12} md={12}>
 
             </Col>
           </Row>
