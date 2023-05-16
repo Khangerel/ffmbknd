@@ -6,8 +6,11 @@ services:
     image: postgres:14
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    # environment:
-    #   - "POSTGRES_HOST_AUTH_METHOD=trust"
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+      - POSTGRES_DB=ffngo
+      - POSTGRES_USER=ffngo
+      - POSTGRES_PASSWORD=ffngo
   python:
     container_name: inv_skeleton_python
     build: 
