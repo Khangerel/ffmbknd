@@ -137,7 +137,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/ffngo/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/var/www/ffngo/media/'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
