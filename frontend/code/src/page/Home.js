@@ -51,7 +51,7 @@ function Home() {
         </div>
       </div>
       <div className="ps-5 pe-5">
-          <div className="row w-100 min-vh-75">
+          <div className="row w-100 min-vh-50">
             <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 bg-primary d-flex justify-content-center align-items-center p">
               <h1 className="text-white">Who We Are</h1>
             </div>
@@ -71,10 +71,52 @@ function Home() {
           </div>
       </div>
       <div>
-          <Container className="pt-5 pb-5">
+          <Container className="pt-5 pb-5"> 
             <div className="d-flex bd-highlight pb-5">
               <h1>What We Do</h1>
             </div>
+            <Row>
+              <Col xl={3} lg={3} sm={1} md={2}>
+                <Card className="bg-blue-light border-none">
+                  <Card.Body>
+                    <Card.Text className="text-white">
+                    We have share our journey and some story
+                    </Card.Text>
+                    <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col xl={3} lg={3} sm={1} md={2}>
+                <Card className="bg-pink-light border-none">
+                  <Card.Body>
+                    <Card.Text className="text-white">
+                    We have share our journey and some story
+                    </Card.Text>
+                    <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col xl={3} lg={3} sm={1} md={2}>
+                <Card className="bg-aqua-light border-none">
+                  <Card.Body>
+                    <Card.Text className="text-white">
+                    We have share our journey and some story
+                    </Card.Text>
+                    <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col xl={3} lg={3} sm={1} md={2}>
+                <Card className="bg-yellow-light border-none">
+                  <Card.Body>
+                    <Card.Text className="text-white">
+                    We have share our journey and some story
+                    </Card.Text>
+                    <Card.Title className="text-white pt-5">Digital Literacy</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
           </Container>
       </div>
     </div>
