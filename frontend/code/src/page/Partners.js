@@ -80,7 +80,8 @@ function Partners() {
   return (
     <div>
       <div className="ps-5 pe-5 m-5">
-        <h1 className="title text-center">{t("partners.main")}</h1>
+        <h1 className="title text-center mb-3">{t("partners.main")}</h1>
+        <p className="text-gray text-center mb-5">We believe in meaningful partnership to build a better digital future.</p>
         <Row className="bg-white d-flex align-items-center justify-content-center">
           {our_main_data.map((partner) => (
             <Col className="align-items-center">
@@ -92,7 +93,7 @@ function Partners() {
             </Col>
           ))}
         </Row>
-        <h1 className="title text-center">{t("partners.support")}</h1>
+        {/* <h1 className="title text-center">{t("partners.support")}</h1>
         <Row className="bg-white d-flex align-items-center justify-content-center">
           {our_support_data.map((partner) => (
             <Col className="align-items-center">
@@ -103,7 +104,7 @@ function Partners() {
               />
             </Col>
           ))}
-        </Row>
+        </Row> */}
       </div>
       {/* <Col xs="12" sm="6"  className="align-items-center position-absolute">
         <Image style={{ left: 0, top: 0 }} src={startlogo} className="w-50 contain" />
