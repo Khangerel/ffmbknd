@@ -13,4 +13,4 @@ WORKDIR /var/www/ffngo/
 # Install dependencies
 COPY /docker/prod/requirements.txt /var/www/ffngo/
 RUN pip install -r requirements.txt
-RUN chmod -R 755 /home/ubuntu/ffmbknd/static
+RUN chmod -R 755 /var/www/ffngo/static
