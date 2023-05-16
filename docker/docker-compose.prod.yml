@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   db:
-    container_name: inv_skeleton_db
+    container_name: ffngo_skeleton_db
     image: postgres:14
     volumes:
       - postgres_data:/var/lib/postgresql/data/
@@ -12,7 +12,7 @@ services:
       - POSTGRES_USER=ffngo
       - POSTGRES_PASSWORD=ffngo
   python:
-    container_name: inv_skeleton_python
+    container_name: ffngo_skeleton_python
     build: 
       context: '../'
       dockerfile: './docker/prod/dockerfile'
@@ -20,8 +20,6 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - '../:/var/www/ffngo'
-      - /var/www/ffngo/var
-      - ../var/upload:/var/www/ffngo/var/upload
     ports:
       - 8000:8000
     links:

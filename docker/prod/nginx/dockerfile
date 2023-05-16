@@ -1,6 +1,0 @@
-FROM nginx
-
-RUN rm -rf /etc/nginx/conf.d/*
-COPY nginx.conf /etc/nginx/conf.d/api.conf
-RUN mkdir -p /etc/nginx/ssl-conf
-COPY ./ssl /etc/nginx/ssl-conf
