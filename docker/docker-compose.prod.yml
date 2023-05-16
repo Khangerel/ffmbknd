@@ -15,16 +15,16 @@ services:
     container_name: inv_skeleton_python
     build: 
       context: '../'
-      dockerfile: './docker/dev/dockerfile'
+      dockerfile: './docker/prod/dockerfile'
     working_dir: /var/www/ffngo/code/
     command: python manage.py runserver 0.0.0.0:9000
     volumes:
       - '../:/var/www/ffngo'
       - /var/www/ffngo/var
       - ../var/upload:/var/www/ffngo/var/upload
-    ports:
-      - 9000:9000
-    depends_on:
+    expose:
+      - "8100"
+    links:
       - db
   # certbot:
   #   image: certbot/certbot
