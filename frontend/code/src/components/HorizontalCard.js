@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Row, Image} from "react-bootstrap";
 import ArrowRightCircle from './ArrowRightCircle';
+import HorizontalCardImage1 from '../assets/images/unsplash_nTSvjVD8n-c.png'
 import "./Card.css";
+import { Link } from 'react-router-dom';
 function HorizontalCard() {
     return (
-        <Card>
-            <Row>
-                <Col xs="12" lg="4">
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                </Col>
-                <Col xs="12" lg="8">
-                    <Card.Body>
-                        <Card.Title>Meta Quest Pro will be available for purchase on October 25</Card.Title>
-                        <Card.Text>Meta Quest Pro is the first entry in our new highend line of devices, and it’s packed with innovative features like high-res sensors for</Card.Text>
-                    </Card.Body>
-                    <Card.Footer className="border-none bg-none">
-                        <Button className='bg-none btn btn-primary text-black d-flex align-items-center'>
-                            <ArrowRightCircle className="me-2"/>
-                            <div className='ms-2'>
-                                Read more
-                            </div>
-                            
-                        </Button>
-                    </Card.Footer>
-                </Col>
-            </Row>
-        </Card>
+        <div className="horizontal_card d-flex pe-4">
+            <div>
+            
+                <Image src={HorizontalCardImage1} height={254} width={190} />
+            </div>
+            <div className="ps-4 pe-5">
+                <div className="pe-5">
+                    <Button bg="secondary" className="px-4 pt-1 pb-1">
+                        <b>MEDIA</b>
+                    </Button>
+                    <h3 className="pt-3">
+                        Digital Literacy in Mongolia
+                    </h3>
+                    <p className="pt-2 text-gray">
+                        (FFM) is a non-governmental organization that has focused on promoting adequate non-governmental organization
+                    </p>
+                    <div className="d-flex justify-content-end">
+                        <Link className="text-dark me-4 text-bold">Continue reading</Link>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 export default HorizontalCard;

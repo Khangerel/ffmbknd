@@ -5,6 +5,7 @@ import computer_outline_svg from "../assets/images/symbols_computer-outline.svg"
 import Partners from "./Partners";
 import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png"
 import { Link } from "react-router-dom";
+import HorizontalCard from "../components/HorizontalCard";
 
 function Home() {
   return (
@@ -137,12 +138,11 @@ function Home() {
           <p className="text-center text-gray">(FFM) is a non-governmental organization that has focused on promoting adequate </p>
           <Row className="w-100">
             <Col xl={5} lg={5} sm={12} md={12}>
-              <div className="p-3 min-vh-50 position-relative" style={{
+              <div className="p-3 min-vh-50 h-100 position-relative" style={{
                 background: `url(${VerticalCardImage2}), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',
               }}>
-
                 <Button bg="secondary" className="px-4">
                   <b>MEDIA</b>
                 </Button>
@@ -158,7 +158,8 @@ function Home() {
               </div>
             </Col>
             <Col xl={7} lg={7} sm={12} md={12}>
-
+              <HorizontalCard/>
+              <HorizontalCard/>
             </Col>
           </Row>
         </Container>
