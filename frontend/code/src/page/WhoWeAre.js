@@ -213,7 +213,7 @@ function WhoWeAre() {
                 </Col>
             </Row>
         </div>
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center pt-5 mt-5">
             <Chrono items={timeline_list} 
                 mode="VERTICAL_ALTERNATING"
                 slideShow
@@ -223,7 +223,9 @@ function WhoWeAre() {
                 fontSizes={{
                     title: "1.1rem"
                 }}
-                
+                enableBreakPoint={false}
+                disableClickOnCircle={false}
+                disableNavOnKey	
                 contentDetailsHeight={150}/>
         </div>
     </div>)

@@ -138,3 +138,11 @@ p,a{
 .bg-gradient-primary{
   background: linear-gradient(to left, #5BCBF2, #506EB5);
 }
+
+.bg-prime-weak{
+  background: rgba(71, 128, 235, 0.27)!important;
+  color:rgba(71, 128, 235, 1)!important;
+}
+.font-weight-bold{
+  font-weight: 700;
+}

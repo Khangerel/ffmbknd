@@ -13,8 +13,8 @@ function HorizontalCard() {
             </div>
             <div className="ps-4 pe-5">
                 <div className="pe-5">
-                    <Button bg="secondary" className="px-4 pt-1 pb-1">
-                        <b>MEDIA</b>
+                    <Button  className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold">
+                        MEDIA
                     </Button>
                     <h3 className="pt-3">
                         Digital Literacy in Mongolia
