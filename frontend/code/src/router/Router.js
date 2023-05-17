@@ -7,12 +7,13 @@ import GetInvolved from "../page/GetInvolved";
 import ContactUs from "../page/ContactUs";
 import WhatWeDo from "../page/WhatWeDo";
 import News from "../page/News";
-
+import WhoWeAre from "../page/WhoWeAre";
 function Router(){
     return (
         <Routes>
         <Route path="/">
           <Route index element={<Home/>} />
+          <Route path="/who-we-are" element={<WhoWeAre/>}/>
           {/* who we are */}
           <Route path="/about" element={<About />} />
           {/* <Route path="/our-vision" element={<Dashboard />} />

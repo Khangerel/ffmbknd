@@ -134,3 +134,7 @@ p,a{
 .rounded-15{
   border-radius: 15px;
 }
+
+.bg-gradient-primary{
+  background: linear-gradient(to left, #5BCBF2, #506EB5);
+}

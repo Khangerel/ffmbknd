@@ -9,7 +9,7 @@ function HorizontalCard() {
         <div className="horizontal_card d-flex pe-4">
             <div>
             
-                <Image src={HorizontalCardImage1} height={254} width={190} />
+                <Image src={HorizontalCardImage1} height={254} width={190} className='border-none' />
             </div>
             <div className="ps-4 pe-5">
                 <div className="pe-5">

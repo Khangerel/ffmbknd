@@ -24,8 +24,8 @@ function Header() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="ps-5">
             <Nav className="mt-2">
-              <Nav.Link href="/" 
-              className={window.location.pathname == '/'? "menu-normal me-2 rounded-pill ps-3 pe-3 bg-blue-light" : "menu-normal me-2 rounded-pill ps-3 pe-3"}
+              <Nav.Link href="/who-we-are" 
+              className={window.location.pathname == '/who-we-are'? "menu-normal me-2 rounded-pill ps-3 pe-3 bg-blue-light" : "menu-normal me-2 rounded-pill ps-3 pe-3"}
               >
                 {t("menu.who_we_are")}
               </Nav.Link>

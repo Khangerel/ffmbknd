@@ -82,7 +82,7 @@ function Home() {
             <h1>What We Do</h1>
           </div>
           <Row>
-            <Col xl={3} lg={3} sm={1} md={2}>
+            <Col xl={3} lg={3} sm={12} md={6}>
               <Card className="bg-blue-light border-none position-relative rounded-15 ">
                 <Card.Body>
                   <Card.Text className="text-white">
@@ -93,7 +93,7 @@ function Home() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col xl={3} lg={3} sm={1} md={2}>
+            <Col xl={3} lg={3} sm={12} md={6}>
               <Card className="bg-pink-light border-none position-relative rounded-15 ">
                 <Card.Body>
                   <Card.Text className="text-white">
@@ -104,7 +104,7 @@ function Home() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col xl={3} lg={3} sm={1} md={2}>
+            <Col xl={3} lg={3} sm={12} md={6}>
               <Card className="bg-aqua-light border-none position-relative rounded-15 ">
                 <Card.Body>
                   <Card.Text className="text-white">
@@ -115,7 +115,7 @@ function Home() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col xl={3} lg={3} sm={1} md={2}>
+            <Col xl={3} lg={3} sm={12} md={6}>
               <Card className="bg-yellow-light border-none position-relative rounded-15 ">
                 <Card.Body>
                   <Card.Text className="text-white">
@@ -136,8 +136,8 @@ function Home() {
         <Container>
           <h1 className="title mb-3" >Recent news</h1>
           <p className="text-center text-gray">(FFM) is a non-governmental organization that has focused on promoting adequate </p>
-          <Row className="w-100">
-            <Col xl={5} lg={5} sm={12} md={12}>
+          <Row className="w-100 pb-5">
+            <Col xl={5} lg={5} sm={12} md={12} className="pe-5">
               <div className="p-3 min-vh-50 h-100 position-relative" style={{
                 background: `url(${VerticalCardImage2}), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))`,
                 backgroundSize: 'cover',
