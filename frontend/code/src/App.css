@@ -146,3 +146,14 @@ p,a{
 .font-weight-bold{
   font-weight: 700;
 }
+
+.image-mask-gradiented-primary{
+  background: linear-gradient(rgba(10, 99, 181, 0.78), rgba(0,0,0,0));
+}
+
+.timeline-main-wrapper .fIRbAP.active{
+  background: rgb(0, 127, 255,0)!important;
+}
+.timeline-main-wrapper .ggwgJj:not(.using-icon).active{
+  background: rgba(0, 127, 255)!important;
+}

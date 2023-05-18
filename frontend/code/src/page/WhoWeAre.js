@@ -1,6 +1,9 @@
 import { Col, Container, Row, Image } from "react-bootstrap";
-import example_avatar_image from "../assets/images/example_avatar.png"
+import example_avatar_image from "../assets/images/example_avatar.png";
+import our_banner_image from "../assets/images/our-banner.png";
 import { Chrono } from "react-chrono"
+import QuoteOpen from "../components/QuoteOpen";
+import QuoteClose from "../components/QuoteClose";
 function WhoWeAre() {
     const out_team_list = [
         {
@@ -47,7 +50,7 @@ function WhoWeAre() {
         },
         {
             title: "25 July 1940",
-            cardTitle: "The Battle of Britain",
+            cardTitle: <h1>"The Battle of Britain"</h1>,
             cardSubtitle: `RAF Spitfire pilots scramble for their planes`,
             cardDetailedText: `After France’s surrender in June 1940, Churchill told the British people, “Hitler knows that he will have to break us in this island or lose the war”. To mount a successful invasion, the Germans had to gain air superiority. The first phase of the battle began on 10 July with Luftwaffe attacks on shipping in the Channel.
                 The following month, RAF Fighter Command airfields and aircraft factories came under attack. Under the dynamic direction of Lord Beaverbrook, production of Spitfire and Hurricane fighters increased, and despite its losses in pilots and planes, the RAF was never as seriously weakened as the Germans supposed.`
@@ -213,20 +216,47 @@ function WhoWeAre() {
                 </Col>
             </Row>
         </div>
+        <div className="pt-5 mt-5">
+            <div className="w-100 position-relative">
+                <Image src={our_banner_image} fluid/>
+                <div className="image-mask-gradiented-primary position-absolute w-100 h-100" style={{top: 0, left: 0}}>
+                    <div className="pt-5 mt-5 ms-5">
+                        <h1 className="text-white">
+                            Digital Literacy in Mongolia
+                        </h1>
+                        <p className="text-white">(FFM) is a non-governmental organization that has focused on promoting adequate </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Container className="min-vh-100 d-flex align-items-center justify-content-center">
+            <h1 className="text-center px-5 mx-5 with-light-quote position-relative">
+                <div style={{position: 'absolute', top: -50, left: -25}}><QuoteOpen style={{position: 'absolute', top: 0, left: 0}}/></div>
+                
+                            Our vision is to implement positive change in the community through social networks
+                and empower children and youth to protect their personal information, share
+                information correctly, and prevent cyber-discrimination and cyber-attacks.
+                <div style={{position: 'absolute', bottom: -50, right: -25}}><QuoteClose style={{position: 'absolute', bottom: 0, right: 0}}/></div>
+                
+            </h1>
+        </Container>
         <div className="d-flex align-items-center pt-5 mt-5">
             <Chrono items={timeline_list} 
                 mode="VERTICAL_ALTERNATING"
-                slideShow
+                hideControls={true}
                 slideItemDuration={4000}
                 cardHeight={250}
                 cardWidth={600}
                 fontSizes={{
                     title: "1.1rem"
                 }}
-                enableBreakPoint={false}
-                disableClickOnCircle={false}
-                disableNavOnKey	
-                contentDetailsHeight={150}/>
+                outline
+                contentDetailsHeight={150}
+                enableOutline
+                activeItemIndex={null}
+                className="timeline-wrapper disable-activation"
+                disableNavOnKey
+            />
         </div>
     </div>)
 }
