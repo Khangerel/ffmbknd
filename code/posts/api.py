@@ -1,9 +1,10 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action, permission_classes
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.decorators import api_view
 from . import serializers
 from . import models
 
@@ -71,3 +72,17 @@ class tagsViewSet(viewsets.ModelViewSet):
     queryset = models.tags.objects.all()
     serializer_class = serializers.tagsSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+@api_view(['GET'])
+def recent_posts(request):
+    lang_id = request.GET.get('lang_id')
+    recent_posts = models.post.objects.filter(lang_id=lang_id).order_by('-publish_date')[:3]
+    serializer = serializers.postSerializer(recent_posts, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def featured_posts(request):
+    lang_id = request.GET.get('lang_id')
+    featured_posts = models.post.objects.filter(is_featured=True, lang_id=lang_id)[:2]
+    serializer = serializers.postSerializer(featured_posts, many=True)
+    return Response(serializer.data)

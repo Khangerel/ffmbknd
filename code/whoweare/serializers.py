@@ -46,3 +46,16 @@ class timelineSerializer(serializers.ModelSerializer):
             "last_updated",
             "lang_id",
         ]
+
+class our_teamSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.our_team
+        fields = [
+            "created",
+            "full_name",
+            "image",
+            "last_updated",
+            "position",
+            "country",
+        ]

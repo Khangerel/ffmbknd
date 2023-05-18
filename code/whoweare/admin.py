@@ -52,5 +52,29 @@ class timelineAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(models.main, mainAdmin)
+class our_teamAdminForm(forms.ModelForm):
+
+    class Meta:
+        model = models.our_team
+        fields = "__all__"
+
+
+class our_teamAdmin(admin.ModelAdmin):
+    form = our_teamAdminForm
+    list_display = [
+        "created",
+        "full_name",
+        "image",
+        "last_updated",
+        "position",
+        "country",
+    ]
+    readonly_fields = [
+        "created",
+        "last_updated",
+    ]
+
+
 admin.site.register(models.timeline, timelineAdmin)
+admin.site.register(models.main, mainAdmin)
+admin.site.register(models.our_team, our_teamAdmin)
