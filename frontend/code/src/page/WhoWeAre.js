@@ -76,12 +76,12 @@ function WhoWeAre() {
     return (<div>
         <Container>
             <Row className="pt-5 mt-5 m-0">
-                <Col xl={6} lg={6} sm={1} md={6}>
+                <Col xl={6} lg={6} sm={12} md={6}>
                     <h1>
                         Our team
                     </h1>
                 </Col>
-                <Col xl={6} lg={6} sm={1} md={6}>
+                <Col xl={6} lg={6} sm={12} md={6}>
                     <p className="text-gray">
                         Our priority is to implement positive change in the community through the use of social media.
                     </p>
@@ -91,7 +91,7 @@ function WhoWeAre() {
                 <Row className="w-100 pt-5 mt-5">
                     {
                         out_team_list.map((el, key) => (
-                            <Col xl={3} lg={3} sm={1} md={2}>
+                            <Col xl={3} lg={3} sm={12} md={6}>
                                 <div className="px-1 pb-5">
                                     <div className="d-flex justify-content-center">
                                         <div className="rounded-circle bg-gradient-primary p-1">
