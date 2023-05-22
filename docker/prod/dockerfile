@@ -23,5 +23,5 @@ COPY . .
 RUN python code/manage.py collectstatic --noinput
 
 # Change ownership
-RUN chown -R www-data: /var/www/ffngo/static
-RUN chmod -R u+w /var/www/ffngo/static
+RUN chown -R www-data:www-data /var/www/ffngo/static
+RUN chmod -R 755 /var/www/ffngo/static
