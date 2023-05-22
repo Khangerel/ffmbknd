@@ -10,9 +10,18 @@ ENV PYTHONUNBUFFERED 1
 COPY . /var/www/ffngo/
 WORKDIR /var/www/ffngo/
 
+# Copy requirements file
+COPY docker/prod/requirements.txt .
+
 # Install dependencies
-COPY /docker/prod/requirements.txt /var/www/ffngo/
 RUN pip install -r requirements.txt
-RUN python3 code/manage.py collectstatic
-RUN chown -R www-data: /var/www/ffngo/static/*
-RUN chmod -R u+w /var/www/ffngo/static/*
+
+# Copy project files
+COPY . .
+
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
+# Change ownership
+RUN chown -R www-data: /var/www/ffngo/static
+RUN chmod -R u+w /var/www/ffngo/static
