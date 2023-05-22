@@ -1,52 +1,113 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 import contactus from "../assets/images/contactus.png";
 // import CardImage2 from "../assets/images/cardimage2.png";
 import ArrowRightCircle from "../components/ArrowRightCircle";
-import {Image} from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import LogoGrey from "../components/LogoGrey";
 import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 import "./ContactUs.css"
-
-
+import frame_39942 from "../assets/images/frame_39942.png";
+import ic_baseline_local_phone from "../assets/images/ic_baseline_local_phone.svg";
+import solar_letter_unread_bold from "../assets/images/solar_letter_unread_bold.svg";
+import material_symbols_location_on_rounded from "../assets/images/material_symbols_location_on_rounded.svg";
+import { useState } from "react";
 function ContactUs() {
     const { t } = useTranslation();
+    const [validated, setValidated] = useState(false);
+    
     return (
         <Container>
-            <h1 className="title text-center pt-5">{t("menu.contact_us")}</h1>
-            <Row className="bg-gray m-5">
-                <Col  xs="12" lg="6" className="p-0">
-                    <Image src={contactus} className="w-100 contain"/>
-                </Col>
-                <Col  xs="12" lg="6" className="pt-5 ps-5">
-                    <LogoGrey />
-                    <div className="mt-5 pt-3">
-                        <div className="mt-5">
-                            <p className="mt-5">
-                                {t("contactus.telephone")} <br/>
-                                {t("contactus.email")} <br/>
+            {/* <h1 className="title text-center pt-5">{t("menu.contact_us")}</h1> */}
+            <Row className="m-5 ">
+                <Col xs="12" lg="6" className="p-0">
+                    <div style={{ background: `url(${frame_39942})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="h-100 rounded pb-5">
+                        <div className="p-5">
+                            <h3 className="text-white">
+                                Contact information
+                            </h3>
+                            <p className="text-white">
+                                Fill up the form and our team will get back to you.
                             </p>
+                            <h4 className="text-white mt-3 mb-3" style={{ color: '#fff!important' }}>
+                                <Image src={ic_baseline_local_phone} className="me-4" />
+
+                                7000-7222
+                            </h4>
+                            <h5 className="text-white mt-3 mb-3">
+                                <Image src={solar_letter_unread_bold} className="me-4" />
+                                info@farofoundation.org
+                            </h5>
+                            <h5 className="text-white mt-3 mb-3">
+                                <Image src={material_symbols_location_on_rounded} className="me-4" />
+                                702, Galaxy Tower, Mahatma Ghandi Street, Khan-Uul District, Ulaanbaatar, Mongolia
+                            </h5>
+
                         </div>
 
-                        <p className="mt-5 w-50">
-                            {t("contactus.address")} <br/>
-                            {t("contactus.follow")}
-                        </p>
-                        <div className="social">
-                            <a href="https://www.facebook.com/farofoundation">
-                                <FaFacebookF />
-                            </a>
-                            <a href="https://www.instagram.com/farofoundation/">
-                                <FaInstagram />
-                            </a>
-                            <a href="https://twitter.com/FaroMongolia">
-                                <FaTwitter />
-                            </a>
-                        </div>
                     </div>
+                </Col>
+                <Col xs="12" lg="6" className="pt-5 ps-5">
+                    <Form noValidate validated={validated}>
+                        <Row className="mb-3">
+                            <Form.Group as={Col} md="6" controlId="validationCustom01">
+                                <Form.Label>First name</Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    placeholder="First name"
+                                    defaultValue="Mark"
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                            <Form.Group as={Col} md="6" controlId="validationCustom02">
+                                <Form.Label>Last name</Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    placeholder="Last name"
+                                    defaultValue="Otto"
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                            
+                        </Row>
+                        <Row className="mb-3">
+                            <Form.Group as={Col} md="6" controlId="validationCustom03">
+                                <Form.Label>Mail</Form.Label>
+                                <Form.Control type="text" placeholder="City" required />
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid city.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            <Form.Group as={Col} md="6" controlId="validationCustom04">
+                                <Form.Label>Phone</Form.Label>
+                                <Form.Control type="text" placeholder="State" required />
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid state.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <Form.Group className="mb-3">
+                            <Form.Check
+                                required
+                                label="Agree to terms and conditions"
+                                feedback="You must agree before submitting."
+                                feedbackType="invalid"
+                            />
+                        </Form.Group>
+                        <Form.Group  controlId="validationCustom04" className="mb-4">
+                                <Form.Label>Message</Form.Label>
+                                <Form.Control type="text" placeholder="State" required />
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid state.
+                                </Form.Control.Feedback>
+                        </Form.Group>
+                        <Button type="submit">Submit form</Button>
+                    </Form>
                 </Col>
             </Row>
         </Container>
     );
-  }
+}
 export default ContactUs;

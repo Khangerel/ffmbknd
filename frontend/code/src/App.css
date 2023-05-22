@@ -90,7 +90,9 @@ body,
 p,a{
   font-size: 20px;
 }
-
+.hero-title{
+  font-size: 65px;
+}
 .text-gray{
   color: rgba(16, 22, 54, 0.42);
 }
@@ -111,4 +113,47 @@ p,a{
   background: rgba(243, 177, 97);
   color: #fff!important;
   box-shadow: -1px -1px 20px 14px rgb(243 177 97 / 27%);
+}
+
+.bg-aqua-light{
+  background: rgba(139, 216, 242, 1);
+  color: #fff!important;
+  box-shadow: -1px -1px 20px 14px rgb(139 216 242 / 27%);
+}
+
+
+.bg-primary{
+  background-color: #4780EB!important;
+  border: none;
+}
+
+.min-vh-50{
+  min-height: 50vh;
+}
+
+.rounded-15{
+  border-radius: 15px;
+}
+
+.bg-gradient-primary{
+  background: linear-gradient(to left, #5BCBF2, #506EB5);
+}
+
+.bg-prime-weak{
+  background: rgba(71, 128, 235, 0.27)!important;
+  color:rgba(71, 128, 235, 1)!important;
+}
+.font-weight-bold{
+  font-weight: 700;
+}
+
+.image-mask-gradiented-primary{
+  background: linear-gradient(rgba(10, 99, 181, 0.78), rgba(0,0,0,0));
+}
+
+.timeline-main-wrapper .fIRbAP.active{
+  background: rgb(0, 127, 255,0)!important;
+}
+.timeline-main-wrapper .ggwgJj:not(.using-icon).active{
+  background: rgba(0, 127, 255)!important;
 }
