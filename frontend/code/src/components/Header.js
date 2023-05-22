@@ -35,10 +35,10 @@ function Header() {
               >
                 {t("menu.what_we_do")}
               </Nav.Link>
-              <Nav.Link href="/get-involved" className={
+              {/* <Nav.Link href="/get-involved" className={
                 window.location.pathname == '/get-involved'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-blue-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}>
                 {t("menu.get_involved")}
-              </Nav.Link>
+              </Nav.Link> */}
               {/* <Nav.Link href="/partners" className="menu-normal me-2  rounded-pill ps-3 pe-3">{t("menu.partners")}</Nav.Link> */}
               <Nav.Link href="/news" className={
                 window.location.pathname == '/news'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}>News</Nav.Link>

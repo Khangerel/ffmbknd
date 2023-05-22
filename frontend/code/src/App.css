@@ -91,7 +91,7 @@ p,a{
   font-size: 20px;
 }
 .hero-title{
-  font-size: 65px;
+  font-size: 65px!important;
 }
 .text-gray{
   color: rgba(16, 22, 54, 0.42);
@@ -146,6 +146,9 @@ p,a{
 .font-weight-bold{
   font-weight: 700;
 }
+.min-vh-75{
+  min-height: 75vh;
+}
 
 .image-mask-gradiented-primary{
   background: linear-gradient(rgba(10, 99, 181, 0.78), rgba(0,0,0,0));
@@ -156,4 +159,15 @@ p,a{
 }
 .timeline-main-wrapper .ggwgJj:not(.using-icon).active{
   background: rgba(0, 127, 255)!important;
+}
+
+.text-primary{
+  color: #558AED;
+}
+
+#faroTimeLine .timeline-card-content{
+  filter: none!important;
+}
+#faroTimeLine  .rc-card-text{
+  margin: 0;
 }

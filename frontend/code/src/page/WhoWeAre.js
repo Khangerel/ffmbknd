@@ -4,6 +4,7 @@ import our_banner_image from "../assets/images/our-banner.png";
 import { Chrono } from "react-chrono"
 import QuoteOpen from "../components/QuoteOpen";
 import QuoteClose from "../components/QuoteClose";
+import "../App.css";
 function WhoWeAre() {
     const out_team_list = [
         {
@@ -41,36 +42,20 @@ function WhoWeAre() {
     ]
     const timeline_list = [
         {
-            title: <h1>2019</h1>,
-            cardTitle: <h1>The Battle of Britain</h1>,
+            title: <h1 className="text-primary hero-title">2019</h1>,
+            cardTitle: <h3 className="text-primary text-right">FF founded</h3>,
             // url: "http://google.com",
             cardSubtitle:
                 "Faro Foundation launched Digital Literacy Library Program in April, 2019",
             cardDetailedText: `This program is a collaboration between the Faro Foundation and Meta and is available for classroom, extracurricular, home, individual and group study.`
         },
         {
-            title: <h1>2019</h1>,
-            cardTitle: <h1>The Battle of Britain</h1>,
+            title: <h1 className="text-primary hero-title">2019</h1>,
+            cardTitle: <h3 className="text-primary">Meta Safety Partner</h3>,
             cardSubtitle: `RAF Spitfire pilots scramble for their planes`,
-            cardDetailedText: `After France’s surrender in June 1940, Churchill told the British people, “Hitler knows that he will have to break us in this island or lose the war”. To mount a successful invasion, the Germans had to gain air superiority. The first phase of the battle began on 10 July with Luftwaffe attacks on shipping in the Channel.
-                The following month, RAF Fighter Command airfields and aircraft factories came under attack. Under the dynamic direction of Lord Beaverbrook, production of Spitfire and Hurricane fighters increased, and despite its losses in pilots and planes, the RAF was never as seriously weakened as the Germans supposed.`
+            cardDetailedText: <span>After France’s surrender in June 1940, Churchill told the British people, “Hitler knows that he will have to break us in this island or lose the war”. To mount a successful invasion, the Germans had to gain air superiority. The first phase of the battle began on 10 July with Luftwaffe attacks on shipping in the Channel.
+                The following month, RAF Fighter Command airfields and aircraft factories came under attack. Under the dynamic direction of Lord Beaverbrook, production of Spitfire and Hurricane fighters increased, and despite its losses in pilots and planes, the RAF was never as seriously weakened as the Germans supposed.</span>
         },
-        {
-            title: <h1>2020</h1>,
-            cardTitle: "Operation Barbarossa",
-            cardSubtitle: `A column of Red Army prisoners taken during the first days of the German invasion`,
-            cardDetailedText: `Since the 1920s, Hitler had seen Russia, with its immense natural resources, as the principal target for conquest and expansion. It would provide, he believed, the necessary ‘Lebensraum’, or living space, for the German people. And by conquering Russia, Hitler would also destroy the “Jewish pestilential creed of Bolshevism”. His non-aggression pact with Stalin in August 1939 he regarded as a mere temporary expedient.
-                Barely a month after the fall of France, and while the Battle of Britain was being fought, Hitler started planning for the Blitzkrieg campaign against Russia, which began on 22 June 1941. Despite repeated warnings, Stalin was taken by surprise, and for the first few months the Germans achieved spectacular victories, capturing huge swathes of land and hundreds of thousands of prisoners. But they failed to take Moscow or Leningrad before winter set in.
-                On 5/6 December, the Red Army launched a counter-offensive which removed the immediate threat to the Soviet capital. It also brought the German high command to the brink of a catastrophic military crisis. Hitler stepped in and took personal command. His intervention was decisive and he later boasted, “That we overcame this winter and are today in a position again to proceed victoriously… is solely attributable to the bravery of the soldiers at the front and my firm will to hold out…”`
-        },
-        {
-            title: <h1>2020</h1>,
-            cardTitle: "Pearl Harbor",
-            cardSubtitle: `The destroyer USS Shaw explodes in dry dock after being hit by Japanese aircraft`,
-            cardDetailedText: `After Japan’s occupation of French Indo-China in July 1941, US President Franklin D Roosevelt, followed by Britain and the Netherlands, ordered the freezing of Japanese assets.
-                Many Japanese now believed that there was no alternative between economic ruin and going to war with the United States and the European colonial powers. In October 1941, a hardline government under General Hideki Tojo came to power, and preparations were made to deliver a devastating blow against the Americans.`
-        },
-        
     ];
 
     return (<div>
@@ -115,10 +100,10 @@ function WhoWeAre() {
         </Container>
         <div className="pt-5 mt-5">
             <Row className="w-100 min-vh-50">
-                <Col xl={4} lg={4} md={5} sm={6} className="bg-primary d-flex justify-content-center align-items-center p">
-                    <h1 className="text-white hero-title text-center">Who <br /> We Are</h1>
+                <Col xl={4} lg={4} md={12} sm={12} className="bg-primary d-flex justify-content-center align-items-center pb-3 mb-5">
+                    <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
                 </Col>
-                <Col xl={8} lg={8} md={7} sm={6} className="d-flex">
+                <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
                     <div className="px-5 mx-5">
                         <h1 className="px-5 mx-5 pb-5">Faro Foundation NGO</h1>
                         <p className="px-5 text-black mx-5">
@@ -153,7 +138,7 @@ function WhoWeAre() {
             </div>
         </div>
         <Container className="min-vh-100 d-flex align-items-center justify-content-center">
-            <h1 className="text-center px-5 mx-5 with-light-quote position-relative">
+            <h1 className="text-center px-5 mx-5 with-light-quote position-relative fw-normal">
                 <div style={{position: 'absolute', top: -50, left: -25}}><QuoteOpen style={{position: 'absolute', top: 0, left: 0}}/></div>
                 
                             Our vision is to implement positive change in the community through social networks
@@ -163,7 +148,7 @@ function WhoWeAre() {
                 
             </h1>
         </Container>
-        <div className="d-flex align-items-center pt-5 mt-5">
+        <div className="d-flex align-items-center pt-5 mt-5"  id="faroTimeLine">
             <Chrono items={timeline_list} 
                 mode="VERTICAL_ALTERNATING"
                 hideControls={true}
