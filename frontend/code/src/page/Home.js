@@ -165,8 +165,8 @@ function Home() {
           <h1 className="title mb-3" >Recent news</h1>
           <p className="text-center text-gray mb-5 pb-5">(FFM) is a non-governmental organization that has focused on promoting adequate </p>
           <Row className="w-100 pb-5">
-            <Col xl={5} lg={5} sm={12} md={12} className="pe-5">
-              <div className="p-3 min-vh-50 h-100 position-relative" style={{
+            <Col xl={5} lg={5} sm={12} md={12} className="pe-4 mb-5">
+              <div className="p-4 min-vh-50 h-100 position-relative" style={{
                 background: `url(${VerticalCardImage2}), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',

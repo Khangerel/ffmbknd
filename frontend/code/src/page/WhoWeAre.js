@@ -137,7 +137,7 @@ function WhoWeAre() {
                 </div>
             </div>
         </div>
-        <Container className="min-vh-100 d-flex align-items-center justify-content-center">
+        <Container className="min-vh-75 d-flex align-items-center justify-content-center">
             <h1 className="text-center px-5 mx-5 with-light-quote position-relative fw-normal">
                 <div style={{position: 'absolute', top: -50, left: -25}}><QuoteOpen style={{position: 'absolute', top: 0, left: 0}}/></div>
                 
