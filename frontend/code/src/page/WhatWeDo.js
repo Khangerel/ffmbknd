@@ -147,7 +147,7 @@ function WhatWeDo() {
                 <Container>
                     <Row className="pt-5 mt-5 pb-5 mb-5">
                         <Col xl={6} lg={6} sm={12} md={12} className="position-relative">
-                            <Image src={education_20_1_icon} fluid className="position-absolute ps-3" style={{ top: '-300px' }} />
+                            <Image src={education_20_1_icon} fluid className="position-absolute px-5" style={{ top: '-300px' }} />
                         </Col>
                         <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
                             <div>
