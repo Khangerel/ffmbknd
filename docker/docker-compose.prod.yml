@@ -22,6 +22,7 @@ services:
       - '../:/var/www/ffngo'
       - /var/www/ffngo/var
       - ../var/upload:/var/www/ffngo/var/upload
+      - ../var/static:/var/www/ffngo/static
     ports:
       - 8000:8000
     links:
