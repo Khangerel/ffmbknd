@@ -43,6 +43,7 @@ services:
     volumes:
       - /home/ubuntu/ffmbknd/code/media:/var/www/ffngo/media
       - /home/ubuntu/ffmbknd/static:/var/www/ffngo/static
+      - /home/ubuntu/ffmbknd/frontend:/var/www/frontend
       # - ./docker/nginx/certbot/conf:/etc/letsencrypt
       # - ./docker/nginx/certbot/www:/var/www/certbot
     depends_on:
