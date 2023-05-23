@@ -8,7 +8,6 @@ const API = axios.create({
     baseURL: apiBaseUrl,
     withCredentials: false,
     timeout: 240000,
-    headers: auth,
 });
 
 export { API };

@@ -18,20 +18,20 @@ function Header() {
       <div className="nav-space"></div>
       <Navbar collapseOnSelect expand="lg" bg="white" variant="white" fixed="top" className="menu w-100 position-fixed pt-5 pb-5">
         <Container fluid="xxl">
-          <Navbar.Brand to="#home" >
+          <Navbar.Brand to="#" >
             <Logo />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="ps-5">
             <Nav className="mt-2">
               <Nav.Link href="/who-we-are" 
-              className={window.location.pathname == '/who-we-are'? "menu-normal me-2 rounded-pill ps-3 pe-3 bg-blue-light" : "menu-normal me-2 rounded-pill ps-3 pe-3"}
+              className={window.location.pathname === '/who-we-are'? "menu-normal me-2 rounded-pill ps-3 pe-3 bg-blue-light" : "menu-normal me-2 rounded-pill ps-3 pe-3"}
               >
                 {t("menu.who_we_are")}
               </Nav.Link>
               <Nav.Link href="/projects" 
               className={
-                window.location.pathname == '/projects'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}
+                window.location.pathname === '/projects'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}
               >
                 {t("menu.what_we_do")}
               </Nav.Link>
@@ -41,7 +41,7 @@ function Header() {
               </Nav.Link> */}
               {/* <Nav.Link href="/partners" className="menu-normal me-2  rounded-pill ps-3 pe-3">{t("menu.partners")}</Nav.Link> */}
               <Nav.Link href="/news" className={
-                window.location.pathname == '/news'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}>News</Nav.Link>
+                window.location.pathname === '/news'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}>News</Nav.Link>
               <Nav.Link href="/contact-us" className={window.location.pathname == '/contact-us'? "menu-normal me-2 rounded-pill ps-3 pe-3 bg-yellow-light" : "menu-normal me-2 rounded-pill ps-3 pe-3"}>{t("menu.contact_us")}</Nav.Link>
             </Nav>  
             <Nav className="ms-auto">

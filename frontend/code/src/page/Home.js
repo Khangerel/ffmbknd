@@ -6,26 +6,38 @@ import Partners from "./Partners";
 import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png"
 import { Link } from "react-router-dom";
 import HorizontalCard from "../components/HorizontalCard";
-
+import { useState , useEffect} from "react";
+import { API } from "../api/axios";
 function Home() {
-  const light_card_list = [
-    {
-      description: "We have share our journey and some story",
-      name: "Digital Literacy"
-    },
-    {
-      description: "We have share our journey and some story",
-      name: "Digital Literacy"
-    },
-    {
-      description: "We have share our journey and some story",
-      name: "Digital Literacy"
-    },
-    {
-      description: "We have share our journey and some story",
-      name: "Digital Literacy"
-    },
-  ];
+  // const light_card_list = [
+  //   {
+  //     description: "We have share our journey and some story",
+  //     name: "Digital Literacy"
+  //   },
+  //   {
+  //     description: "We have share our journey and some story",
+  //     name: "Digital Literacy"
+  //   },
+  //   {
+  //     description: "We have share our journey and some story",
+  //     name: "Digital Literacy"
+  //   },
+  //   {
+  //     description: "We have share our journey and some story",
+  //     name: "Digital Literacy"
+  //   },
+  // ];
+  const [light_card_list, setLightCardList] = useState([]);
+  const getData = ()=>{
+    API.get('card/?lang_id=1', {}).then((response)=>{
+      if (response.status === 200) {
+        setLightCardList(response.data);  
+      }
+    })
+  }
+  useEffect(() => {
+    getData();
+  }, [])
   const getBgLightColor = ((index) => {
     if (index === 0) {
       return 'bg-blue-light';
@@ -145,8 +157,8 @@ function Home() {
                       <Card.Text className="text-white">
                         {card.description}
                       </Card.Text>
-                      <Card.Title className="text-white pt-5">
-                        {card.name}
+                      <Card.Title className="text-white pt-5 pe-4">
+                        {card.title}
                       </Card.Title>
                       <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
                     </Card.Body>
