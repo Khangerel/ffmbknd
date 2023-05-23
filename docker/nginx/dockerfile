@@ -2,11 +2,6 @@
 # Build React static files
 FROM node:16.15.0 as build
 
-COPY ./frontend/ /var/www/frontend/
-WORKDIR /var/www/frontend/code
-
-COPY ./frontend/code/package.json ./
-
 # RUN yarn install --network-timeout 10000000
 # RUN yarn add react-app-rewired --network-timeout 100000
 # COPY ./admin/code/ ./
@@ -16,7 +11,7 @@ COPY ./frontend/code/package.json ./
 # Copy React static files and start nginx
 FROM nginx:stable-alpine
 
-COPY --from=build /var/www/frontend/code/build /usr/share/nginx/html
+COPY --from=build /var/www/ffngo/frontend/code/build /usr/share/nginx/html
 COPY ./docker/nginx/production/default.conf /etc/nginx/conf.d/default.conf
 
 CMD ["nginx", "-g", "daemon off;"]
