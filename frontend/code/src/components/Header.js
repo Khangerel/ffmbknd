@@ -9,10 +9,28 @@ import { useTranslation } from 'react-i18next';
 import Logo from "./Logo";
 import DownArrow from "./DownArrow";
 import "./Header.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { API } from "../api/axios";
 
 function Header() {
   const { t } = useTranslation();
+  const [lang_list, setLangList] = useState([]);
+  const getData = ()=>{
+    API.get('language/', {}).then((response)=>{
+      if (response.status === 200) {
+        setLangList(response.data);  
+      }
+    })
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+  const changeLangID = (id)=>{
+    localStorage.setItem('lang_id', id);
+    console.log("...........................")
+    console.log(id)
+    console.log("...........................")
+  }
   return (
     <div className="header">
       <div className="nav-space"></div>
@@ -45,9 +63,13 @@ function Header() {
               <Nav.Link href="/contact-us" className={window.location.pathname == '/contact-us'? "menu-normal me-2 rounded-pill ps-3 pe-3 bg-yellow-light" : "menu-normal me-2 rounded-pill ps-3 pe-3"}>{t("menu.contact_us")}</Nav.Link>
             </Nav>  
             <Nav className="ms-auto">
-              <Nav.Link href="#" className="menu-normal me-2">EN</Nav.Link>
-              <Nav.Link href="#" className="menu-normal me-2">MON</Nav.Link>
-              <Nav.Link href="#" className="menu-normal me-2">RUS</Nav.Link>
+              {
+                lang_list.map((el, key)=> (
+                  <Nav.Link href="#" className="menu-normal me-2" key={key}
+                    onClick={changeLangID(el.id)}
+                  >{el.name}</Nav.Link>
+                ))
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>

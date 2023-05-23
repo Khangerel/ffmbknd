@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // import Jumbotron from 'react-bootstrap/Jumbotron';
 import Toast from "react-bootstrap/Toast";
@@ -12,19 +12,26 @@ import GetInvolved from "./components/GetInvolved";
 import StartModal from "./components/StartModal";
 import Footer from "./components/Footer";
 
-const App = () => (
-  <div className="">
-    <div>
-      <StartModal />
-      <Header />
-      {/* Routes nest inside one another. Nested route paths build upon
+function App() {
+  useEffect(() => {
+    if (localStorage.getItem('lang_id') === undefined || localStorage.getItem('lang_id') === null){
+      localStorage.setItem('lang_id', 1);
+    }
+  }, []);
+  return (
+    <div className="">
+      <div>
+        <StartModal />
+        <Header />
+        {/* Routes nest inside one another. Nested route paths build upon
             parent route paths, and nested route elements render inside
             parent route elements. See the note about <Outlet> below. */}
-      <Router/>
-      <Footer/>
+        <Router />
+        <Footer />
+      </div>
     </div>
-  </div>
-);
+  )
+};
 
 function Layout() {
   return (
