@@ -41,7 +41,7 @@ services:
       - 80:80
       # - 443:443
     volumes:
-      - /home/ubuntu/ffmbknd/media:/var/www/ffngo/media
+      - /home/ubuntu/ffmbknd/code/media:/var/www/ffngo/media
       - /home/ubuntu/ffmbknd/static:/var/www/ffngo/static
       # - ./docker/nginx/certbot/conf:/etc/letsencrypt
       # - ./docker/nginx/certbot/www:/var/www/certbot
