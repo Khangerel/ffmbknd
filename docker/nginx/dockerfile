@@ -2,6 +2,11 @@
 # Build React static files
 FROM node:16.15.0 as build
 
+COPY ./frontend/ /var/www/ffngo/frontend/
+WORKDIR /var/www/ffngo/frontend/code
+
+COPY ./frontend/code/package.json ./
+
 # RUN yarn install --network-timeout 10000000
 # RUN yarn add react-app-rewired --network-timeout 100000
 # COPY ./admin/code/ ./
