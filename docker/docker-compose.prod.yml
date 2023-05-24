@@ -56,20 +56,29 @@ services:
           max-file: "3"
     depends_on:
       - python
-    labels:
-      - com.github.jrcs.letsencrypt_nginx_proxy_companion.docker_gen=true
+
   letsencrypt-companion:
       container_name: letsencrypt-companion
       image: jrcs/letsencrypt-nginx-proxy-companion
       restart: unless-stopped
-      volumes_from:
-          - nginx
       volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - /var/docker/nginx/acme:/etc/acme.sh
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+        - letsencrypt-certs:/etc/nginx/certs
+        - letsencrypt-vhost-d:/etc/nginx/vhost.d
+        - letsencrypt-html:/usr/share/nginx/html
       environment:
-          DEFAULT_EMAIL: 03hangerel03@mail.com
+          - DEFAULT_EMAIL=03hangerel03@mail.com
+          - NGINX_PROXY_CONTAINER=nginx
 volumes:
+  letsencrypt-certs:
+  letsencrypt-vhost-d:
+  letsencrypt-html:
   static_volume: {}
   postgres_data:
     driver: local
+
+networks:
+  default:
+    external:
+      name: nginx
+    
