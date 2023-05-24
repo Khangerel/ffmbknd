@@ -11,6 +11,7 @@ services:
       - POSTGRES_DB=ffngo
       - POSTGRES_USER=ffngo
       - POSTGRES_PASSWORD=ffngo
+      - NGINX_PROXY_CONTAINER=nginx-proxy
 
   python:
     container_name: ffngo_skeleton_python
@@ -29,6 +30,7 @@ services:
     environment:
       VIRTUAL_HOST: farofoundation.org
       LETSENCRYPT_HOST: farofoundation.org
+      NGINX_PROXY_CONTAINER: nginx-proxy
 
   nginx: 
     container_name: nginx-proxy
