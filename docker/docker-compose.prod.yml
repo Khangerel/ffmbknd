@@ -44,7 +44,7 @@ services:
       - 443:443
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - /var/docker/nginx/html:/usr/share/nginx/html
+      - .:/usr/share/nginx/html
       - /var/docker/nginx/certs:/etc/nginx/certs
       - /var/docker/nginx/vhost:/etc/nginx/vhost.d
       - /home/ubuntu/ffmbknd/code/media:/var/www/ffngo/media
@@ -59,7 +59,7 @@ services:
       restart: unless-stopped
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock:ro
-        - /var/docker/nginx/html:/usr/share/nginx/html
+        - .:/usr/share/nginx/html
         - /var/docker/nginx/certs:/etc/nginx/certs
         - /var/docker/nginx/vhost:/etc/nginx/vhost.d
       environment:

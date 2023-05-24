@@ -24,7 +24,7 @@ SECRET_KEY = '^l)7d*%h&db4uft@dk%h-w&nup#pu%)a!d)c7jwgoixo5_hm0$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '43.202.40.53', 'farofoundation.org', 'www.farofoundation.org']
+ALLOWED_HOSTS = ['*', 'farofoundation.org', 'www.farofoundation.org']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
