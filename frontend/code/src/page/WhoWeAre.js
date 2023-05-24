@@ -47,7 +47,7 @@ function WhoWeAre() {
             // url: "http://google.com",
             cardSubtitle:
                 "Faro Foundation launched Digital Literacy Library Program in April, 2019",
-            cardDetailedText: `This program is a collaboration between the Faro Foundation and Meta and is available for classroom, extracurricular, home, individual and group study.`
+            cardDetailedText: <span>This program is a collaboration between the Faro Foundation and Meta and is available for classroom, extracurricular, home, individual and group study.</span>
         },
         {
             title: <h1 className="text-primary hero-title">2019</h1>,

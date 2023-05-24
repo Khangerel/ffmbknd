@@ -26,7 +26,6 @@ function Header() {
     getData();
   }, []);
   const changeLangID = (id)=>{
-    localStorage.setItem('lang_id', id);
     console.log("...........................")
     console.log(id)
     console.log("...........................")
@@ -66,7 +65,11 @@ function Header() {
               {
                 lang_list.map((el, key)=> (
                   <Nav.Link href="#" className="menu-normal me-2" key={key}
-                    onClick={changeLangID(el.id)}
+                    onClick={
+                      () => {
+                        localStorage.setItem('lang_id', el.id);
+                      }
+                    }
                   >{el.name}</Nav.Link>
                 ))
               }
