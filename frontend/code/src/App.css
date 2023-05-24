@@ -171,3 +171,21 @@ p,a{
 #faroTimeLine  .rc-card-text{
   margin: 0;
 }
+
+#faroTimeLine .CardMediaHeader-isEnBW{
+  padding: 0;
+}
+
+.MediaDetailsWrapper-SBrYU{
+  margin-right: 0!important;
+  width: 100%!important;
+}
+#FaroHeroSile .carousel-indicators{
+  display: none;
+}
+#FaroHeroSile .carousel-control-prev{
+  display: none;
+}
+#FaroHeroSile .carousel-control-next{
+  display: none;
+}

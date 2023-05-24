@@ -1,3 +1,4 @@
+import { useState , useEffect} from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import example_avatar_image from "../assets/images/example_avatar.png";
 import our_banner_image from "../assets/images/our-banner.png";
@@ -5,6 +6,9 @@ import { Chrono } from "react-chrono"
 import QuoteOpen from "../components/QuoteOpen";
 import QuoteClose from "../components/QuoteClose";
 import "../App.css";
+import { setDefaultNamespace } from "i18next";
+import { API } from "../api/axios";
+
 function WhoWeAre() {
     const out_team_list = [
         {
@@ -39,25 +43,71 @@ function WhoWeAre() {
             name: "Byambajargal Ayushjav",
             job_name: "Chairwoman"
         },
-    ]
-    const timeline_list = [
-        {
-            title: <h1 className="text-primary hero-title">2019</h1>,
-            cardTitle: <h3 className="text-primary text-right">FF founded</h3>,
-            // url: "http://google.com",
-            cardSubtitle:
-                "Faro Foundation launched Digital Literacy Library Program in April, 2019",
-            cardDetailedText: <span>This program is a collaboration between the Faro Foundation and Meta and is available for classroom, extracurricular, home, individual and group study.</span>
-        },
-        {
-            title: <h1 className="text-primary hero-title">2019</h1>,
-            cardTitle: <h3 className="text-primary">Meta Safety Partner</h3>,
-            cardSubtitle: `RAF Spitfire pilots scramble for their planes`,
-            cardDetailedText: <span>After France’s surrender in June 1940, Churchill told the British people, “Hitler knows that he will have to break us in this island or lose the war”. To mount a successful invasion, the Germans had to gain air superiority. The first phase of the battle began on 10 July with Luftwaffe attacks on shipping in the Channel.
-                The following month, RAF Fighter Command airfields and aircraft factories came under attack. Under the dynamic direction of Lord Beaverbrook, production of Spitfire and Hurricane fighters increased, and despite its losses in pilots and planes, the RAF was never as seriously weakened as the Germans supposed.</span>
-        },
     ];
 
+    const [timeline_list, setTimeLineList] = useState([])
+    function timelineFormat (title,cardTitle,image,cardSubtitle,cardDetailedText, index){
+        var style = {}
+        if(index%2 == 0){
+            style = {
+                textAlign: 'right'
+            }
+        }else{
+            style = {}
+        }
+        title = <h1 className="hero_title text-right text-primary" style={style}>{title}</h1>
+        cardTitle = <h1 className="m-0 mb-3 text-right text-primary" style={style}>{cardTitle}</h1>
+        cardSubtitle = <div style={style}>{cardSubtitle}</div>
+        cardDetailedText =  <div style={style}>{cardDetailedText}</div>
+        if (image!=null){
+            const media = {
+                name: "faro",
+                source: {
+                    url: image
+                }, 
+                type: "IMAGE"
+            }
+            return {title,cardTitle,media,cardSubtitle,cardDetailedText}
+        }else{
+            return {title,cardTitle,cardSubtitle,cardDetailedText}
+        }
+        
+    }
+    const [lang_id, setLangID] = useState(1);
+
+    const [main_data, setMainData] = useState({});
+
+    const getData = ()=>{
+        API.get(`main/?lang_id=${lang_id}`, {}).then((response)=>{
+          if (response.status === 200 && response.data.length > 0) {
+            setMainData(response.data[0]);
+          }
+        });
+        API.get(`timeline/?lang_id=${lang_id}`, {}).then((response)=>{
+            if (response.status === 200 ) {
+                const list = []
+                response.data.map((el,index)=> {
+                    list.push(timelineFormat(el.year,el.title,el.image,el.sub_title,el.description, index))
+                });
+                setTimeLineList(list);
+            }
+          });
+      }
+    useEffect(() => {
+        setLangID(localStorage.getItem('lang_id'));
+        getData();
+      }, [])
+    const chrono_time_line_component = (
+        <Chrono items={timeline_list} mode="VERTICAL_ALTERNATING"
+                hideControls={true} slideItemDuration={4000} cardHeight={250} cardWidth={600}
+                fontSizes={{
+                    title: "1.1rem"
+                }} outline contentDetailsHeight={150}
+                enableOutline
+                activeItemIndex={null}
+                className="timeline-wrapper disable-activation"
+                disableNavOnKey />
+    )
     return (<div>
         <Container>
             <Row className="pt-5 mt-5 m-0">
@@ -107,18 +157,7 @@ function WhoWeAre() {
                     <div className="px-5 mx-5">
                         <h1 className="px-5 mx-5 pb-5">Faro Foundation NGO</h1>
                         <p className="px-5 text-black mx-5">
-                            "Faro Foundation (FF) is a non-governmental organization that has focused
-                            on promoting adequate and accessible use of social media and digital literacy in Mongolia.
-                            FFM’s work includes but is not limited to, promoting online safety, digital literacy, child
-                            protection programs, proper use of social media, public awareness regarding cyber
-                            bullying and such.
-                            <br />
-                            <br />
-                            <br />
-                            The Faro Foundation has been Meta's official Safety Partner in
-                            Mongolia since April 2019. Within the framework of our cooperation, we have
-                            successfully implemented projects such as the Digital Literacy Library Program,
-                            GoodShare campaign, We Think Digital, and so on."
+                            {main_data.whoweare}
                         </p>
                     </div>
                 </Col>
@@ -126,13 +165,13 @@ function WhoWeAre() {
         </div>
         <div className="pt-5 mt-5">
             <div className="w-100 position-relative">
-                <Image src={our_banner_image} fluid/>
+                <Image src={main_data.image_banner} fluid/>
                 <div className="image-mask-gradiented-primary position-absolute w-100 h-100" style={{top: 0, left: 0}}>
                     <div className="pt-5 mt-5 ms-5">
                         <h1 className="text-white">
-                            Digital Literacy in Mongolia
+                            {main_data.image_title}
                         </h1>
-                        <p className="text-white">(FFM) is a non-governmental organization that has focused on promoting adequate </p>
+                        <p className="text-white">{main_data.image_description}</p>
                     </div>
                 </div>
             </div>
@@ -141,30 +180,14 @@ function WhoWeAre() {
             <h1 className="text-center px-5 mx-5 with-light-quote position-relative fw-normal">
                 <div style={{position: 'absolute', top: -50, left: -25}}><QuoteOpen style={{position: 'absolute', top: 0, left: 0}}/></div>
                 
-                            Our vision is to implement positive change in the community through social networks
-                and empower children and youth to protect their personal information, share
-                information correctly, and prevent cyber-discrimination and cyber-attacks.
+                            {main_data.our_vision}
                 <div style={{position: 'absolute', bottom: -50, right: -25}}><QuoteClose style={{position: 'absolute', bottom: 0, right: 0}}/></div>
                 
             </h1>
         </Container>
         <div className="d-flex align-items-center pt-5 mt-5"  id="faroTimeLine">
-            <Chrono items={timeline_list} 
-                mode="VERTICAL_ALTERNATING"
-                hideControls={true}
-                slideItemDuration={4000}
-                cardHeight={250}
-                cardWidth={600}
-                fontSizes={{
-                    title: "1.1rem"
-                }}
-                outline
-                contentDetailsHeight={150}
-                enableOutline
-                activeItemIndex={null}
-                className="timeline-wrapper disable-activation"
-                disableNavOnKey
-            />
+            { timeline_list.length > 0? chrono_time_line_component : '' }
+         
         </div>
     </div>)
 }
