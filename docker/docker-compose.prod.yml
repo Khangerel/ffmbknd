@@ -49,7 +49,7 @@ services:
       - /home/ubuntu/ffmbknd/code/media:/var/www/ffngo/media
       - /home/ubuntu/ffmbknd/static:/var/www/ffngo/static
       - /home/ubuntu/ffmbknd/frontend:/var/www/frontend
-      - /var/www/frontend:/usr/share/nginx/html
+      - /home/ubuntu/ffmbknd/frontend/code/build:/usr/share/nginx/html
     depends_on:
       - python
 
@@ -61,7 +61,7 @@ services:
         - /var/run/docker.sock:/var/run/docker.sock:ro
         - /var/docker/nginx/certs:/etc/nginx/certs
         - /var/docker/nginx/vhost:/etc/nginx/vhost.d
-        - /var/www/frontend:/usr/share/nginx/html
+        - /home/ubuntu/ffmbknd/frontend/code/build:/usr/share/nginx/html
       environment:
           - DEFAULT_EMAIL=03hangerel03@mail.com
           - NGINX_PROXY_CONTAINER=nginx-proxy
