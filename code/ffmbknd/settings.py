@@ -22,11 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '^l)7d*%h&db4uft@dk%h-w&nup#pu%)a!d)c7jwgoixo5_hm0$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'farofoundation.org', 'www.farofoundation.org']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 CORS_ORIGIN_ALLOW_ALL = True
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
 
 # Application definition
 INSTALLED_APPS = [
@@ -57,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -95,7 +101,7 @@ CORS_ALLOW_HEADERS = [
 ROOT_URLCONF = 'ffmbknd.urls'
 
 TEMPLATES = [
-    {
+     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates'],
         'APP_DIRS': True,
