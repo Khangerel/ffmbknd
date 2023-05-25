@@ -164,16 +164,36 @@ p,a{
 .text-primary{
   color: #558AED;
 }
-
+.text-pink{
+  color: rgba(227, 89, 132, 1)!important;
+}
+.text-yellow{
+  color: #EBA44E!important;
+}
+.text-blue{
+  color: #477DE2;
+}
 #faroTimeLine .timeline-card-content{
   filter: none!important;
 }
 #faroTimeLine  .rc-card-text{
   margin: 0;
 }
+#faroTimeLine .MediaWrapper-bwghTW{
+  background: none;
+} 
 
 #faroTimeLine .CardMediaHeader-isEnBW{
   padding: 0;
+}
+#faroTimeLine .CardImage-hqCpvm{
+  object-fit: contain!important;
+}
+#faroTimeLine .vertical-item-row:nth-child(odd) img{
+  object-position: left;
+}
+#faroTimeLine .vertical-item-row:nth-child(even) img{
+  object-position: right;
 }
 
 .MediaDetailsWrapper-SBrYU{
@@ -189,6 +209,7 @@ p,a{
 #FaroHeroSile .carousel-control-next{
   display: none;
 }
+
 
 
 
