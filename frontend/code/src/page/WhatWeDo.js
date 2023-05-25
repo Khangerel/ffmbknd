@@ -114,14 +114,14 @@ function WhatWeDo() {
                     </Row>
                 </div>
             </Container>
-            <div className="pt-5 mt-5 pb-5 mb-5">
+            <div className="pt-5 mt-5 pb-5 mb-5 w-100">
                 <div className="position-relative" style={{ background: `url(${frame_39948})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <Container className="pt-5 pb-5 ">
                         <h1 className="text-white pt-5 pb-5">Digital Literacy<br /> Library</h1>
                     </Container>
                 </div>
                 <Container>
-                    <Row className="pt-5 mt-5 pb-5 mb-5">
+                    <Row className="pt-5 mt-5 pb-5 mb-5 w-100">
                         <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
                             <div>
                                 <p>
@@ -132,21 +132,21 @@ function WhatWeDo() {
                             </div>
                         </Col>
                         <Col xl={6} lg={6} sm={12} md={12} className="position-relative">
-                            <Image src={image77534141} fluid className="position-absolute" style={{ top: '-300px' }} />
+                            <Image src={image77534141} fluid className="position-absolute d-none-sm d-none-small-none d-none-md-none" style={{ top: '-300px' }} />
                         </Col>
                     </Row>
                 </Container>
             </div>
-            <div className="pt-5 mt-5 pb-5 mb-5">
+            <div className="pt-5 mt-5 pb-5 mb-5 w-100">
                 <div className="position-relative" style={{ background: `url(${frame_39949})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <Container className="pt-5 pb-5 text-end">
                         <h1 className="text-white pt-5 pb-5">We Think<br /> Digital</h1>
                     </Container>
                 </div>
                 <Container>
-                    <Row className="pt-5 mt-5 pb-5 mb-5">
+                    <Row className="pt-5 mt-5 pb-5 mb-5 w-100">
                         <Col xl={6} lg={6} sm={12} md={12} className="position-relative">
-                            <Image src={education_20_1_icon} fluid className="position-absolute px-5" style={{ top: '-300px' }} />
+                            <Image src={education_20_1_icon} fluid className="position-absolute px-5 d-none-sm d-none-small-none d-none-md-none" style={{ top: '-300px' }} />
                         </Col>
                         <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
                             <div>
@@ -168,7 +168,7 @@ function WhatWeDo() {
                     </Row>
                 </Container>
             </div>
-            <div className="pt-5 mt-5 pb-5 mb-5">
+            <div className="pt-5 mt-5 pb-5 mb-5 w-100">
                 <div className="position-relative" style={{ background: `url(${frame_39950})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <Container className="pt-5 pb-5 ">
                         <h1 className="text-white pt-5 pb-5">Media and <br /> Information Literacy</h1>
@@ -185,7 +185,7 @@ function WhatWeDo() {
                             </div>
                         </Col>
                         <Col xl={6} lg={6} sm={12} md={12} className="position-relative">
-                            <Image src={image77534141} fluid className="position-absolute" style={{ top: '-300px' }} />
+                            <Image src={image77534141} fluid className="position-absolute d-none-sm d-none-small-none d-none-md-none" style={{ top: '-300px' }} />
                         </Col>
                     </Row>
                 </Container>

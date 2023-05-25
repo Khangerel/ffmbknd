@@ -194,6 +194,9 @@ p,a{
 
 
 @media (max-width: 575.98px) {
+  .hero-title{
+    font-size: 35px!important;    
+  }
   .pe-5{
     padding-right: 0.5rem!important;
   }
@@ -205,23 +208,32 @@ p,a{
     padding-right: 0.5rem!important;
   }
   .me-5{
-    margin-right: 0.5rem!important;
+    margin-right: 0rem!important;
   }
   .ms-5{
-    margin-left: 0.5rem!important;
+    margin-left: 0rem!important;
   }
   .mx-5{
-    margin-left: 0.5rem!important;
-    margin-right: 0.5rem!important;
+    margin-left: 0rem!important;
+    margin-right: 0rem!important;
+  }
+  .d-none-sm{
+    display: none;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   /* CSS styles for small screens */
+  .d-none-small-none{
+    display: none;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   /* CSS styles for medium-sized screens */
+  .d-none-md-none{
+    display: none;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {

@@ -119,7 +119,7 @@ function News() {
             <div className="mt-4 mb-4">
               <h2>Featured news</h2>
               <div className="mt-4">
-                <Image src={VerticalCardImage2} />
+                <Image src={VerticalCardImage2} className="w-100"/>
                 <h3 className="mt-3">Digital Literacy in Mongolia</h3>
                 <p className="text-gray mt-3">(FFM) is a non-governmental organization that has focused
                   on promoting adequate non-governmental organization </p>
