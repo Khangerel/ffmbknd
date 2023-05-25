@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Collapse, Container, Row } from "react-bootstrap";
 import CardImage1 from "../assets/images/cardimageg1.png";
 // import CardImage2 from "../assets/images/cardimage2.png";
 import ArrowRightCircle from "../components/ArrowRightCircle";
@@ -15,9 +15,16 @@ import education_20_1_icon from "../assets/images/education_20_1_icon.png";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API } from "../api/axios";
+import { FaAngleDown } from "react-icons/fa";
+import WhatWeDoNews from "../components/WhatWeDoNews";
+
 function WhatWeDo() {
     const { t } = useTranslation();
     const [light_card_list, setLightCardList] = useState([]);
+    // const [information_list] = [
+    // ];
+    const [information_list, setInformationList] = useState([]);
+
     const getBgLightColor = ((index) => {
         if (index === 0) {
             return 'bg-blue-light';
@@ -37,8 +44,15 @@ function WhatWeDo() {
             if (response.status === 200) {
                 setLightCardList(response.data);
             }
+        });
+        API.get('project/?lang_id=1', {}).then((response) => {
+            if (response.status === 200) {
+                setInformationList(response.data);
+            }
         })
     }
+    
+
     useEffect(() => {
         // localStorage.get()
         getData();
@@ -115,80 +129,11 @@ function WhatWeDo() {
                 </div>
             </Container>
             <div className="pt-5 mt-5 pb-5 mb-5 w-100">
-                <div className="position-relative" style={{ background: `url(${frame_39948})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                    <Container className="pt-5 pb-5 ">
-                        <h1 className="text-white pt-5 pb-5">Digital Literacy<br /> Library</h1>
-                    </Container>
-                </div>
-                <Container>
-                    <Row className="pt-5 mt-5 pb-5 mb-5 w-100">
-                        <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
-                            <div>
-                                <p>
-                                    The Digital Literacy Library program is a collaboration between the Faro Foundation and Meta and is available for classroom, extracurricular,
-                                    home, individual, and group study.The Digital Literacy Curriculum consists of 23 modules with 5 chapters.
-                                </p>
-                                <Link>See more</Link>
-                            </div>
-                        </Col>
-                        <Col xl={6} lg={6} sm={12} md={12} className="position-relative">
-                            <Image src={image77534141} fluid className="position-absolute d-none-sm d-none-small-none d-none-md-none" style={{ top: '-300px' }} />
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-            <div className="pt-5 mt-5 pb-5 mb-5 w-100">
-                <div className="position-relative" style={{ background: `url(${frame_39949})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                    <Container className="pt-5 pb-5 text-end">
-                        <h1 className="text-white pt-5 pb-5">We Think<br /> Digital</h1>
-                    </Container>
-                </div>
-                <Container>
-                    <Row className="pt-5 mt-5 pb-5 mb-5 w-100">
-                        <Col xl={6} lg={6} sm={12} md={12} className="position-relative">
-                            <Image src={education_20_1_icon} fluid className="position-absolute px-5 d-none-sm d-none-small-none d-none-md-none" style={{ top: '-300px' }} />
-                        </Col>
-                        <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
-                            <div>
-                                <p>
-                                    The Digital Literacy Library program is a collaboration between the Faro Foundation and Meta and is available for classroom, extracurricular,
-                                    home, individual, and group study.The Digital Literacy Curriculum consists of 23 modules with 5 chapters.
-                                </p>
-                                <p>
-                                    The Digital Literacy Library program is a collaboration between the Faro Foundation and Meta and is available for classroom, extracurricular,
-                                    home, individual, and group study.The Digital Literacy Curriculum consists of 23 modules with 5 chapters.
-                                </p>
-                                <p>
-                                    The Digital Literacy Library program is a collaboration between the Faro Foundation and Meta and is available for classroom, extracurricular,
-                                    home, individual, and group study.The Digital Literacy Curriculum consists of 23 modules with 5 chapters.
-                                </p>
-                                <Link>See more</Link>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-            <div className="pt-5 mt-5 pb-5 mb-5 w-100">
-                <div className="position-relative" style={{ background: `url(${frame_39950})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                    <Container className="pt-5 pb-5 ">
-                        <h1 className="text-white pt-5 pb-5">Media and <br /> Information Literacy</h1>
-                    </Container>
-                </div>
-                <Container>
-                    <Row className="pt-5 mt-5 pb-5 mb-5">
-                        <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
-                            <div>
-                                <p>
-                                    Media and information literacy refers to the ability that enables individuals to access, analyze, create  information,  and make informed decisions. We developed MIL learning material with 25 modules for high school teachers and social workers.
-                                </p>
-                                <Link>See more</Link>
-                            </div>
-                        </Col>
-                        <Col xl={6} lg={6} sm={12} md={12} className="position-relative">
-                            <Image src={image77534141} fluid className="position-absolute d-none-sm d-none-small-none d-none-md-none" style={{ top: '-300px' }} />
-                        </Col>
-                    </Row>
-                </Container>
+                {
+                    information_list.map((information,index)=>(
+                        <WhatWeDoNews data={information} index={index}/>
+                    ))
+                }
             </div>
         </div>
     )
