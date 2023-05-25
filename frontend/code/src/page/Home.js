@@ -102,7 +102,9 @@ function Home() {
           top: '50%',
           /* left: 50%; */
           transform: 'translate(120%, -60%)'
-        }}>
+        }} className="d-none-sm
+        d-none-small-none
+        d-none-md-none">
           <HeroImage />
         </div>
       </div>
@@ -182,7 +184,7 @@ function Home() {
           <Row className="w-100 pb-5">
             <Col xl={5} lg={5} sm={12} md={12} className="pe-4 mb-5">
               <div className="p-4 min-vh-50 h-100 position-relative" style={{
-                background: `url(${VerticalCardImage2}), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))`,
+                background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${VerticalCardImage2})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',
               }}>

@@ -15,9 +15,11 @@ export default function HeroImage({ image_list }) {
     const getData = () => {
         API.get('landing/', {}).then((response) => {
             if (response.status === 200) {
-                setImage1(response.data.image_swipe1);
-                setImage2(response.data.image_swipe2);
-                setImage3(response.data.image_swipe3);
+                if(response.data.length > 0){
+                    setImage1(response.data[0].image_swipe1);
+                    setImage2(response.data[0].image_swipe2);
+                    setImage3(response.data[0].image_swipe3);
+                }
             }
         })
     }
@@ -32,7 +34,7 @@ export default function HeroImage({ image_list }) {
                 <ellipse rx="17.073825" ry="18.124522" transform="matrix(1.581686 0 0 1.518991 58 59)" opacity="1" fill="rgb(64, 138, 235)" strokeWidth="0" className="index0" />
             </svg>
             <div className='position-absolute' id="FaroHeroSile" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-                <Carousel fade id="FaroHeroSile" interval={2000}>=
+                <Carousel fade id="FaroHeroSile" interval={2000}>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
