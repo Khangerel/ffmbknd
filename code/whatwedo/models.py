@@ -68,6 +68,7 @@ class project(models.Model):
     image = models.ImageField(upload_to="upload/images/projects/")
     image_banner = models.ImageField(upload_to="upload/images/projects/", null=True)
     impact = models.IntegerField()
+    impact_name = models.TextField(max_length=100, null=True)
     color = models.CharField(max_length=30)
     issue = models.TextField(max_length=300)
     method = models.TextField(max_length=300)

@@ -62,6 +62,7 @@ class projectSerializer(serializers.ModelSerializer):
             "image",
             "image_banner",
             "impact",
+            "impact_name",
             "color",
             "issue",
             "method",

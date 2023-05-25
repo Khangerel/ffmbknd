@@ -64,6 +64,7 @@ class projectAdmin(admin.ModelAdmin):
         "image",
         "image_banner",
         "impact",
+        "impact_name",
         "color",
         "issue",
         "method",
