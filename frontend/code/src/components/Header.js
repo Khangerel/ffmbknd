@@ -25,11 +25,7 @@ function Header() {
   useEffect(() => {
     getData();
   }, []);
-  const changeLangID = (id)=>{
-    console.log("...........................")
-    console.log(id)
-    console.log("...........................")
-  }
+  
   return (
     <div className="header">
       <div className="nav-space"></div>

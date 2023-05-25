@@ -1,13 +1,31 @@
 import { Carousel } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import image77534141 from "../assets/images/image77534141.png"
-import './HeroImage.css'
-export default function HeroImage() {
+import './HeroImage.css';
+import { API } from '../api/axios';
+export default function HeroImage({ image_list }) {
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
+    const [image1, setImage1] = useState(null);
+    const [image2, setImage2] = useState(null);
+    const [image3, setImage3] = useState(null);
+    const getData = () => {
+        API.get('landing/', {}).then((response) => {
+            if (response.status === 200) {
+                if(response.data.length > 0){
+                    setImage1(response.data[0].image_swipe1);
+                    setImage2(response.data[0].image_swipe2);
+                    setImage3(response.data[0].image_swipe3);
+                }
+            }
+        })
+    }
+    useEffect(() => {
+        getData();
+    }, [])
     return (
         <div className='position-relative'>
             <svg id="e9Sm4U7fjlI1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" shapeRendering="geometricPrecision" textRendering="geometricPrecision">
@@ -15,43 +33,28 @@ export default function HeroImage() {
                 <ellipse rx="23.850146" ry="22.926914" transform="matrix(1.484724 0 0 1.544525 58 59)" fill="none" stroke="rgb(64, 138, 235)" strokeWidth="7" className="index1" />
                 <ellipse rx="17.073825" ry="18.124522" transform="matrix(1.581686 0 0 1.518991 58 59)" opacity="1" fill="rgb(64, 138, 235)" strokeWidth="0" className="index0" />
             </svg>
-            <div className='position-absolute' id="FaroHeroSile" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+            <div className='position-absolute' id="FaroHeroSile" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
                 <Carousel fade id="FaroHeroSile" interval={2000}>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src={image77534141}
+                            src={image1}
                             alt="First slide"
                         />
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src={image77534141}
-                            alt="Second slide"
+                            src={image2}
+                            alt="First slide"
                         />
-
-                        <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src={image77534141}
-                            alt="Third slide"
+                            src={image3}
+                            alt="First slide"
                         />
-                        <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            </p>
-                        </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
             </div>
