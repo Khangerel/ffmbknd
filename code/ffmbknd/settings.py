@@ -65,6 +65,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://192.168.2.22:3000',
+    'https://farofoundation.org',
+    'https://www.farofoundation.org',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
