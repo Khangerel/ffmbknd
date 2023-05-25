@@ -5,7 +5,7 @@ import ArrowRightCircle from './ArrowRightCircle';
 import HorizontalCardImage1 from '../assets/images/unsplash_nTSvjVD8n-c.png'
 import "./Card.css";
 import { Link } from 'react-router-dom';
-function HorizontalCard() {
+function HorizontalCard({}) {
     return (
         <div className="horizontal_card d-flex pe-4 mb-5">
             <div>
