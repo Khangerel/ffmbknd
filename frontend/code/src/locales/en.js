@@ -35,7 +35,13 @@ const en = {
   ourteam: {
     title: `Our Team`,
     body: `Our priority is to implement positive change in the community through the use of social media.`,
+    howwedo: `How We Do`,
   },
+  news: {
+    category: `Categories`,
+    featured_news: `Featured News`,
+  },
+  send_message: `Send Message`,
 };
 
 export default en;

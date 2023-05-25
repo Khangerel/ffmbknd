@@ -54,7 +54,7 @@ function Header() {
               </Nav.Link> */}
               {/* <Nav.Link href="/partners" className="menu-normal me-2  rounded-pill ps-3 pe-3">{t("menu.partners")}</Nav.Link> */}
               <Nav.Link href="/news" className={
-                window.location.pathname === '/news'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}>News</Nav.Link>
+                window.location.pathname === '/news'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}>{t("menu.news")}</Nav.Link>
               <Nav.Link href="/contact-us" className={window.location.pathname == '/contact-us'? "menu-normal me-2 rounded-pill ps-3 pe-3 bg-yellow-light" : "menu-normal me-2 rounded-pill ps-3 pe-3"}>{t("menu.contact_us")}</Nav.Link>
             </Nav>  
             <Nav className="ms-auto">

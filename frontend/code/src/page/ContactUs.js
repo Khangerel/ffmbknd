@@ -146,7 +146,7 @@ function ContactUs() {
                                 </Form.Control.Feedback>
                         </Form.Group>
                         <div className="d-flex  justify-content-end">
-                            <Button type="submit" className="px-4 rounded-pill">Send Message</Button>
+                            <Button type="submit" className="px-4 rounded-pill">{t("send_message")}</Button>
                         </div>
                     </Form>
                 </Col>
