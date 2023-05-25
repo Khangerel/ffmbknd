@@ -62,6 +62,8 @@ services:
         - /var/docker/nginx/certs:/etc/nginx/certs
         - /var/docker/nginx/vhost:/etc/nginx/vhost.d
         - /home/ubuntu/ffmbknd/frontend/code/build:/usr/share/nginx/html
+        - /home/ubuntu/ffmbknd/code/media:/var/www/ffngo/media
+        - /home/ubuntu/ffmbknd/static:/var/www/ffngo/static
       environment:
           - DEFAULT_EMAIL=03hangerel03@mail.com
           - NGINX_PROXY_CONTAINER=nginx-proxy
