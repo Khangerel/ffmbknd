@@ -194,7 +194,26 @@ p,a{
 
 
 @media (max-width: 575.98px) {
-  /* CSS styles for extra small screens */
+  .pe-5{
+    padding-right: 0.5rem!important;
+  }
+  .ps-5{
+    padding-left: 0.5rem!important;
+  }
+  .px-5{
+    padding-left: 0.5rem!important;
+    padding-right: 0.5rem!important;
+  }
+  .me-5{
+    margin-right: 0.5rem!important;
+  }
+  .ms-5{
+    margin-left: 0.5rem!important;
+  }
+  .mx-5{
+    margin-left: 0.5rem!important;
+    margin-right: 0.5rem!important;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {

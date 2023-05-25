@@ -40,7 +40,7 @@ function WhatWeDo() {
         })
     }
     useEffect(() => {
-        localStorage.get()
+        // localStorage.get()
         getData();
       }, [])
     return (
