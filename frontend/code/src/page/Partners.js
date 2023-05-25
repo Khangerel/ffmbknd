@@ -63,7 +63,7 @@ function Partners() {
         <p className="text-gray text-center mb-5">We believe in meaningful partnership to build a better digital future.</p>
         <Row className="bg-white d-flex align-items-center justify-content-center w-100">
           {our_main_data.map((partner) => (
-            <Col className="align-items-center">
+            <Col className="align-items-center pb-1" xs={12} sm={12} md={6} lg={4} xl={3}>
               <Image
                 src={partner.logo}
                 className="w-100 contain"
