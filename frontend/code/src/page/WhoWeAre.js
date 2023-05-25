@@ -10,40 +10,7 @@ import { setDefaultNamespace } from "i18next";
 import { API } from "../api/axios";
 
 function WhoWeAre() {
-    const out_team_list = [
-        {
-            name: "Byambajargal Ayushjav",
-            job_name: "Chairwoman"
-        },
-        {
-            name: "Byambajargal Ayushjav",
-            job_name: "Chairwoman"
-        },
-        {
-            name: "Byambajargal Ayushjav",
-            job_name: "Chairwoman"
-        },
-        {
-            name: "Byambajargal Ayushjav",
-            job_name: "Chairwoman"
-        },
-        {
-            name: "Byambajargal Ayushjav",
-            job_name: "Chairwoman"
-        },
-        {
-            name: "Byambajargal Ayushjav",
-            job_name: "Chairwoman"
-        },
-        {
-            name: "Byambajargal Ayushjav",
-            job_name: "Chairwoman"
-        },
-        {
-            name: "Byambajargal Ayushjav",
-            job_name: "Chairwoman"
-        },
-    ];
+    const [out_team_list, setOurTeamList] = useState([]);
 
     const [timeline_list, setTimeLineList] = useState([])
     function timelineFormat (title,cardTitle,image,cardSubtitle,cardDetailedText, index){
@@ -78,6 +45,11 @@ function WhoWeAre() {
     const [main_data, setMainData] = useState({});
 
     const getData = ()=>{
+        API.get(`our_team/`, {}).then((response)=>{
+            if (response.status === 200){
+                setOurTeamList(response.data);
+            }
+        });
         API.get(`main/?lang_id=${lang_id}`, {}).then((response)=>{
           if (response.status === 200 && response.data.length > 0) {
             setMainData(response.data[0]);
@@ -130,16 +102,16 @@ function WhoWeAre() {
                                 <div className="px-1 pb-5">
                                     <div className="d-flex justify-content-center">
                                         <div className="rounded-circle bg-gradient-primary p-1">
-                                            <Image src={example_avatar_image} width={125} className="rounded-circle"
+                                            <Image src={el.image} width={125} className="rounded-circle"
                                                 style={{ border: '3px solid #fff' }}
                                             />
                                         </div>
                                     </div>
                                     <div>
                                         <h5 className="text-center pt-3">
-                                            {el.name}
+                                            {el.full_name}
                                         </h5>
-                                        <p className="text-gray text-center">{el.job_name}</p>
+                                        <p className="text-gray text-center">{el.position} - {el.country}</p>
                                     </div>
                                 </div>
                             </Col>

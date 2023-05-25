@@ -13,26 +13,11 @@ import frame_39950 from "../assets/images/frame_39950.png";
 import image77534141 from "../assets/images/image77534141.png";
 import education_20_1_icon from "../assets/images/education_20_1_icon.png";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { API } from "../api/axios";
 function WhatWeDo() {
     const { t } = useTranslation();
-    const light_card_list = [
-        {
-            description: "We have share our journey and some story",
-            name: "Digital Literacy"
-        },
-        {
-            description: "We have share our journey and some story",
-            name: "Digital Literacy"
-        },
-        {
-            description: "We have share our journey and some story",
-            name: "Digital Literacy"
-        },
-        {
-            description: "We have share our journey and some story",
-            name: "Digital Literacy"
-        },
-    ];
+    const [light_card_list, setLightCardList] = useState([]);
     const getBgLightColor = ((index) => {
         if (index === 0) {
             return 'bg-blue-light';
@@ -47,6 +32,17 @@ function WhatWeDo() {
             return 'bg-yellow-light';
         }
     })
+    const getData = () => {
+        API.get('card/?lang_id=1', {}).then((response) => {
+            if (response.status === 200) {
+                setLightCardList(response.data);
+            }
+        })
+    }
+    useEffect(() => {
+        localStorage.get()
+        getData();
+      }, [])
     return (
         <div>
             <Container>
@@ -68,13 +64,16 @@ function WhatWeDo() {
                         {
                             light_card_list.map((card, index) => (
                                 <Col xl={3} lg={3} sm={12} md={6} className="pb-5">
-                                    <Card className={`${getBgLightColor(index)} border-none position-relative rounded-15`}>
+                                    <Card className={`border-none position-relative rounded-15`} style={{
+                                        backgroundColor: card.color,
+                                        boxShadow: `-1px -1px 20px 1px ${card.color}`
+                                    }}>
                                         <Card.Body>
                                             <Card.Text className="text-white">
                                                 {card.description}
                                             </Card.Text>
                                             <Card.Title className="text-white pt-5">
-                                                {card.name}
+                                                {card.title}
                                             </Card.Title>
                                             <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
                                         </Card.Body>
@@ -172,7 +171,7 @@ function WhatWeDo() {
             <div className="pt-5 mt-5 pb-5 mb-5">
                 <div className="position-relative" style={{ background: `url(${frame_39950})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <Container className="pt-5 pb-5 ">
-                        <h1 className="text-white pt-5 pb-5">Media and <br/> Information Literacy</h1>
+                        <h1 className="text-white pt-5 pb-5">Media and <br /> Information Literacy</h1>
                     </Container>
                 </div>
                 <Container>
@@ -180,7 +179,7 @@ function WhatWeDo() {
                         <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
                             <div>
                                 <p>
-                                    Media and information literacy refers to the ability that enables individuals to access, analyze, create  information,  and make informed decisions. We developed MIL learning material with 25 modules for high school teachers and social workers. 
+                                    Media and information literacy refers to the ability that enables individuals to access, analyze, create  information,  and make informed decisions. We developed MIL learning material with 25 modules for high school teachers and social workers.
                                 </p>
                                 <Link>See more</Link>
                             </div>
