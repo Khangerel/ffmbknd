@@ -1,46 +1,13 @@
+import { useState, useEffect } from "react";
+
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import meta from "../assets/images/partner-meta.png";
-import unesco from "../assets/images/partner-nub.png";
-import dw from "../assets/images/partner-dw.png";
-import moe from "../assets/images/partner-bshu.png";
 import factcheck from "../assets/images/partners-fact.png";
 import hamtiin from "../assets/images/partners-hamtiin.png";
 import heregjuulegch from "../assets/images/partners-heregjuulegch.png";
 import hevlel from "../assets/images/partners-hevlel.png";
-import startlogo from "../assets/images/startlogo.png";
 import { Image } from "react-bootstrap";
-
-const our_main_data = [
-  {
-    id: 1,
-    name: "Meta",
-    body: "partners.meta_body",
-    link: "https://www.meta.com/",
-    image: meta,
-  },
-  {
-    id: 1,
-    name: "DW",
-    body: "partners.dw_body",
-    link: "https://www.dw.com/",
-    image: dw,
-  },
-  {
-    id: 1,
-    name: "UNESCO",
-    body: "partners.unesco_body",
-    link: "https://www.unesco.org/en",
-    image: unesco,
-  },
-  {
-    id: 1,
-    name: "MoE",
-    body: "partners.moe_body",
-    link: "http://en.meds.gov.mn/",
-    image: moe,
-  },
-];
+import { API } from "../api/axios";
 const our_support_data = [
   {
     id: 5,
@@ -74,19 +41,31 @@ const our_support_data = [
 
 function Partners() {
   const { t } = useTranslation();
+  const [our_main_data, setOurMainData] = useState([])
+
   const handleClick = () => {
     console.log("Clicked");
   };
+  const getData = ()=>{
+    API.get('partner/', {}).then((response)=>{
+      if (response.status === 200) {
+        setOurMainData(response.data);
+      }
+    })
+  }
+  useEffect(() => {
+    getData();
+  }, [])
   return (
     <div>
       <div className="ps-5 pe-5 m-5">
         <h1 className="title text-center mb-3">{t("partners.main")}</h1>
         <p className="text-gray text-center mb-5">We believe in meaningful partnership to build a better digital future.</p>
-        <Row className="bg-white d-flex align-items-center justify-content-center">
+        <Row className="bg-white d-flex align-items-center justify-content-center w-100">
           {our_main_data.map((partner) => (
-            <Col className="align-items-center">
+            <Col className="align-items-center pb-1" xs={12} sm={12} md={6} lg={4} xl={3}>
               <Image
-                src={partner.image}
+                src={partner.logo}
                 className="w-100 contain"
                 onClick={() => handleClick()}
               />

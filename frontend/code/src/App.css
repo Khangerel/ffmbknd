@@ -91,7 +91,7 @@ p,a{
   font-size: 20px;
 }
 .hero-title{
-  font-size: 65px;
+  font-size: 65px!important;
 }
 .text-gray{
   color: rgba(16, 22, 54, 0.42);
@@ -146,6 +146,9 @@ p,a{
 .font-weight-bold{
   font-weight: 700;
 }
+.min-vh-75{
+  min-height: 75vh;
+}
 
 .image-mask-gradiented-primary{
   background: linear-gradient(rgba(10, 99, 181, 0.78), rgba(0,0,0,0));
@@ -156,4 +159,87 @@ p,a{
 }
 .timeline-main-wrapper .ggwgJj:not(.using-icon).active{
   background: rgba(0, 127, 255)!important;
+}
+
+.text-primary{
+  color: #558AED;
+}
+
+#faroTimeLine .timeline-card-content{
+  filter: none!important;
+}
+#faroTimeLine  .rc-card-text{
+  margin: 0;
+}
+
+#faroTimeLine .CardMediaHeader-isEnBW{
+  padding: 0;
+}
+
+.MediaDetailsWrapper-SBrYU{
+  margin-right: 0!important;
+  width: 100%!important;
+}
+#FaroHeroSile .carousel-indicators{
+  display: none;
+}
+#FaroHeroSile .carousel-control-prev{
+  display: none;
+}
+#FaroHeroSile .carousel-control-next{
+  display: none;
+}
+
+
+
+
+@media (max-width: 575.98px) {
+  .hero-title{
+    font-size: 35px!important;    
+  }
+  .pe-5{
+    padding-right: 0.5rem!important;
+  }
+  .ps-5{
+    padding-left: 0.5rem!important;
+  }
+  .px-5{
+    padding-left: 0.5rem!important;
+    padding-right: 0.5rem!important;
+  }
+  .me-5{
+    margin-right: 0rem!important;
+  }
+  .ms-5{
+    margin-left: 0rem!important;
+  }
+  .mx-5{
+    margin-left: 0rem!important;
+    margin-right: 0rem!important;
+  }
+  .d-none-sm{
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* CSS styles for small screens */
+  .d-none-small-none{
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* CSS styles for medium-sized screens */
+  .d-none-md-none{
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* CSS styles for large screens */
+}
+
+@media (min-width: 1200px) {
+  /* CSS styles for extra large screens */
 }

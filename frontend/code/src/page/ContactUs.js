@@ -11,52 +11,75 @@ import frame_39942 from "../assets/images/frame_39942.png";
 import ic_baseline_local_phone from "../assets/images/ic_baseline_local_phone.svg";
 import solar_letter_unread_bold from "../assets/images/solar_letter_unread_bold.svg";
 import material_symbols_location_on_rounded from "../assets/images/material_symbols_location_on_rounded.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { API } from "../api/axios";
+
 function ContactUs() {
     const { t } = useTranslation();
     const [validated, setValidated] = useState(false);
-    
+    const [title, setTitle] = useState("");
+    const [helper, setHelper] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [address, setAddress] = useState("");
+    const getData = ()=>{
+        API.get('info/?lang_id=1', {}).then((response)=>{
+          if (response.status === 200) {
+            setTitle(response.data[0].title);
+            setPhone(response.data[0].phone);
+            setEmail(response.data[0].email);
+            setAddress(response.data[0].address);
+            setHelper(response.data[0].helper);
+          }
+        })
+      }
+      useEffect(() => {
+        getData();
+      }, [])
     return (
         <Container>
             {/* <h1 className="title text-center pt-5">{t("menu.contact_us")}</h1> */}
             <Row className="m-5 ">
-                <Col xs="12" lg="6" className="p-0">
-                    <div style={{ background: `url(${frame_39942})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="h-100 rounded pb-5">
+                <Col xs="12" lg="5" className="p-0">
+                    <div style={{ background: `url(${frame_39942})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="h-100 rounded pb-5 min-vh-75">
                         <div className="p-5">
                             <h3 className="text-white">
-                                Contact information
+                                {title}
                             </h3>
                             <p className="text-white">
-                                Fill up the form and our team will get back to you.
+                                {helper}
                             </p>
-                            <h4 className="text-white mt-3 mb-3" style={{ color: '#fff!important' }}>
+                            <h4 className="text-white mt-3 mb-3 fw-normal" style={{ color: '#fff!important' }}>
                                 <Image src={ic_baseline_local_phone} className="me-4" />
-
-                                7000-7222
+                                {phone}
                             </h4>
-                            <h5 className="text-white mt-3 mb-3">
+                            <h5 className="text-white mt-3 mb-3 fw-normal">
                                 <Image src={solar_letter_unread_bold} className="me-4" />
-                                info@farofoundation.org
+                                {email}
                             </h5>
-                            <h5 className="text-white mt-3 mb-3">
+                            <h5 className="text-white mt-3 mb-3 fw-normal">
+                                {/* <Row>
+                                    <Col></Col>
+                                </Row> */}
                                 <Image src={material_symbols_location_on_rounded} className="me-4" />
-                                702, Galaxy Tower, Mahatma Ghandi Street, Khan-Uul District, Ulaanbaatar, Mongolia
+                                {address}
                             </h5>
 
                         </div>
 
                     </div>
                 </Col>
-                <Col xs="12" lg="6" className="pt-5 ps-5">
+                <Col xs="12" lg="7" className="pt-5 ps-5">
                     <Form noValidate validated={validated}>
                         <Row className="mb-3">
-                            <Form.Group as={Col} md="6" controlId="validationCustom01">
+                            <Form.Group as={Col} md="6" controlId="validationCustom01" >
                                 <Form.Label>First name</Form.Label>
                                 <Form.Control
                                     required
                                     type="text"
                                     placeholder="First name"
                                     defaultValue="Mark"
+                                    className="border-none border-bottom"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -67,6 +90,7 @@ function ContactUs() {
                                     type="text"
                                     placeholder="Last name"
                                     defaultValue="Otto"
+                                    className="border-none border-bottom"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -75,35 +99,55 @@ function ContactUs() {
                         <Row className="mb-3">
                             <Form.Group as={Col} md="6" controlId="validationCustom03">
                                 <Form.Label>Mail</Form.Label>
-                                <Form.Control type="text" placeholder="City" required />
+                                <Form.Control type="text" placeholder="City" required className="border-none border-bottom"/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid city.
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="6" controlId="validationCustom04">
                                 <Form.Label>Phone</Form.Label>
-                                <Form.Control type="text" placeholder="State" required />
+                                <Form.Control type="text" placeholder="State" required className="border-none border-bottom"/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid state.
                                 </Form.Control.Feedback>
                             </Form.Group>
                         </Row>
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-3 d-flex">
                             <Form.Check
                                 required
-                                label="Agree to terms and conditions"
+                                label="General Inquiry"
                                 feedback="You must agree before submitting."
                                 feedbackType="invalid"
+                                type="radio"
+                                className="me-4"
+                            />
+                            <Form.Check
+                                required
+                                label="Partnership Opportunity"
+                                feedback="You must agree before submitting."
+                                feedbackType="invalid"
+                                type="radio"
+                                className="me-4"
+                            />
+                            <Form.Check
+                                required
+                                label="Training"
+                                feedback="You must agree before submitting."
+                                feedbackType="invalid"
+                                type="radio"
+                                className="me-4"
                             />
                         </Form.Group>
                         <Form.Group  controlId="validationCustom04" className="mb-4">
                                 <Form.Label>Message</Form.Label>
-                                <Form.Control type="text" placeholder="State" required />
+                                <Form.Control type="text" placeholder="State" required className="border-none border-bottom"/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid state.
                                 </Form.Control.Feedback>
                         </Form.Group>
-                        <Button type="submit">Submit form</Button>
+                        <div className="d-flex  justify-content-end">
+                            <Button type="submit" className="px-4 rounded-pill">Send Message</Button>
+                        </div>
                     </Form>
                 </Col>
             </Row>
