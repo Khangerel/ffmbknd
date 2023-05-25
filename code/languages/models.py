@@ -7,6 +7,7 @@ class language(models.Model):
     # Fields
     created = models.DateTimeField(auto_now_add=True, editable=False)
     name = models.TextField(max_length=50)
+    short_name = models.TextField(max_length=50, null=True)
 
     class Meta:
         pass

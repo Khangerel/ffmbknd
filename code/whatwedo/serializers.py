@@ -60,9 +60,12 @@ class projectSerializer(serializers.ModelSerializer):
             "last_updated",
             "title",
             "image",
+            "image_banner",
             "impact",
             "color",
             "issue",
             "method",
             "lang_id",
+            "button_name",
+            "button_state",
         ]

@@ -62,10 +62,13 @@ class projectAdmin(admin.ModelAdmin):
         "title",
         "description",
         "image",
+        "image_banner",
         "impact",
         "color",
         "issue",
         "method",
+        "button_name",
+        "button_state",
         "created",
         "last_updated",
     ]
