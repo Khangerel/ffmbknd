@@ -107,9 +107,9 @@ function Home() {
         </div>
       </div>
       <div className="ps-5 pe-5">
-        <Row className="min-vh-50">
+        <Row className="min-vh-50 w-100">
           <Col xl={4} lg={4} md={5} sm={12} className=" bg-primary d-flex justify-content-center align-items-center mb-5">
-            <h1 className="text-white hero-title text-center">Who <br /> We Are</h1>
+            <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
           </Col>
           <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5">
             <div className="ps-5 pe-5">
@@ -148,7 +148,7 @@ function Home() {
           <div className="d-flex bd-highlight pb-5">
             <h1>What We Do</h1>
           </div>
-          <Row className="pt-5 pb-5">
+          <Row className="pt-5 pb-5 w-100">
             {
               light_card_list.map((card, index) => (
                 <Col xl={3} lg={3} sm={12} md={6} className="pb-3" key={index}>

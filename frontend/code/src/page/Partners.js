@@ -61,7 +61,7 @@ function Partners() {
       <div className="ps-5 pe-5 m-5">
         <h1 className="title text-center mb-3">{t("partners.main")}</h1>
         <p className="text-gray text-center mb-5">We believe in meaningful partnership to build a better digital future.</p>
-        <Row className="bg-white d-flex align-items-center justify-content-center">
+        <Row className="bg-white d-flex align-items-center justify-content-center w-100">
           {our_main_data.map((partner) => (
             <Col className="align-items-center">
               <Image
