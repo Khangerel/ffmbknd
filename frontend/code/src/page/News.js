@@ -125,10 +125,10 @@ function News() {
           <Col lg={8} >
             {
               card_list.map((el, index)=>(
-                <p>ds</p>
+                <HorizontalCard data={el} id={index}/>
               ))
             }
-            <HorizontalCard />
+            
           </Col>
           <Col lg={4}>
             <h2>Categories</h2>
