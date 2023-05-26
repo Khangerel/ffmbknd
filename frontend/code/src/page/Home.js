@@ -28,11 +28,15 @@ function Home() {
   //   },
   // ];
   const [light_card_list, setLightCardList] = useState([]);
+  const [recent_post_list, setRecentPostList] = useState([]);
   const getData = ()=>{
     API.get('card/?lang_id=1', {}).then((response)=>{
       if (response.status === 200) {
         setLightCardList(response.data);  
       }
+    });
+    API.get('recent/posts?lang_id=1', {}).then((response)=>{
+      setRecentPostList(response.data);
     })
   }
   useEffect(() => {
@@ -203,8 +207,12 @@ function Home() {
               </div>
             </Col>
             <Col xl={7} lg={7} sm={12} md={12}>
-              <HorizontalCard />
-              <HorizontalCard />
+              {
+                recent_post_list.map((post, index)=>(
+                  <HorizontalCard data={post} id={post.id}/>
+
+                ))
+              }
             </Col>
           </Row>
         </Container>
