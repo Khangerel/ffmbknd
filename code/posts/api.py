@@ -71,7 +71,7 @@ class tagsViewSet(viewsets.ModelViewSet):
 
     queryset = models.tags.objects.all()
     serializer_class = serializers.tagsSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 @api_view(['GET'])
 def recent_posts(request):

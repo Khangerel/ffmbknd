@@ -21,16 +21,16 @@ services:
       - 9000:9000
     depends_on:
       - db
-  nginx: 
-    restart: unless-stopped
-    build:
-        context: '../'
-        dockerfile: ./docker/nginx/Dockerfile
-    ports:
-        - 81:81
-        - 82:82
-    depends_on: 
-      - python
+  # nginx: 
+  #   restart: unless-stopped
+  #   build:
+  #       context: '../'
+  #       dockerfile: ./docker/nginx/Dockerfile
+  #   ports:
+  #       - 81:81
+  #       - 82:82
+  #   depends_on: 
+  #     - python
 
 volumes:
   static_volume: {}

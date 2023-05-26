@@ -34,6 +34,7 @@ class postForm(forms.ModelForm):
             "categories",
             "lang_id",
             "tags",
+            "description"
         ]
 
     def __init__(self, *args, **kwargs):

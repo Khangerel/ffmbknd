@@ -72,12 +72,17 @@ MIDDLEWARE = [
 CSRF_TRUSTED_ORIGINS = [
     'https://farofoundation.org',
     'https://www.farofoundation.org',
+    'http://192.168.2.72:9000',
 ]
 
-CSRF_COOKIE_DOMAIN = 'https://farofoundation.org'
+CSRF_COOKIE_DOMAIN = [
+    'https://farofoundation.org',
+    'http://192.168.2.72:9000',
+]
 
 CORS_ALLOWED_ORIGINS = [
     'http://192.168.2.22:3000',
+    'http://192.168.2.72:9000',
     'https://farofoundation.org',
     'https://www.farofoundation.org',
 ]
