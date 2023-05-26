@@ -31,7 +31,8 @@ function HorizontalCard({ data, id}) {
                     <h3 className="pt-3">
                         {data.title}
                     </h3>
-                    <div className='pt-2 text-gray d-none-sm' dangerouslySetInnerHTML={{ __html: data.content }}>
+                    <p className='pt-2 text-gray d-none-sm'>{data.description}</p>
+                    <div dangerouslySetInnerHTML={{ __html: data.content }}>
                     </div>
                     <div className="d-flex justify-content-end">
                         <Link className="text-dark me-4 text-bold" to={`${baseURI}/news/?id=${id}` }>Continue reading</Link>
