@@ -5,13 +5,15 @@ import SwiperSlide2 from "../assets/images/swiperslide2.png";
 import ComponentImage from "../assets/images/component.png";
 import PartnerLogoImg from "../assets/images/partner.png"
 import 'swiper/css';
-import { Button, Card, Col, Row, Image, Container, ListGroup, ListGroupItem } from "react-bootstrap";
-import { Link, Route } from "react-router-dom";
+import { Button, Col, Row, Image, Container, ListGroup, ListGroupItem, CloseButton } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 import HorizontalCard from "../components/HorizontalCard";
 import SwiperCore, { Autoplay } from 'swiper'
 import HomePartners from "./HomePartners";
 import HorizontalCardImage1 from "../assets/images/unsplash_nTSvjVD8n-c.png"
 import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png"
+import { API } from "../api/axios";
+import { useEffect, useMemo, useState} from "react";
 
 function News() {
   SwiperCore.use([Autoplay]);
@@ -49,6 +51,24 @@ function News() {
     bottom: 0,
     left: 0,
   }
+  const [page_num, setPageNum] = useState(1);
+  const [card_list, setCardList] = useState([]);
+  const [news_index, setNewsIndex ] = useState(null);
+  const getData = ()=>{
+    API.get(`post/?search=&page=${page_num}&lang_id=1`, {}).then((response)=>{
+      if (response.status === 200) {
+        setCardList(response.data.results);
+        
+        setPageNum(response.data.current_page);
+      }
+    })
+  }
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    setNewsIndex(urlParams.get('id'));
+    getData();
+  }, []);
+  
   return (
     <div>
       <Swiper
@@ -103,7 +123,12 @@ function News() {
       <Container className="mt-5 pt-5">
         <Row>
           <Col lg={8} >
-            <HorizontalCard />
+            {
+              card_list.map((el, index)=>(
+                <HorizontalCard data={el} id={index}/>
+              ))
+            }
+            
           </Col>
           <Col lg={4}>
             <h2>Categories</h2>
