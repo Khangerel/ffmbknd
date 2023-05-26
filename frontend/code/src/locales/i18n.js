@@ -16,9 +16,9 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translations: enLocales },
-      mn: { translations: mnLocales },
-      ru: { translations: ruLocales },
+      ENG: { translations: enLocales },
+      MON: { translations: mnLocales },
+      RUS: { translations: ruLocales },
     },
     lng: localStorage.getItem('i18nextLng') || defaultLang.value,
     fallbackLng: defaultLang.value,

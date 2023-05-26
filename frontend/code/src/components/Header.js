@@ -11,10 +11,12 @@ import DownArrow from "./DownArrow";
 import "./Header.css";
 import { useEffect, useState } from "react";
 import { API } from "../api/axios";
+import useLocales from '../hooks/useLocales';
 
 function Header() {
   const { t } = useTranslation();
   const [lang_list, setLangList] = useState([]);
+  const { allLangs, onChangeLang } = useLocales();
   const getData = ()=>{
     API.get('language/', {}).then((response)=>{
       if (response.status === 200) {
@@ -64,9 +66,10 @@ function Header() {
                     onClick={
                       () => {
                         localStorage.setItem('lang_id', el.id);
+                        onChangeLang(el.short_name);
                       }
                     }
-                  >{el.name}</Nav.Link>
+                  >{el.short_name}</Nav.Link>
                 ))
               }
             </Nav>

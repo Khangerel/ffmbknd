@@ -1,34 +1,76 @@
-#e9Sm4U7fjlI1 .index0{
+#e9Sm4U7fjlI1 .index0 {
     animation: index0Animation 2s infinite;
     animation-direction: alternate;
-  
+
 }
-#e9Sm4U7fjlI1 .index1{
+
+#e9Sm4U7fjlI1 .index1 {
     animation: index1Animation 2s infinite;
     animation-direction: alternate;
-  
+
 }
-#e9Sm4U7fjlI1 .index2{
+
+#e9Sm4U7fjlI1 .index2 {
     animation: index2Animation 2s infinite;
-    animation-direction: alternate;  
+    animation-direction: alternate;
 }
 
 @keyframes index0Animation {
-    0%   {opacity: 0.5;}
-    25% {opacity: 1}
+    0% {
+        opacity: 0.5;
+    }
+
+    25% {
+        opacity: 1
+    }
 }
 
 @keyframes index1Animation {
-    0%   {opacity: 0.5;}
-    25%   {opacity: 0.5;}
-    50%   {opacity: 0.8;}
-    100% {opacity: 0.8;}
+    0% {
+        opacity: 0.5;
+    }
+
+    25% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
 }
 
 @keyframes index2Animation {
-    0%   {opacity: 0.3;}
-    25%   {opacity: 0.3;}
-    50%   {opacity: 0.3;}
-    75% {opacity: 0.5}
-    100% {opacity: 0.5}
+    0% {
+        opacity: 0.3;
+    }
+
+    25% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    75% {
+        opacity: 0.5
+    }
+
+    100% {
+        opacity: 0.5
+    }
+}
+
+.fade-transition {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.fade-transition.active {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
 }

@@ -35,7 +35,7 @@ const en = {
   ourteam: {
     title: `Our Team`,
     body: `Our priority is to implement positive change in the community through the use of social media.`,
-    howwedo: `How We Do`,
+    howwedo: `How \nWe Do`,
   },
   news: {
     category: `Categories`,
