@@ -10,8 +10,6 @@ from pathlib import Path
 from datetime import timedelta
 import os
 
-CURRENT_IP = '127.0.0.1'
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,8 +29,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SECURE = True
-SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = 'Lax'
 
 # Application definition
 INSTALLED_APPS = [
@@ -72,20 +69,9 @@ MIDDLEWARE = [
 CSRF_TRUSTED_ORIGINS = [
     'https://farofoundation.org',
     'https://www.farofoundation.org',
-    'http://192.168.2.72:9000',
 ]
 
-CSRF_COOKIE_DOMAIN = [
-    'https://farofoundation.org',
-    'http://192.168.2.72:9000',
-]
-
-CORS_ALLOWED_ORIGINS = [
-    'http://192.168.2.22:3000',
-    'http://192.168.2.72:9000',
-    'https://farofoundation.org',
-    'https://www.farofoundation.org',
-]
+CSRF_COOKIE_DOMAIN = 'farofoundation.org'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
