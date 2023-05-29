@@ -2,50 +2,75 @@ version: "3.9"
 
 services:
   db:
-    container_name: inv_skeleton_db
+    container_name: ffngo_skeleton_db
     image: postgres:14
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    # environment:
-    #   - "POSTGRES_HOST_AUTH_METHOD=trust"
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+      - POSTGRES_DB=ffngo
+      - POSTGRES_USER=ffngo
+      - POSTGRES_PASSWORD=ffngo
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.docker_gen=true
   python:
-    container_name: inv_skeleton_python
+    container_name: ffngo_skeleton_python
     build: 
       context: '../'
-      dockerfile: './docker/dev/dockerfile'
+      dockerfile: './docker/prod/dockerfile'
     working_dir: /var/www/ffngo/code/
-    command: python manage.py runserver 0:9000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - '../:/var/www/ffngo'
-      - /var/www/ffngo/var
-      - ../var/upload:/var/www/ffngo/var/upload
+      - /var/www/ffngo/media
     ports:
-      - 9000:9000
-    depends_on:
+      - 8000:8000
+    links:
       - db
-  # certbot:
-  #   image: certbot/certbot
-  #   restart: unless-stopped
-  #   volumes:
-  #     - ./docker/nginx/certbot/conf:/etc/letsencrypt
-  #     - ./docker/nginx/certbot/www:/var/www/certbot
-  #   entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'" 
+    environment:
+      VIRTUAL_HOST: farofoundation.org
+      LETSENCRYPT_HOST: farofoundation.org
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.docker_gen=true
   nginx: 
+    container_name: nginx-proxy
+    image: nginxproxy/nginx-proxy
     restart: unless-stopped
     build:
       context: '../'
-      dockerfile: ./docker/nginx/Dockerfile
+      dockerfile: ./docker/nginx/dockerfile
     ports:
       - 80:80
       - 443:443
     volumes:
-      - static_volume:/app/backend/server/django_static
-      # - ./docker/nginx/certbot/conf:/etc/letsencrypt
-      # - ./docker/nginx/certbot/www:/var/www/certbot
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /var/docker/nginx/certs:/etc/nginx/certs
+      - /var/docker/nginx/vhost:/etc/nginx/vhost.d
+      - /home/ubuntu/ffmbknd/code/media:/var/www/ffngo/media
+      - /home/ubuntu/ffmbknd/static:/var/www/ffngo/static
+      - /home/ubuntu/ffmbknd/frontend:/var/www/frontend
+      - /home/ubuntu/ffmbknd/frontend/code/build:/usr/share/nginx/html
     depends_on:
       - python
 
+  letsencrypt-companion:
+      container_name: letsencrypt-companion
+      image: jrcs/letsencrypt-nginx-proxy-companion
+      restart: unless-stopped
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+        - /var/docker/nginx/certs:/etc/nginx/certs
+        - /var/docker/nginx/vhost:/etc/nginx/vhost.d
+        - /home/ubuntu/ffmbknd/frontend/code/build:/usr/share/nginx/html
+        - /home/ubuntu/ffmbknd/code/media:/var/www/ffngo/media
+        - /home/ubuntu/ffmbknd/static:/var/www/ffngo/static
+      environment:
+          - DEFAULT_EMAIL=03hangerel03@mail.com
+          - NGINX_PROXY_CONTAINER=nginx-proxy
 volumes:
+  letsencrypt-certs:
+  letsencrypt-vhost-d:
+  letsencrypt-html:
   static_volume: {}
   postgres_data:
     driver: local
@@ -53,4 +78,5 @@ volumes:
 networks:
   default:
     external:
-      name: letsencrypt
+      name: nginx-proxy
+    

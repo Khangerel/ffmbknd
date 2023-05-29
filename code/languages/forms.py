@@ -7,4 +7,5 @@ class languageForm(forms.ModelForm):
         model = models.language
         fields = [
             "name",
+            "short_name",
         ]

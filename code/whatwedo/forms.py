@@ -44,8 +44,12 @@ class projectForm(forms.ModelForm):
             "description",
             "title",
             "image",
+            "image_banner",
             "impact",
+            "impact_name",
             "color",
             "issue",
             "method",
+            "button_name",
+            "button_state",
         ]

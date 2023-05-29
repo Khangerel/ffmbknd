@@ -3,8 +3,11 @@ import { Button, Card, Col, Row, Image } from "react-bootstrap";
 import ArrowRightCircle from './ArrowRightCircle';
 import HorizontalCardImage1 from '../assets/images/unsplash_nTSvjVD8n-c.png'
 import "./Card.css";
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-function HorizontalCard({ data, id }) {
+
+function HorizontalCard({ data, id}) {
+    const { t } = useTranslation();
     const truncateString = (str, limit) => {
         if (str.length <= limit) {
             return str;
@@ -32,9 +35,9 @@ function HorizontalCard({ data, id }) {
                     </h3>
                     <p className='pt-2 text-gray d-none-sm'>{data.description}</p>
                     <div className="d-flex justify-content-end">
-                        <Link className="text-dark me-4 text-bold" to={`/news/${id}`}>Continue reading</Link>
+                        <Link className="text-dark me-4 text-bold" to={`/news/${id}`}>{t("landing.continue_reading")}</Link>
                     </div>
-                </div>
+                 </div>
             </div>
         </div>
     )

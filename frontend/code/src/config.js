@@ -2,17 +2,17 @@ export const allLangs = [
     {
       label: 'English',
       upper: 'EN',
-      value: 'en',
+      value: 'ENG',
     },
     {
       label: 'Mongolia',
       upper: 'MN',
-      value: 'mn',
+      value: 'MON',
     },
     {
       label: 'Russia',
       upper: 'RU',
-      value: 'ru',
+      value: 'RUS',
     },
   ];
   

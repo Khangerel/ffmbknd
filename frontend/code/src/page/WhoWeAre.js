@@ -5,11 +5,13 @@ import our_banner_image from "../assets/images/our-banner.png";
 import { Chrono } from "react-chrono"
 import QuoteOpen from "../components/QuoteOpen";
 import QuoteClose from "../components/QuoteClose";
+import { useTranslation } from 'react-i18next';
 import "../App.css";
 import { setDefaultNamespace } from "i18next";
 import { API } from "../api/axios";
 
 function WhoWeAre() {
+    const { t } = useTranslation();
     const [out_team_list, setOurTeamList] = useState([]);
 
     const [timeline_list, setTimeLineList] = useState([])
@@ -85,12 +87,12 @@ function WhoWeAre() {
             <Row className="pt-5 mt-5 m-0">
                 <Col xl={6} lg={6} sm={12} md={6}>
                     <h1>
-                        Our team
+                        {t("ourteam.title")}
                     </h1>
                 </Col>
                 <Col xl={6} lg={6} sm={12} md={6}>
                     <p className="text-gray">
-                        Our priority is to implement positive change in the community through the use of social media.
+                        {t("ourteam.body")}
                     </p>
                 </Col>
             </Row>
@@ -127,7 +129,7 @@ function WhoWeAre() {
                 </Col>
                 <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
                     <div className="px-5 mx-5">
-                        <h1 className="px-5 mx-5 pb-5">Faro Foundation NGO</h1>
+                        <h1 className="px-5 mx-5 pb-5">{t("landing.whoweare_title")}</h1>
                         <p className="px-5 text-black mx-5">
                             {main_data.whoweare}
                         </p>

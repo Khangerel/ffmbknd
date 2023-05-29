@@ -43,6 +43,7 @@ class post(models.Model):
     is_featured = models.BooleanField()
     content = RichTextField()
     title = models.CharField(max_length=200)
+    description = models.TextField(max_length=400, null=True)
 
     class Meta:
         pass

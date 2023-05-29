@@ -58,3 +58,24 @@ class timeline(models.Model):
     def get_update_url(self):
         return reverse("whoweare_timeline_update", args=(self.pk,))
 
+class our_team(models.Model):
+
+    # Fields
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    full_name = models.TextField(max_length=100)
+    image = models.ImageField(upload_to="upload/images/team/")
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    position = models.TextField(max_length=100)
+    country = models.TextField(max_length=100)
+
+    class Meta:
+        pass
+
+    def __str__(self):
+        return str(self.pk)
+
+    def get_absolute_url(self):
+        return reverse("whoweare_our_team_detail", args=(self.pk,))
+
+    def get_update_url(self):
+        return reverse("whoweare_our_team_update", args=(self.pk,))

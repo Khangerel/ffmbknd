@@ -12,7 +12,7 @@ RUN apt-get update \
 
 COPY . /var/www/frontend/
 WORKDIR /var/www/frontend/code
-
+RUN npm install -g serve
 EXPOSE 3000
 USER node
 

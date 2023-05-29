@@ -12,6 +12,8 @@ router.register("tags", api.tagsViewSet)
 
 urlpatterns = (
     path("v1/", include(router.urls)),
+    path('v1/recent/posts', api.recent_posts, name='recent_posts'),
+    path('v1/featured/posts', api.featured_posts, name='featured_posts'),
     path("posts/category/", views.categoryListView.as_view(), name="posts_category_list"),
     path("posts/category/create/", views.categoryCreateView.as_view(), name="posts_category_create"),
     path("posts/category/detail/<slug:slug>/", views.categoryDetailView.as_view(), name="posts_category_detail"),

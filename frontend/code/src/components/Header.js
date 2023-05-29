@@ -11,10 +11,12 @@ import DownArrow from "./DownArrow";
 import "./Header.css";
 import { useEffect, useState } from "react";
 import { API } from "../api/axios";
+import useLocales from '../hooks/useLocales';
 
 function Header() {
   const { t } = useTranslation();
   const [lang_list, setLangList] = useState([]);
+  const { allLangs, onChangeLang } = useLocales();
   const getData = ()=>{
     API.get('language/', {}).then((response)=>{
       if (response.status === 200) {
@@ -54,7 +56,7 @@ function Header() {
               </Nav.Link> */}
               {/* <Nav.Link href="/partners" className="menu-normal me-2  rounded-pill ps-3 pe-3">{t("menu.partners")}</Nav.Link> */}
               <Nav.Link href="/news" className={
-                window.location.pathname === '/news'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}>News</Nav.Link>
+                window.location.pathname === '/news'? "menu-normal me-2  rounded-pill ps-3 pe-3 bg-pink-light": "menu-normal me-2 rounded-pill ps-3 pe-3"}>{t("menu.news")}</Nav.Link>
               <Nav.Link href="/contact-us" className={window.location.pathname == '/contact-us'? "menu-normal me-2 rounded-pill ps-3 pe-3 bg-yellow-light" : "menu-normal me-2 rounded-pill ps-3 pe-3"}>{t("menu.contact_us")}</Nav.Link>
             </Nav>  
             <Nav className="ms-auto">
@@ -64,9 +66,10 @@ function Header() {
                     onClick={
                       () => {
                         localStorage.setItem('lang_id', el.id);
+                        onChangeLang(el.short_name);
                       }
                     }
-                  >{el.name}</Nav.Link>
+                  >{el.short_name}</Nav.Link>
                 ))
               }
             </Nav>

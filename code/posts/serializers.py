@@ -56,6 +56,8 @@ class postSerializer(serializers.ModelSerializer):
             "categories",
             "lang_id",
             "tags",
+            "description",
+            "id"
         ]
 
 

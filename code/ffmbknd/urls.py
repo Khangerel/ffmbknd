@@ -21,6 +21,7 @@ from django.views.generic import TemplateView
 from django.conf import settings
 from ckeditor_uploader import views as ckeditor_views
 
+admin.site.site_header = 'Faro Foundation NGO'
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
@@ -34,3 +35,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

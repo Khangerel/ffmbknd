@@ -38,3 +38,12 @@ class timelineForm(forms.ModelForm):
         super(timelineForm, self).__init__(*args, **kwargs)
         self.fields["lang_id"].queryset = language.objects.all()
 
+class our_teamForm(forms.ModelForm):
+    class Meta:
+        model = models.our_team
+        fields = [
+            "full_name",
+            "image",
+            "position",
+            "country",
+        ]

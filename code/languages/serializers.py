@@ -10,4 +10,6 @@ class languageSerializer(serializers.ModelSerializer):
         fields = [
             "created",
             "name",
+            "short_name",
+            "id",
         ]

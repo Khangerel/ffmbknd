@@ -22,3 +22,10 @@ class timelineViewSet(viewsets.ModelViewSet):
     filterset_class = serializers.timelineFilter
     serializer_class = serializers.timelineSerializer
     # permission_classes = [permissions.IsAuthenticated]
+
+class our_teamViewSet(viewsets.ModelViewSet):
+    """ViewSet for the our_team class"""
+
+    queryset = models.our_team.objects.all()
+    serializer_class = serializers.our_teamSerializer
+    # permission_classes = [permissions.IsAuthenticated]

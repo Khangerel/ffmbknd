@@ -54,3 +54,28 @@ class timelineUpdateView(generic.UpdateView):
 class timelineDeleteView(generic.DeleteView):
     model = models.timeline
     success_url = reverse_lazy("whoweare_timeline_list")
+
+class our_teamListView(generic.ListView):
+    model = models.our_team
+    form_class = forms.our_teamForm
+
+
+class our_teamCreateView(generic.CreateView):
+    model = models.our_team
+    form_class = forms.our_teamForm
+
+
+class our_teamDetailView(generic.DetailView):
+    model = models.our_team
+    form_class = forms.our_teamForm
+
+
+class our_teamUpdateView(generic.UpdateView):
+    model = models.our_team
+    form_class = forms.our_teamForm
+    pk_url_kwarg = "pk"
+
+
+class our_teamDeleteView(generic.DeleteView):
+    model = models.our_team
+    success_url = reverse_lazy("whoweare_our_team_list")

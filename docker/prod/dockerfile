@@ -10,6 +10,8 @@ ENV PYTHONUNBUFFERED 1
 COPY . /var/www/ffngo/
 WORKDIR /var/www/ffngo/
 
+# Copy requirements file
+COPY docker/prod/requirements.txt .
+
 # Install dependencies
-COPY /docker/prod/requirements.txt /var/www/ffngo/
 RUN pip install -r requirements.txt
