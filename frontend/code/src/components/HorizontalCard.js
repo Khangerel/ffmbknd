@@ -32,7 +32,7 @@ function HorizontalCard({ data, id }) {
                     </h3>
                     <p className='pt-2 text-gray d-none-sm'>{data.description}</p>
                     <div className="d-flex justify-content-end">
-                        <Link className="text-dark me-4 text-bold" to={`/news?id=${id}`}>Continue reading</Link>
+                        <Link className="text-dark me-4 text-bold" to={`/news/${id}`}>Continue reading</Link>
                     </div>
                 </div>
             </div>

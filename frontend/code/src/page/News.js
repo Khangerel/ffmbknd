@@ -44,20 +44,13 @@ function News() {
   const [card_list, setCardList] = useState([]);
   const [news_id, setNewsID] = useState(null);
   const [news_data, setNewsData] = useState({});
-  const [tags, setTags] = useState([])
-  const getData = useCallback(async () => {
+  const [tags, setTags] = useState([]);
+  
+  const getData = useCallback(() => {
     API.get(`post/?search=&page=${page_num}&lang_id=1`, {}).then((response) => {
       if (response.status === 200) {
-        if (news_id !== null) {
-          // response.data.results.map((news, index) => {
-          //   if (parseInt(news.id) === parseInt(news_id)) {
-          //     setNewsData(news);
-          //   }
-          // });
-        } else {
           setCardList(response.data.results);
           setPageNum(response.data.current_page);
-        }
       }
     })
     API.get(`category/?lang_id=1`, {}).then((response) => {
@@ -70,7 +63,7 @@ function News() {
     const urlParams = new URLSearchParams(window.location.search);
     setNewsID(urlParams.get('id'));
     getData();
-  }, [getData]);
+  }, []);
   const news_header_component = (
     <Container>
       <Image src={SwiperSlide1} fluid />
@@ -93,10 +86,7 @@ function News() {
   )
   return (
     <div>
-      {
-        news_id === null ? <NewsList card_list={card_list} category_list={category_list} /> : <NewsDetails news_data={news_data} news_id={news_id} />
-      }
-
+      <NewsList card_list={card_list} category_list={category_list} />
     </div>
   );
 }

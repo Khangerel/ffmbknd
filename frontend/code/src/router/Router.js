@@ -8,6 +8,7 @@ import ContactUs from "../page/ContactUs";
 import WhatWeDo from "../page/WhatWeDo";
 import News from "../page/News";
 import WhoWeAre from "../page/WhoWeAre";
+import NewsDetails from "../page/NewsDeatails";
 function Router(){
     return (
         <Routes>
@@ -24,8 +25,11 @@ function Router(){
           {/* <Route path="/programs" element={<Dashboard />} /> */}
           <Route path="/partners" element={<Partners />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:news_id" element={<NewsDetails />} />
+          
           <Route path="/get-involved" element={<GetInvolved/>} />
           <Route path="/contact-us" element={<ContactUs />} />
+
         </Route>
       </Routes>
     );

@@ -1,28 +1,31 @@
 
 import { Button, Col, Row, Image, Container, ListGroup, ListGroupItem, CloseButton } from "react-bootstrap";
 import SwiperSlide1 from "../assets/images/swiperslide1.png";
-import { useState, useEffect } from "react";
-
-function NewsDetails({ news_data, news_id}) {
+import { useState, useEffect, useCallback } from "react";
+import { API } from "../api/axios";
+import { useParams } from "react-router-dom";
+function NewsDetails() {
+  const [news_data, setNewsData] = useState({});
   const [tags, setTags] = useState([]);
   const [category_list, setCategoryList] = useState([]);
+  const news_id = useParams()['news_id'];
+  const getData = useCallback(() => {
+    API.get(`post/${news_id}`, {}).then((response) => {
+      if (response.status === 200) {
+        setNewsData(response.data);
+        setTags(response.data.tags);
+        setCategoryList(response.data.categories);
+      }
+    })
+  }, [news_data])
   useEffect(() => {
-    setTags(news_data.tags);
-    setCategoryList(news_data.categories);
-  },[news_data, news_id])
+    getData();
+  }, []);
   return (
     <Container>
-      <Image src={SwiperSlide1} fluid />
-      {/* <Image src={news_data.image_thumbnail} fluid/> */}
+      <Image src={news_data.image_thumbnail} fluid className="w-100" />
 
       <div className="pt-4">
-        {
-            tags.map((tag, tg_index) => (
-              <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" key={tg_index}>
-                {tag.name}
-              </Button>
-            ))
-          }
         <Row>
           <Col lg={8}>
             <div className="d-flex mb-5 mt-5">
