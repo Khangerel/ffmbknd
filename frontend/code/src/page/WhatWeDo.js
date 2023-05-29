@@ -24,7 +24,6 @@ function WhatWeDo() {
     // const [information_list] = [
     // ];
     const [information_list, setInformationList] = useState([]);
-
     const getBgLightColor = ((index) => {
         if (index === 0) {
             return 'bg-blue-light';
@@ -40,23 +39,21 @@ function WhatWeDo() {
         }
     })
     const getData = () => {
-        API.get('card/?lang_id=1', {}).then((response) => {
+        API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
             if (response.status === 200) {
                 setLightCardList(response.data);
             }
         });
-        API.get('project/?lang_id=1', {}).then((response) => {
+        API.get(`project/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
             if (response.status === 200) {
                 setInformationList(response.data);
             }
         })
     }
-    
 
     useEffect(() => {
-        // localStorage.get()
         getData();
-      }, [])
+    }, [])
     return (
         <div>
             <Container>
@@ -130,8 +127,8 @@ function WhatWeDo() {
             </Container>
             <div className="pt-5 mt-5 pb-5 mb-5 w-100">
                 {
-                    information_list.map((information,index)=>(
-                        <WhatWeDoNews data={information} index={index}/>
+                    information_list.map((information, index) => (
+                        <WhatWeDoNews data={information} index={index} />
                     ))
                 }
             </div>

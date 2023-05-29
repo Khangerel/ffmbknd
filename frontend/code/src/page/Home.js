@@ -32,12 +32,12 @@ function Home() {
   const [light_card_list, setLightCardList] = useState([]);
   const [recent_post_list, setRecentPostList] = useState([]);
   const getData = () => {
-    API.get('card/?lang_id=1', {}).then((response) => {
+    API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
       if (response.status === 200) {
         setLightCardList(response.data);
       }
     });
-    API.get('recent/posts?lang_id=1', {}).then((response) => {
+    API.get(`recent/posts?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
       setRecentPostList(response.data);
     })
   }

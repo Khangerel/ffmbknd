@@ -23,7 +23,7 @@ function ContactUs() {
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
     const getData = ()=>{
-        API.get('info/?lang_id=1', {}).then((response)=>{
+        API.get(`info/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response)=>{
           if (response.status === 200) {
             setTitle(response.data[0].title);
             setPhone(response.data[0].phone);

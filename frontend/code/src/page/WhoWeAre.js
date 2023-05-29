@@ -42,7 +42,6 @@ function WhoWeAre() {
         }
         
     }
-    const [lang_id, setLangID] = useState(1);
 
     const [main_data, setMainData] = useState({});
 
@@ -52,12 +51,12 @@ function WhoWeAre() {
                 setOurTeamList(response.data);
             }
         });
-        API.get(`main/?lang_id=${lang_id}`, {}).then((response)=>{
+        API.get(`main/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response)=>{
           if (response.status === 200 && response.data.length > 0) {
             setMainData(response.data[0]);
           }
         });
-        API.get(`timeline/?lang_id=${lang_id}`, {}).then((response)=>{
+        API.get(`timeline/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response)=>{
             if (response.status === 200 ) {
                 const list = []
                 response.data.map((el,index)=> {
@@ -68,7 +67,6 @@ function WhoWeAre() {
           });
       }
     useEffect(() => {
-        setLangID(localStorage.getItem('lang_id'));
         getData();
       }, [])
     const chrono_time_line_component = (
