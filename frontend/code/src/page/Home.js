@@ -6,7 +6,7 @@ import Partners from "./Partners";
 import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png"
 import { Link } from "react-router-dom";
 import HorizontalCard from "../components/HorizontalCard";
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import { API } from "../api/axios";
 import { useTranslation } from 'react-i18next';
 function Home() {
@@ -31,13 +31,13 @@ function Home() {
   const { t } = useTranslation();
   const [light_card_list, setLightCardList] = useState([]);
   const [recent_post_list, setRecentPostList] = useState([]);
-  const getData = ()=>{
-    API.get('card/?lang_id=1', {}).then((response)=>{
+  const getData = () => {
+    API.get('card/?lang_id=1', {}).then((response) => {
       if (response.status === 200) {
-        setLightCardList(response.data);  
+        setLightCardList(response.data);
       }
     });
-    API.get('recent/posts?lang_id=1', {}).then((response)=>{
+    API.get('recent/posts?lang_id=1', {}).then((response) => {
       setRecentPostList(response.data);
     })
   }
@@ -113,19 +113,22 @@ function Home() {
         </div>
       </div>
       <div className="ps-5 pe-5 w-100">
-        <Row className="min-vh-50 w-100">
-          <Col xl={4} lg={4} md={5} sm={12} className=" bg-primary d-flex justify-content-center align-items-center mb-5">
-            <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
-          </Col>
-          <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5">
-            <div className="ps-5 pe-5">
-              <h4>{t("landing.whoweare_title")}</h4>
-              <p className="pe-5 text-black">
-              {t("landing.whoweare_body")}
-              </p>
-            </div>
-          </Col>
-        </Row>
+        <Container>
+          <Row className="min-vh-50 w-100 m-0">
+            <Col xl={4} lg={4} md={5} sm={12} className=" bg-primary d-flex justify-content-center align-items-center mb-5">
+              <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+            </Col>
+            <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5">
+              <div className="ps-5 pe-5">
+                <h4>{t("landing.whoweare_title")}</h4>
+                <p className="pe-5 text-black">
+                  {t("landing.whoweare_body")}
+                </p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+
         {/* <div className="row w-100 min-vh-50">
           <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 bg-primary d-flex justify-content-center align-items-center p">
             <h1 className="text-white hero-title text-center">Who <br /> We Are</h1>
@@ -175,7 +178,10 @@ function Home() {
         </Container>
       </div>
       <div className="pt-5">
-        <Partners />
+        <Container>
+          <Partners />
+        </Container>
+
       </div>
       <div className="pt-5 pb-5">
         <Container>
@@ -203,8 +209,8 @@ function Home() {
             </Col>
             <Col xl={7} lg={7} sm={12} md={12}>
               {
-                recent_post_list.map((post, index)=>(
-                  <HorizontalCard data={post} id={post.id}/>
+                recent_post_list.map((post, index) => (
+                  <HorizontalCard data={post} id={post.id} />
 
                 ))
               }
