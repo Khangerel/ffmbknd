@@ -45,15 +45,14 @@ function News() {
   const [news_id, setNewsID] = useState(null);
   const [news_data, setNewsData] = useState({});
   const [tags, setTags] = useState([]);
-  
   const getData = useCallback(() => {
-    API.get(`post/?search=&page=${page_num}&lang_id=1`, {}).then((response) => {
+    API.get(`post/?search=&page=${page_num}&lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
       if (response.status === 200) {
           setCardList(response.data.results);
           setPageNum(response.data.current_page);
       }
     })
-    API.get(`category/?lang_id=1`, {}).then((response) => {
+    API.get(`category/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
       if (response.status === 200) {
         setCategoryList(response.data);
       }

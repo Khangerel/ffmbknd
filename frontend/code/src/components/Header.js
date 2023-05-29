@@ -20,7 +20,12 @@ function Header() {
   const getData = ()=>{
     API.get('language/', {}).then((response)=>{
       if (response.status === 200) {
-        setLangList(response.data);  
+        setLangList(response.data);
+        lang_list.map(el=>{
+          if(el.short_name === 'ENG'){
+            localStorage.setItem('lang_id', el.id)
+          }
+        })
       }
     })
   }
@@ -62,11 +67,12 @@ function Header() {
             <Nav className="ms-auto">
               {
                 lang_list.map((el, key)=> (
-                  <Nav.Link href="#" className="menu-normal me-2" key={key}
+                  <Nav.Link href="#" className="menu-normal me-2 active" key={key}
                     onClick={
                       () => {
                         localStorage.setItem('lang_id', el.id);
                         onChangeLang(el.short_name);
+                        window.location.reload();
                       }
                     }
                   >{el.short_name}</Nav.Link>
