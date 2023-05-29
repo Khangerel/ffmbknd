@@ -15,7 +15,7 @@ function NewsDetails() {
         setNewsData(response.data);
         setTags(response.data.tags);
         setCategoryList(response.data.categories);
-      } 
+      }
     })
   }, [news_data])
   useEffect(() => {
