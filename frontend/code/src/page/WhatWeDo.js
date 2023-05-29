@@ -24,6 +24,7 @@ function WhatWeDo() {
     // const [information_list] = [
     // ];
     const [information_list, setInformationList] = useState([]);
+    const [hw_we_do_list, setHwWeDoList] = useState([]);
     const getBgLightColor = ((index) => {
         if (index === 0) {
             return 'bg-blue-light';
@@ -47,6 +48,11 @@ function WhatWeDo() {
         API.get(`project/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
             if (response.status === 200) {
                 setInformationList(response.data);
+            }
+        })
+        API.get(`/howwedo/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
+            if (response.status === 200) {
+                setHwWeDoList(response.data);
             }
         })
     }
@@ -74,16 +80,18 @@ function WhatWeDo() {
                     <Row className="mt-5 pt-5 mb-5 pb-5">
                         {
                             light_card_list.map((card, index) => (
-                                <Col xl={3} lg={3} sm={12} md={6} className="pb-5">
+                                <Col xl={3} lg={3} sm={12} md={6} className="pb-5" style={{
+                                    display: 'inherit'
+                                }}>
                                     <Card className={`border-none position-relative rounded-15`} style={{
                                         backgroundColor: card.color,
-                                        boxShadow: `-1px -1px 20px 1px ${card.color}`
+                                        boxShadow: `-1px -1px 20px 1px ${card.color}`,
                                     }}>
                                         <Card.Body>
                                             <Card.Text className="text-white">
                                                 {card.description}
                                             </Card.Text>
-                                            <Card.Title className="text-white pt-5">
+                                            <Card.Title className="text-white pt-5 me-4">
                                                 {card.title}
                                             </Card.Title>
                                             <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
@@ -99,27 +107,26 @@ function WhatWeDo() {
                         </Col>
                         <Col xl={9} lg={9} sm={12} md={12}>
                             <div className="px-5">
-                                <div>
-                                    <div className="d-flex align-items-center">
-                                        <TrainingIcon />
-                                        <h3>Trainings</h3>
-                                    </div>
-                                    <p className="mx-4 pe-5 text-gray">We develop curricula tailored for different target groups and conduct both online and offline trainings.</p>
-                                </div>
-                                <div>
-                                    <div className="d-flex align-items-center">
-                                        <TrainingIcon />
-                                        <h3>Advocacy Projects</h3>
-                                    </div>
-                                    <p className="mx-4 pe-5 text-gray">To raise public awareness on digital literacy, we run social media campaigns.</p>
-                                </div>
-                                <div>
-                                    <div className="d-flex align-items-center">
-                                        <TrainingIcon />
-                                        <h3>Events</h3>
-                                    </div>
-                                    <p className="mx-4 pe-5 text-gray">We organize public events and discussions to improve collaboration between stakeholders and share the views of industry experts on specific issues.</p>
-                                </div>
+                                {
+                                    hw_we_do_list.map((el, index) => (
+                                        <div className="pt-3 pb-3">
+                                            <div className="d-flex align-items-center">
+                                                <div className="d-flex align-items-center p-3 rounded-circle" style={{
+                                                    backgroundColor: el.color,
+                                                    height: 55,
+                                                    width: 55,
+                                                    boxShadow: `-1px -1px 20px 1px ${el.color}`
+                                                }}>
+                                                    <Image src={el.icon} fluid/>
+                                                </div>
+
+                                                {/* <TrainingIcon /> */}
+                                                <h2 className="m-0 ms-3">{el.title}</h2>
+                                            </div>
+                                            <p className="mx-4 pe-5 mt-4 text-gray">{el.description}</p>
+                                        </div>
+                                    ))
+                                }
                             </div>
                         </Col>
                     </Row>

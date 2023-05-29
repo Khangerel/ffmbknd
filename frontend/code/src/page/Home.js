@@ -77,9 +77,9 @@ function Home() {
             </Row>
 
             <div className="d-flex  align-items-center pt-5">
-              <div className="pe-5">
+              {/* <div className="pe-5">
                 <Button className="bg-primary rounded-15 ps-4 pe-4">{t("landing.read_more")}</Button>
-              </div>
+              </div> */}
               <div className="pe-5">
                 <h1>
                   44000+
@@ -156,7 +156,9 @@ function Home() {
           <Row className="pt-5 pb-5 w-100">
             {
               light_card_list.map((card, index) => (
-                <Col xl={3} lg={3} sm={12} md={6} className="pb-3" key={index}>
+                <Col xl={3} lg={3} sm={12} md={6} className="pb-3" key={index} style={{
+                  display: 'inherit'
+                }}>
                   <Card className={`border-none position-relative rounded-15`} style={{
                     backgroundColor: card.color,
                     boxShadow: `-1px -1px 20px 1px ${card.color}`
