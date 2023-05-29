@@ -67,6 +67,7 @@ function Header() {
                       () => {
                         localStorage.setItem('lang_id', el.id);
                         onChangeLang(el.short_name);
+                        window.location.reload();
                       }
                     }
                   >{el.short_name}</Nav.Link>
