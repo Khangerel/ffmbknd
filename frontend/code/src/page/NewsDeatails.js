@@ -61,7 +61,7 @@ function NewsDetails() {
           </Col>
         </Row>
 
-      </div>
+      </div> 
 
     </Container>
   )
