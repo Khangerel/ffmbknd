@@ -21,3 +21,24 @@ class language(models.Model):
     def get_update_url(self):
         return reverse("languages_language_update", args=(self.pk,))
 
+class privacy_policy(models.Model):
+
+    # Relationships
+    lang_id = models.ForeignKey("languages.language", on_delete=models.CASCADE)
+
+    # Fields
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    body = models.TextField()
+
+    class Meta:
+        pass
+
+    def __str__(self):
+        return str(self.pk)
+
+    def get_absolute_url(self):
+        return reverse("languages_privacy_policy_detail", args=(self.pk,))
+
+    def get_update_url(self):
+        return reverse("languages_privacy_policy_update", args=(self.pk,))
