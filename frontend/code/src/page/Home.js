@@ -190,14 +190,12 @@ function Home() {
           <h1 className="title mb-3" >{t("landing.recent_news")}</h1>
           <Row className="w-100 pb-5">
             <Col xl={5} lg={5} sm={12} md={12} className="pe-4 mb-5">
-              <div className="p-4 min-vh-50 h-100 position-relative" style={{
-                background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${VerticalCardImage2})`,
+              <div className="p-4 min-vh-50 h-100 position-relative " style={{
+                background: `linear-gradient(rgba(11, 26, 49, 1), rgba(0,0,0,0)), url(${VerticalCardImage2})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',
               }}>
-                <Button bg="secondary" className="px-4">
-                  <b>MEDIA</b>
-                </Button>
+                <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" >MEDIA</Button>
                 <h3 className="pt-3 text-white">
                   Digital Literacy in Mongolia
                 </h3>
