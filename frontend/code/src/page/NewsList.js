@@ -107,7 +107,7 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                                     featured_card_list.map((el, index) => (
                                         <div className='mb-3' key={index}>
                                             <Image src={el.image_thumbnail} className="w-100"/>
-                                            <h3 className="mt-3">{el.title}</h3>
+                                            <h4 className="mt-3">{el.title}</h4>
                                             <p className="text-gray mt-3">{el.description}</p>
                                             <div className="d-flex justify-content-end">
                                                 <Link className="text-dark me-4 text-bold"  to={`/news/${el.id}`}>Continue reading</Link>

@@ -121,7 +121,7 @@ function Home() {
             <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5">
               <div className="ps-5 pe-5">
                 <h4>{t("landing.whoweare_title")}</h4>
-                <p className="pe-5 text-black">
+                <p className="pe-5 text-black text-align-justify">
                   {t("landing.whoweare_body")}
                 </p>
               </div>

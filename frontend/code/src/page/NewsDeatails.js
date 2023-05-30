@@ -2,6 +2,7 @@
 import { Button, Col, Row, Image, Container, ListGroup, ListGroupItem, CloseButton } from "react-bootstrap";
 import SwiperSlide1 from "../assets/images/swiperslide1.png";
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { API } from "../api/axios";
 import { useParams } from "react-router-dom";
 function NewsDetails() {
@@ -9,6 +10,8 @@ function NewsDetails() {
   const [tags, setTags] = useState([]);
   const [category_list, setCategoryList] = useState([]);
   const news_id = useParams()['news_id'];
+  const [featured_card_list, setRecentPostList] = useState([]);
+
   const getData = useCallback(() => {
     API.get(`post/${news_id}`, {}).then((response) => {
       if (response.status === 200) {
@@ -16,6 +19,9 @@ function NewsDetails() {
         setTags(response.data.tags);
         setCategoryList(response.data.categories);
       }
+    });
+    API.get(`recent/posts?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
+      setRecentPostList(response.data);
     })
   }, [news_data])
   useEffect(() => {
@@ -23,7 +29,14 @@ function NewsDetails() {
   }, []);
   return (
     <Container>
-      <Image src={news_data.image_thumbnail} fluid className="w-100" />
+      <div className="w-100 min-h-50vh" style={{
+        background: `url(${news_data.image_banner})`,
+        backgroundPosition: 'center', backgroundSize: 'cover',
+        backgroundAttachment: 'fixed'
+      }}>
+
+      </div>
+      {/* <Image src={news_data.image_banner} fluid className="w-100" /> */}
 
       <div className="pt-4">
         <Row>
@@ -57,11 +70,27 @@ function NewsDetails() {
                 }
               </ListGroup>
             </div>
-
+            <div className="mt-4 mb-4">
+              <h2>Featured news</h2>
+              <div className="mt-4">
+                {
+                  featured_card_list.map((el, index) => (
+                    <div className='mb-3' key={index}>
+                      <Image src={el.image_thumbnail} className="w-100" />
+                      <h4 className="mt-3">{el.title}</h4>
+                      <p className="text-gray mt-3">{el.description}</p>
+                      <div className="d-flex justify-content-end">
+                        <Link className="text-dark me-4 text-bold" to={`/news/${el.id}`}>Continue reading</Link>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
           </Col>
         </Row>
 
-      </div> 
+      </div>
 
     </Container>
   )

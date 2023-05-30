@@ -27,7 +27,7 @@ function WhoWeAre() {
         title = <h1 className="hero_title text-right text-primary" style={style}>{title}</h1>
         cardTitle = <h1 className="m-0 mb-3 text-right text-primary" style={style}>{cardTitle}</h1>
         cardSubtitle = <div style={style}>{cardSubtitle}</div>
-        cardDetailedText =  <div style={style}>{cardDetailedText}</div>
+        cardDetailedText =  <div className= "text-align-justify w-100" style={style}>{cardDetailedText}</div>
         if (image!=null){
             const media = {
                 name: "faro",
@@ -71,7 +71,10 @@ function WhoWeAre() {
       }, [])
     const chrono_time_line_component = (
         <Chrono items={timeline_list} mode="VERTICAL_ALTERNATING"
-                hideControls={true} slideItemDuration={4000} cardHeight={250} cardWidth={600}
+                hideControls={true} 
+                slideItemDuration={4000} 
+                cardHeight={250} 
+                cardWidth={600}
                 fontSizes={{
                     title: "1.1rem"
                 }} outline contentDetailsHeight={150}
