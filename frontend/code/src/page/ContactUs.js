@@ -17,19 +17,30 @@ import { API } from "../api/axios";
 function ContactUs() {
     const { t } = useTranslation();
     const [validated, setValidated] = useState(false);
-    const [title, setTitle] = useState("");
-    const [helper, setHelper] = useState("");
+    const [title_data, setTitleData] = useState("");
+    const [helper_data, setHelperData] = useState("");
+    const [phone_data, setPhoneData] = useState("");
+    const [email_data, setEmailData] = useState("");
+    const [address_data, setAddressData] = useState("");
+
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [mail, setMail] = useState("");
     const [phone, setPhone] = useState("");
-    const [email, setEmail] = useState("");
-    const [address, setAddress] = useState("");
+    const [message, setMessage] = useState("");
+    // const [lastname, setLastname] = useState("");
+    const [is_training, setIsTraining] = useState(false);
+    const [is_generail_inquiry, setIsGenerailInquiry] = useState(false);
+    const [is_partnership_opportunity, setIsPartnershipOpportunity] = useState(false);
+
     const getData = ()=>{
         API.get(`info/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response)=>{
           if (response.status === 200) {
-            setTitle(response.data[0].title);
-            setPhone(response.data[0].phone);
-            setEmail(response.data[0].email);
-            setAddress(response.data[0].address);
-            setHelper(response.data[0].helper);
+            setTitleData(response.data[0].title);
+            setPhoneData(response.data[0].phone);
+            setEmailData(response.data[0].email);
+            setAddressData(response.data[0].address);
+            setHelperData(response.data[0].helper);
           }
         })
       }
@@ -44,25 +55,25 @@ function ContactUs() {
                     <div style={{ background: `url(${frame_39942})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="h-100 rounded pb-5 min-vh-75">
                         <div className="p-5">
                             <h3 className="text-white">
-                                {title}
+                                {title_data}
                             </h3>
                             <p className="text-white">
-                                {helper}
+                                {helper_data}
                             </p>
                             <h4 className="text-white mt-3 mb-3 fw-normal" style={{ color: '#fff!important' }}>
                                 <Image src={ic_baseline_local_phone} className="me-4" />
-                                {phone}
+                                {phone_data}
                             </h4>
                             <h5 className="text-white mt-3 mb-3 fw-normal">
                                 <Image src={solar_letter_unread_bold} className="me-4" />
-                                {email}
+                                {email_data}
                             </h5>
                             <h5 className="text-white mt-3 mb-3 fw-normal">
                                 {/* <Row>
                                     <Col></Col>
                                 </Row> */}
                                 <Image src={material_symbols_location_on_rounded} className="me-4" />
-                                {address}
+                                {address_data}
                             </h5>
 
                         </div>
@@ -97,14 +108,14 @@ function ContactUs() {
                         <Row className="mb-3">
                             <Form.Group as={Col} md="6" controlId="validationCustom03">
                                 <Form.Label className="text-gray">Mail</Form.Label>
-                                <Form.Control type="text" placeholder="City" required className="border-none border-bottom"/>
+                                <Form.Control type="text" placeholder="Mail" required className="border-none border-bottom"/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid city.
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="6" controlId="validationCustom04">
                                 <Form.Label className="text-gray">Phone</Form.Label>
-                                <Form.Control type="text" placeholder="State" required className="border-none border-bottom"/>
+                                <Form.Control type="text" placeholder="Phone" required className="border-none border-bottom"/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid state.
                                 </Form.Control.Feedback>
@@ -112,27 +123,36 @@ function ContactUs() {
                         </Row>
                         <Form.Group className="mb-3 d-flex">
                             <Form.Check
-                                required
                                 label="General Inquiry"
                                 feedback="You must agree before submitting."
                                 feedbackType="invalid"
                                 type="radio"
                                 className="me-4"
+                                onClick={ e => {
+                                    setIsTraining(!is_training);
+                                }}
+                                checked={is_training === true}
                             />
                             <Form.Check
-                                required
                                 label="Partnership Opportunity"
                                 feedback="You must agree before submitting."
                                 feedbackType="invalid"
                                 type="radio"
+                                onClick={e=>{
+                                    setIsGenerailInquiry(!is_generail_inquiry)
+                                }}
+                                checked={is_generail_inquiry === true}
                                 className="me-4"
                             />
                             <Form.Check
-                                required
                                 label="Training"
                                 feedback="You must agree before submitting."
                                 feedbackType="invalid"
                                 type="radio"
+                                onClick={e=>{
+                                    setIsPartnershipOpportunity(!is_partnership_opportunity)
+                                }}
+                                checked={is_partnership_opportunity === true}
                                 className="me-4"
                             />
                         </Form.Group>
