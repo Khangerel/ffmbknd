@@ -9,6 +9,7 @@ class partner(models.Model):
     logo = models.ImageField(upload_to="upload/images/partners/")
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     created = models.DateTimeField(auto_now_add=True, editable=False)
+    sequence = models.IntegerField(null=True)
 
     class Meta:
         pass

@@ -67,6 +67,7 @@ class our_team(models.Model):
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     position = models.TextField(max_length=100)
     country = models.TextField(max_length=100)
+    sequence = models.IntegerField(null=True)
 
     class Meta:
         pass

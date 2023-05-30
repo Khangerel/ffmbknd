@@ -8,6 +8,7 @@ class partnerForm(forms.ModelForm):
         fields = [
             "name",
             "logo",
+            "sequence",
         ]
 
 

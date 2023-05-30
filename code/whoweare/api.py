@@ -26,6 +26,6 @@ class timelineViewSet(viewsets.ModelViewSet):
 class our_teamViewSet(viewsets.ModelViewSet):
     """ViewSet for the our_team class"""
 
-    queryset = models.our_team.objects.all()
+    queryset = models.our_team.objects.all().order_by("sequence")
     serializer_class = serializers.our_teamSerializer
     # permission_classes = [permissions.IsAuthenticated]

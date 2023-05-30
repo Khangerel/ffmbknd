@@ -10,6 +10,7 @@ class partnerSerializer(serializers.ModelSerializer):
         fields = [
             "name",
             "logo",
+            "sequence",
             "last_updated",
             "created",
         ]

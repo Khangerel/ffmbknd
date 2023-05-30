@@ -7,7 +7,7 @@ from . import models
 class partnerViewSet(viewsets.ModelViewSet):
     """ViewSet for the partner class"""
 
-    queryset = models.partner.objects.all()
+    queryset = models.partner.objects.order_by("sequence").all()
     serializer_class = serializers.partnerSerializer
     # permission_classes = [permissions.IsAuthenticated]
 

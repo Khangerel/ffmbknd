@@ -46,4 +46,5 @@ class our_teamForm(forms.ModelForm):
             "image",
             "position",
             "country",
+            "sequence",
         ]

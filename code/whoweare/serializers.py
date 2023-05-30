@@ -58,4 +58,5 @@ class our_teamSerializer(serializers.ModelSerializer):
             "last_updated",
             "position",
             "country",
+            "sequence",
         ]
