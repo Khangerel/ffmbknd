@@ -6,8 +6,13 @@ body,
 ::after{
   font-family: 'Okta Neue', sans-serif !important;
   color: rgba(16, 22, 54, 1);
+ 
 }
-
+body{
+  /* background: url('../src/assets/images/background_image1.png'); */
+  background-position: 'center';
+  background-size: '100%';
+}
 .header {
   text-align: center;
 }
