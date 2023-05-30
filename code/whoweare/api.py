@@ -17,7 +17,7 @@ class mainViewSet(viewsets.ModelViewSet):
 class timelineViewSet(viewsets.ModelViewSet):
     """ViewSet for the timeline class"""
 
-    queryset = models.timeline.objects.all()
+    queryset = models.timeline.objects.all().order_by("sequence")
     filter_backends = [DjangoFilterBackend]
     filterset_class = serializers.timelineFilter
     serializer_class = serializers.timelineSerializer
@@ -27,5 +27,7 @@ class our_teamViewSet(viewsets.ModelViewSet):
     """ViewSet for the our_team class"""
 
     queryset = models.our_team.objects.all().order_by("sequence")
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = serializers.ourteamFilter
     serializer_class = serializers.our_teamSerializer
     # permission_classes = [permissions.IsAuthenticated]

@@ -8,7 +8,7 @@
 const en = {
   menu: {
     who_we_are: `Who We Are`,
-    what_we_do: `What we do`,
+    what_we_do: `What We Do`,
     contact_us: `Contact Us`,
     news: `News`
   },

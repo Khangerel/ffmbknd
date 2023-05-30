@@ -43,6 +43,7 @@ class timeline(models.Model):
     year = models.IntegerField()
     description = models.TextField(max_length=300)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
+    sequence = models.IntegerField(null=True)
 
     REQUIRED_FIELDS = ['title', 'sub_title']
 
@@ -60,6 +61,7 @@ class timeline(models.Model):
 
 class our_team(models.Model):
 
+    lang_id = models.ForeignKey("languages.language", on_delete=models.CASCADE, null=True)
     # Fields
     created = models.DateTimeField(auto_now_add=True, editable=False)
     full_name = models.TextField(max_length=100)

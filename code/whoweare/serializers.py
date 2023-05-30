@@ -16,6 +16,13 @@ class mainFilter(filters.FilterSet):
         model = models.main
         fields = ['lang_id']
 
+class ourteamFilter(filters.FilterSet):
+    lang_id = filters.NumberFilter(field_name='lang_id')
+
+    class Meta:
+        model = models.our_team
+        fields = ['lang_id']
+
 class mainSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -45,6 +52,7 @@ class timelineSerializer(serializers.ModelSerializer):
             "description",
             "last_updated",
             "lang_id",
+            "sequence",
         ]
 
 class our_teamSerializer(serializers.ModelSerializer):
@@ -59,4 +67,5 @@ class our_teamSerializer(serializers.ModelSerializer):
             "position",
             "country",
             "sequence",
+            "lang_id",
         ]

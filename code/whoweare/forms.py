@@ -32,6 +32,7 @@ class timelineForm(forms.ModelForm):
             "year",
             "description",
             "lang_id",
+            "sequence",
         ]
 
     def __init__(self, *args, **kwargs):
