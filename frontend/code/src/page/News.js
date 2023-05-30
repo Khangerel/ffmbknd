@@ -45,6 +45,8 @@ function News() {
   const [news_id, setNewsID] = useState(null);
   const [news_data, setNewsData] = useState({});
   const [tags, setTags] = useState([]);
+  const [featured_news_list, setFeaturedNewsList] = useState([]);
+
   const getData = useCallback(() => {
     API.get(`post/?search=&page=${page_num}&lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
       if (response.status === 200) {
@@ -55,6 +57,11 @@ function News() {
     API.get(`category/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
       if (response.status === 200) {
         setCategoryList(response.data);
+      }
+    })
+    API.get(`featured/posts?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
+      if (response.status === 200) {
+        setFeaturedNewsList(response.data);
       }
     })
   }, [news_id, page_num])
@@ -85,7 +92,7 @@ function News() {
   )
   return (
     <div>
-      <NewsList card_list={card_list} category_list={category_list} />
+      <NewsList card_list={card_list} category_list={category_list} featured_card_list={featured_news_list}/>
     </div>
   );
 }
