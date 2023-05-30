@@ -67,7 +67,7 @@ function Header() {
             <Nav className="ms-auto">
               {
                 lang_list.map((el, key)=> (
-                  <Nav.Link href="#" className="menu-normal me-2 active" key={key}
+                  <Nav.Link href="#" className={`menu-normal me-2 active ${el.id === parseInt(localStorage.getItem('lang_id')) ? 'text-primary': ''}`} key={key}
                     onClick={
                       () => {
                         localStorage.setItem('lang_id', el.id);
