@@ -46,7 +46,7 @@ function WhoWeAre() {
     const [main_data, setMainData] = useState({});
 
     const getData = ()=>{
-        API.get(`our_team/`, {}).then((response)=>{
+        API.get(`our_team/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response)=>{
             if (response.status === 200){
                 setOurTeamList(response.data);
             }

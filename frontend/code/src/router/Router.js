@@ -9,6 +9,7 @@ import WhatWeDo from "../page/WhatWeDo";
 import News from "../page/News";
 import WhoWeAre from "../page/WhoWeAre";
 import NewsDetails from "../page/NewsDeatails";
+import PrivacyPolicy from "../page/PrivacyPolicy";
 function Router(){
     return (
         <Routes>
@@ -29,6 +30,7 @@ function Router(){
           
           <Route path="/get-involved" element={<GetInvolved/>} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
         </Route>
       </Routes>

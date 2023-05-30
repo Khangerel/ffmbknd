@@ -5,7 +5,7 @@ import { FaAngleDown } from "react-icons/fa";
 function WhatWeDoNews({ data, index }) {
     const image_col = (
         <Col xl={6} lg={6} sm={12} md={12} className="position-relative">
-            <Image src={data.image} fluid className="position-absolute d-none-sm d-none-small-none d-none-md-none" style={{ top: '-300px' }} />
+            <Image src={data.image} fluid className="position-absolute d-none-sm d-none-small-none d-none-md-none" style={{ top: '-220px' }} />
         </Col>
     )
     const [button_state, setButtonState] = useState(false);
