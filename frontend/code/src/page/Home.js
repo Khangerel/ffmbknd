@@ -103,7 +103,7 @@ function Home() {
           width: '45%',
           /* bottom: 51px; */
           zIndex: '-1',
-          top: '50%',
+          top: '52%',
           /* left: 50%; */
           transform: 'translate(120%, -60%)'
         }} className="d-none-sm
@@ -152,6 +152,7 @@ function Home() {
         <Container className="pt-5 pb-5 mt-5">
           <div className="d-flex bd-highlight pb-5">
             <h1>{t("menu.what_we_do")}</h1>
+            <p className="text-gray ms-auto" dangerouslySetInnerHTML={{ __html: 'We are team of 20+ who are passionate about <br/>  making thw world a better place'}}></p>
           </div>
           <Row className="pt-5 pb-5 w-100">
             {
