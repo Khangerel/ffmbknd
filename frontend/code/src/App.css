@@ -162,7 +162,7 @@ p,a{
 }
 
 .text-primary{
-  color: #558AED;
+  color: #558AED!important;
 }
 .text-pink{
   color: rgba(227, 89, 132, 1)!important;
