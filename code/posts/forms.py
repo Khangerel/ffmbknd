@@ -35,7 +35,6 @@ class postForm(forms.ModelForm):
             "lang_id",
             "tags",
             "description",
-            "publish_date",
         ]
 
     def __init__(self, *args, **kwargs):

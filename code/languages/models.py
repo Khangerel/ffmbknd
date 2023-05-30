@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from ckeditor.fields import RichTextField
 
 class language(models.Model):
 
@@ -29,7 +29,7 @@ class privacy_policy(models.Model):
     # Fields
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    body = models.TextField()
+    body = RichTextField()
 
     class Meta:
         pass

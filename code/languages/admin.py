@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-
+from ckeditor.widgets import CKEditorWidget
 from . import models
 
 
@@ -30,6 +30,9 @@ class privacy_policyAdminForm(forms.ModelForm):
 
 
 class privacy_policyAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.privacy_policy.body: {'widget': CKEditorWidget}
+    }
     form = privacy_policyAdminForm
     list_display = [
         "created",
