@@ -22,7 +22,8 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - '../:/var/www/ffngo'
-      - /var/www/ffngo/media
+      - /home/ubuntu/ffmbknd/code/media:/var/www/ffngo/media
+      - /home/ubuntu/ffmbknd/static:/var/www/ffngo/static
     ports:
       - 8000:8000
     links:
