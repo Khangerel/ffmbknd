@@ -113,7 +113,7 @@ function Home() {
         </div>
       </div>
       <div className="ps-5 pe-5 w-100">
-        <Container>
+        <Container className="w-100">
           <Row className="min-vh-50 w-100 m-0">
             <Col xl={4} lg={4} md={5} sm={12} className=" bg-primary d-flex justify-content-center align-items-center mb-5">
               <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>

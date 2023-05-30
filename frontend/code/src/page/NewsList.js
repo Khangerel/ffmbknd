@@ -8,8 +8,8 @@ import { API } from "../api/axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png"
 
-function NewsList({card_list, category_list}) {
-    SwiperCore.use([Autoplay]); 
+function NewsList({ card_list, category_list, featured_card_list }) {
+    SwiperCore.use([Autoplay]);
     const slide_data = [
         {
             name: "Digital Literacy in Mongolia",
@@ -30,7 +30,7 @@ function NewsList({card_list, category_list}) {
             link: ""
         },
     ]
-    
+
     return (
         <div>
             <Swiper
@@ -103,13 +103,19 @@ function NewsList({card_list, category_list}) {
                         <div className="mt-4 mb-4">
                             <h2>Featured news</h2>
                             <div className="mt-4">
-                                <Image src={VerticalCardImage2} className="w-100" />
-                                <h3 className="mt-3">Digital Literacy in Mongolia</h3>
-                                <p className="text-gray mt-3">(FFM) is a non-governmental organization that has focused
-                                    on promoting adequate non-governmental organization </p>
-                                <div className="d-flex justify-content-end">
-                                    <Link className="text-dark me-4 text-bold">Continue reading</Link>
-                                </div>
+                                {
+                                    featured_card_list.map((el, index) => (
+                                        <div className='mb-3' key={index}>
+                                            <Image src={el.image_thumbnail} className="w-100"/>
+                                            <h3 className="mt-3">{el.title}</h3>
+                                            <p className="text-gray mt-3">{el.description}</p>
+                                            <div className="d-flex justify-content-end">
+                                                <Link className="text-dark me-4 text-bold"  to={`/news/${el.id}`}>Continue reading</Link>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+
                             </div>
                         </div>
                     </Col>
