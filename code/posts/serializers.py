@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django_filters import rest_framework as filters
 from . import models
+from datetime import datetime
 import locale
 
 class categoryFilter(filters.FilterSet):
@@ -67,9 +68,10 @@ class postSerializer(serializers.ModelSerializer):
         publish_date = representation.get("publish_date")
 
         if lang_id and publish_date:
-            if lang_id == 1:
+            publish_date = datetime.strptime(publish_date, "%Y-%m-%d %H:%M:%S.%f%z")
+            if lang_id.id == 1:
                 publish_date_formatted = publish_date.strftime("%d %B %Y") 
-            elif lang_id == 2:
+            elif lang_id.id == 2:
                 publish_date_formatted = publish_date.strftime("%m сарын %d %Y") 
             else:
                 publish_date_formatted = publish_date.strftime("%Y-%m-%d") 
