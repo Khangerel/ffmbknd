@@ -62,21 +62,21 @@ class postSerializer(serializers.ModelSerializer):
             "id",
             "publish_date",
         ]
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        lang_id = representation.get("lang_id")
-        publish_date = representation.get("publish_date")
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     lang_id = representation.get("lang_id")
+    #     publish_date = representation.get("publish_date")
 
-        if lang_id and publish_date:
-            publish_date = datetime.strptime(publish_date, "%Y-%m-%d %H:%M:%S.%f%z")
-            if lang_id.id == 1:
-                publish_date_formatted = publish_date.strftime("%d %B %Y") 
-            elif lang_id.id == 2:
-                publish_date_formatted = publish_date.strftime("%m сарын %d %Y") 
-            else:
-                publish_date_formatted = publish_date.strftime("%Y-%m-%d") 
-            representation["publish_date_formatted"] = publish_date_formatted
+    #     if lang_id and publish_date:
+    #         publish_date = datetime.strptime(publish_date, "%Y-%m-%d %H:%M:%S.%f%z")
+    #         if lang_id.id == 1:
+    #             publish_date_formatted = publish_date.strftime("%d %B %Y") 
+    #         elif lang_id.id == 2:
+    #             publish_date_formatted = publish_date.strftime("%m сарын %d %Y") 
+    #         else:
+    #             publish_date_formatted = publish_date.strftime("%Y-%m-%d") 
+    #         representation["publish_date_formatted"] = publish_date_formatted
 
-        return representation
+    #     return representation
 
 
