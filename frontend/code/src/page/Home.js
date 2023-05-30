@@ -152,7 +152,7 @@ function Home() {
         <Container className="pt-5 pb-5 mt-5">
           <div className="d-flex bd-highlight pb-5">
             <h1>{t("menu.what_we_do")}</h1>
-            <p className="text-gray ms-auto" dangerouslySetInnerHTML={{ __html: 'We are team of 20+ who are passionate about <br/>  making thw world a better place'}}></p>
+            <p className="text-gray ms-auto" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description")}}></p>
           </div>
           <Row className="pt-5 pb-5 w-100">
             {

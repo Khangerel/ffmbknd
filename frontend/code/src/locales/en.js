@@ -26,7 +26,7 @@ const en = {
       Our work includes but is not limited to, promoting online safety, digital literacy, child
       protection programs, proper use of social media, public awareness regarding cyber
       bullying and such. `,
-    whatwedo_description: `We are passionate about making the digital world a better place.`,
+    whatwedo_description: `We are passionate about making the digital <br/> world a better place.`,
     partner_title: `Our Main Partners`,
     partner_description: `We believe in meaningful partnership to build a better digital future.`,
     recent_news: `Recent news`,
