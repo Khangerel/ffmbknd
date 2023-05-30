@@ -22,7 +22,7 @@ function WhatWeDoNews({ data, index }) {
                     {index%2==1? image_col: ''}
                     <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
                         <div>
-                            <p>
+                            <p className="text-align-justify">
                                 {data.description}
                             </p>
                             <Collapse in={button_state}>

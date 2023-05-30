@@ -173,6 +173,9 @@ p,a{
 .text-blue{
   color: #477DE2;
 }
+.text-align-justify{
+  text-align: justify!important;
+}
 #faroTimeLine .timeline-card-content{
   filter: none!important;
 }
@@ -195,7 +198,9 @@ p,a{
 #faroTimeLine .vertical-item-row:nth-child(even) img{
   object-position: right;
 }
-
+#faroTimeLine  .card-description{
+  width: 100%;
+}
 .MediaDetailsWrapper-SBrYU{
   margin-right: 0!important;
   width: 100%!important;
