@@ -187,31 +187,39 @@ function Home() {
       </div>
       <div className="pt-5 pb-5">
         <Container>
-          <h1 className="title mb-3" >{t("landing.recent_news")}</h1>
+          <h1 className="title mb-5 pb-5" >{t("landing.recent_news")}</h1>
           <Row className="w-100 pb-5">
-            <Col xl={5} lg={5} sm={12} md={12} className="pe-4 mb-5">
-              <div className="p-4 min-vh-50 h-100 position-relative " style={{
-                background: `linear-gradient(rgba(11, 26, 49, 1), rgba(0,0,0,0)), url(${VerticalCardImage2})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center center',
-              }}>
-                <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" >MEDIA</Button>
-                <h3 className="pt-3 text-white">
-                  Digital Literacy in Mongolia
-                </h3>
-                <p className="pt-3 text-white">
-                  (FFM) is a non-governmental organization that has focused on promoting adequate non-governmental organization
-                </p>
-                <div className="position-absolute" style={{ bottom: 20, right: 20 }}>
-                  <Link className="text-white me-4 text-bold">{t("landing.continue_reading")}</Link>
-                </div>
-              </div>
-            </Col>
+            {
+              recent_post_list.length > 0 ?
+                <Col xl={5} lg={5} sm={12} md={12} className="pe-4 mb-5">
+                  <div className="p-4 min-vh-50 h-100 position-relative " style={{
+                    background: `linear-gradient(rgba(11, 26, 49, 1), rgba(0,0,0,0)), url(${recent_post_list[0].image_thumbnail})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center center',
+                  }}>
+                    {
+                      recent_post_list[0].tags.map((el, index) => (
+                        <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" key={index} >{el.name}</Button>
+                      ))
+                    }
+
+                    <h3 className="pt-3 text-white">
+                      {recent_post_list[0].title}
+                    </h3>
+                    <p className="pt-3 text-white">
+                      {recent_post_list[0].description}
+                    </p>
+                    <div className="position-absolute" style={{ bottom: 20, right: 20 }}>
+                      <Link className="text-white me-4 text-bold" to={`/news/${recent_post_list[0].id}`}>{t("landing.continue_reading")}</Link>
+                    </div>
+                  </div>
+                </Col> : ''
+            }
+
             <Col xl={7} lg={7} sm={12} md={12}>
               {
                 recent_post_list.map((post, index) => (
-                  <HorizontalCard data={post} id={post.id} />
-
+                  index !== 0 ? <HorizontalCard data={post} id={post.id} /> : ''
                 ))
               }
             </Col>

@@ -33,20 +33,20 @@ function ContactUs() {
     const [is_generail_inquiry, setIsGenerailInquiry] = useState(false);
     const [is_partnership_opportunity, setIsPartnershipOpportunity] = useState(false);
 
-    const getData = ()=>{
-        API.get(`info/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response)=>{
-          if (response.status === 200) {
-            setTitleData(response.data[0].title);
-            setPhoneData(response.data[0].phone);
-            setEmailData(response.data[0].email);
-            setAddressData(response.data[0].address);
-            setHelperData(response.data[0].helper);
-          }
+    const getData = () => {
+        API.get(`info/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
+            if (response.status === 200) {
+                setTitleData(response.data[0].title);
+                setPhoneData(response.data[0].phone);
+                setEmailData(response.data[0].email);
+                setAddressData(response.data[0].address);
+                setHelperData(response.data[0].helper);
+            }
         })
-      }
-      useEffect(() => {
+    }
+    useEffect(() => {
         getData();
-      }, [])
+    }, [])
     return (
         <Container>
             {/* <h1 className="title text-center pt-5">{t("menu.contact_us")}</h1> */}
@@ -90,6 +90,10 @@ function ContactUs() {
                                     type="text"
                                     placeholder="First name"
                                     className="border-none border-bottom"
+                                    onChange={e => {
+                                        setFirstname(e.target.value)
+                                    }}
+                                    value={firstname}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -100,22 +104,31 @@ function ContactUs() {
                                     type="text"
                                     placeholder="Last name"
                                     className="border-none border-bottom"
+                                    value={lastname}
+                                    onChange={e => {
+                                        setLastname(e.target.value);
+                                    }}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
-                            
+
                         </Row>
                         <Row className="mb-3">
                             <Form.Group as={Col} md="6" controlId="validationCustom03">
                                 <Form.Label className="text-gray">Mail</Form.Label>
-                                <Form.Control type="text" placeholder="Mail" required className="border-none border-bottom"/>
+                                <Form.Control type="text" placeholder="Mail"
+                                    onChange={e => { setMail(e.target.value) }} required className="border-none border-bottom"
+                                    value={mail}
+                                />
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid city.
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="6" controlId="validationCustom04">
                                 <Form.Label className="text-gray">Phone</Form.Label>
-                                <Form.Control type="text" placeholder="Phone" required className="border-none border-bottom"/>
+                                <Form.Control type="text" placeholder="Phone"
+                                    onChange={e => { setPhone(e.target.value) }} required
+                                    value={phone} className="border-none border-bottom" />
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid state.
                                 </Form.Control.Feedback>
@@ -128,7 +141,7 @@ function ContactUs() {
                                 feedbackType="invalid"
                                 type="radio"
                                 className="me-4"
-                                onClick={ e => {
+                                onClick={e => {
                                     setIsTraining(!is_training);
                                 }}
                                 checked={is_training === true}
@@ -138,7 +151,7 @@ function ContactUs() {
                                 feedback="You must agree before submitting."
                                 feedbackType="invalid"
                                 type="radio"
-                                onClick={e=>{
+                                onClick={e => {
                                     setIsGenerailInquiry(!is_generail_inquiry)
                                 }}
                                 checked={is_generail_inquiry === true}
@@ -149,22 +162,33 @@ function ContactUs() {
                                 feedback="You must agree before submitting."
                                 feedbackType="invalid"
                                 type="radio"
-                                onClick={e=>{
+                                onClick={e => {
                                     setIsPartnershipOpportunity(!is_partnership_opportunity)
                                 }}
                                 checked={is_partnership_opportunity === true}
                                 className="me-4"
                             />
                         </Form.Group>
-                        <Form.Group  controlId="validationCustom04" className="mb-4">
-                                <Form.Label className="text-gray">Message</Form.Label>
-                                <Form.Control type="text" placeholder="State" required className="border-none border-bottom"/>
-                                <Form.Control.Feedback type="invalid">
-                                    Please provide a valid state.
-                                </Form.Control.Feedback>
+                        <Form.Group controlId="validationCustom04" className="mb-4">
+                            <Form.Label className="text-gray">Message</Form.Label>
+                            <Form.Control type="text" placeholder="State"
+                                value={message} onChange={e => {
+                                    setMessage(e.target.value);
+                                }} required className="border-none border-bottom" />
+                            <Form.Control.Feedback type="invalid">
+                                Please provide a valid state.
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <div className="d-flex  justify-content-end">
-                            <Button type="submit" className="px-4 rounded-pill">{t("send_message")}</Button>
+                            <Button className="px-4 rounded-pill" onClick={() => {
+                                console.log("=============================================================");
+                                console.log(firstname);
+                                console.log(lastname);
+                                console.log(mail);
+                                console.log(phone);
+                                console.log(message);
+                                console.log("=============================================================");
+                            }}>{t("send_message")}</Button>
                         </div>
                     </Form>
                 </Col>
