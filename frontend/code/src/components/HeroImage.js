@@ -33,15 +33,15 @@ export default function HeroImage({ image_list }) {
                 <ellipse rx="23.850146" ry="22.926914" transform="matrix(1.484724 0 0 1.544525 58 59)" fill="none" stroke="rgb(64, 138, 235)" strokeWidth="7" className="index1" />
                 <ellipse rx="17.073825" ry="18.124522" transform="matrix(1.581686 0 0 1.518991 58 59)" opacity="1" fill="rgb(64, 138, 235)" strokeWidth="0" className="index0" />
             </svg>
-            <div className='position-absolute' id="FaroHeroSile" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-                <Carousel fade={false} id="FaroHeroSile" activeIndex={index} onSelect={handleSelect}>
-                    <Carousel.Item className={index === 0 ? 'active fade-transition' : 'fade-transition'}>
+            <div className='position-absolute' style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '85%', }}>
+                <Carousel id="FaroHeroSile" fade>
+                    <Carousel.Item >
                         <img className="d-block w-100" src={image1} alt="First slide" />
                     </Carousel.Item>
-                    <Carousel.Item className={index === 1 ? 'active fade-transition' : 'fade-transition'}>
+                    <Carousel.Item >
                         <img className="d-block w-100" src={image2} alt="Second slide" />
                     </Carousel.Item>
-                    <Carousel.Item className={index === 2 ? 'active fade-transition' : 'fade-transition'}>
+                    <Carousel.Item >
                         <img className="d-block w-100" src={image3} alt="Third slide" />
                     </Carousel.Item>
                 </Carousel>

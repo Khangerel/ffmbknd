@@ -206,6 +206,17 @@ p,a{
 #FaroHeroSile .carousel-control-prev{
   display: none;
 }
+
+
+#FaroHeroSile .carousel-item{
+  opacity:  0!important;
+  transition: 1s all ease;
+}
+#FaroHeroSile  .active{
+  opacity:  1!important;
+  transition: 1s all ease;
+
+}
 #FaroHeroSile .carousel-control-next{
   display: none;
 }

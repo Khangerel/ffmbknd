@@ -52,13 +52,10 @@ export default function Footer() {
             <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">Contact us</ListGroup.Item></Link>
           </ListGroup>
         </div>
-        <Container className="d-flex">
+        <Container className="d-flex mt-3 mb-3">
           <span>@2022 Faro Foundation NGO</span>
           <div className="d-flex ms-auto">
-            <div className="pe-3">Community Standarts</div>
             <div className="pe-3">Privacy Policy</div>
-            <div className="pe-3">Terms</div>
-            <div className="pe-3">Cookie Policy</div>
           </div>
 
         </Container>

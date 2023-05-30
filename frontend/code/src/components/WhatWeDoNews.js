@@ -35,7 +35,7 @@ function WhatWeDoNews({ data, index }) {
                                     </p>
                                     <h3 className="mt-5"> Impact </h3>
                                     <div className="mt-5 d-flex" style={{ flexFlow: 'column', width: 'fit-content' }}>
-                                        <h1 className="w-100 text-center" style={{color: data.color}}>{data.impact}</h1>
+                                        <h1 className="w-100 text-center" style={{color: data.color}}>{data.impact}+</h1>
                                         <h4 className="fw-medium w-100 text-center" style={{color: data.color}}>{data.impact_name}</h4>
                                     </div>
                                 </div>
