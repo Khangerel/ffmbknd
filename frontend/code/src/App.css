@@ -209,11 +209,12 @@ p,a{
 #FaroHeroSile .carousel-control-next{
   display: none;
 }
-
-
-
-
-
+.text-decoration-none {
+  text-decoration: none;
+}
+.font-size-none{
+  font-size: none;
+}
 @media (max-width: 575.98px) {
   .hero-title{
     font-size: 35px!important;    
@@ -263,4 +264,15 @@ p,a{
 
 @media (min-width: 1200px) {
   /* CSS styles for extra large screens */
+}
+
+#contactUs .form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: rgba(0,0,0,0);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13,110,253,.0);
+}
+#contactUs div:has(.form-control:focus) > .form-label{
+  color: rgba(16, 22, 54, 1)!important;
 }

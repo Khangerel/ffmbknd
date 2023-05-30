@@ -39,7 +39,7 @@ function ContactUs() {
     return (
         <Container>
             {/* <h1 className="title text-center pt-5">{t("menu.contact_us")}</h1> */}
-            <Row className="m-5 ">
+            <Row className="m-5" id="contactUs">
                 <Col xs="12" lg="5" className="p-0">
                     <div style={{ background: `url(${frame_39942})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="h-100 rounded pb-5 min-vh-75">
                         <div className="p-5">
@@ -73,23 +73,21 @@ function ContactUs() {
                     <Form noValidate validated={validated}>
                         <Row className="mb-3">
                             <Form.Group as={Col} md="6" controlId="validationCustom01" >
-                                <Form.Label>First name</Form.Label>
+                                <Form.Label className="text-gray">First name</Form.Label>
                                 <Form.Control
                                     required
                                     type="text"
                                     placeholder="First name"
-                                    defaultValue="Mark"
                                     className="border-none border-bottom"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="6" controlId="validationCustom02">
-                                <Form.Label>Last name</Form.Label>
+                                <Form.Label className="text-gray">Last name</Form.Label>
                                 <Form.Control
                                     required
                                     type="text"
                                     placeholder="Last name"
-                                    defaultValue="Otto"
                                     className="border-none border-bottom"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -98,14 +96,14 @@ function ContactUs() {
                         </Row>
                         <Row className="mb-3">
                             <Form.Group as={Col} md="6" controlId="validationCustom03">
-                                <Form.Label>Mail</Form.Label>
+                                <Form.Label className="text-gray">Mail</Form.Label>
                                 <Form.Control type="text" placeholder="City" required className="border-none border-bottom"/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid city.
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="6" controlId="validationCustom04">
-                                <Form.Label>Phone</Form.Label>
+                                <Form.Label className="text-gray">Phone</Form.Label>
                                 <Form.Control type="text" placeholder="State" required className="border-none border-bottom"/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid state.
@@ -139,7 +137,7 @@ function ContactUs() {
                             />
                         </Form.Group>
                         <Form.Group  controlId="validationCustom04" className="mb-4">
-                                <Form.Label>Message</Form.Label>
+                                <Form.Label className="text-gray">Message</Form.Label>
                                 <Form.Control type="text" placeholder="State" required className="border-none border-bottom"/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid state.
