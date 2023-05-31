@@ -24,7 +24,7 @@ function WhoWeAre() {
         }else{
             style = {}
         }
-        title = <h1 className="hero_title text-right text-primary" style={style}>{title}</h1>
+        title = <h2 className="text-right text-primary" style={style}>{title}</h2>
         cardTitle = <h1 className="m-0 mb-3 text-right text-primary" style={style}>{cardTitle}</h1>
         cardSubtitle = <div style={style}>{cardSubtitle}</div>
         cardDetailedText =  <div className= "text-align-justify w-100" style={style}>{cardDetailedText}</div>
