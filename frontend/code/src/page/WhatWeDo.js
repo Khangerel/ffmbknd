@@ -83,7 +83,7 @@ function WhatWeDo() {
                                 <Col xl={3} lg={3} sm={12} md={6} className="pb-5" style={{
                                     display: 'inherit'
                                 }}>
-                                    <Card className={`border-none position-relative rounded-15`} style={{
+                                    <Card className={`border-none position-relative rounded-15 w-100`} style={{
                                         backgroundColor: card.color,
                                         boxShadow: `-1px -1px 20px 1px ${card.color}`,
                                     }}>

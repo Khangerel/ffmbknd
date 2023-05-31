@@ -153,10 +153,10 @@ function WhoWeAre() {
         </div>
         <Container className="min-vh-75 d-flex align-items-center justify-content-center">
             <h1 className="text-center px-5 mx-5 with-light-quote position-relative fw-normal">
-                <div style={{position: 'absolute', top: -50, left: -25}}><QuoteOpen style={{position: 'absolute', top: 0, left: 0}}/></div>
+                <div style={{position: 'absolute', top: -50, left: -25}} className="d-none-sm d-none-small-none"><QuoteOpen style={{position: 'absolute', top: 0, left: 0}}/></div>
                 
                             {main_data.our_vision}
-                <div style={{position: 'absolute', bottom: -50, right: -25}}><QuoteClose style={{position: 'absolute', bottom: 0, right: 0}}/></div>
+                <div style={{position: 'absolute', bottom: -50, right: -25}} className="d-none-sm d-none-small-none"><QuoteClose style={{position: 'absolute', bottom: 0, right: 0}}/></div>
                 
             </h1>
         </Container>
