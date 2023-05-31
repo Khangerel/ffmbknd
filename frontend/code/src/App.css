@@ -219,6 +219,12 @@ p,a{
 #faroTimeLine .timeline-item-title{
   padding: 0!important;
 }
+#faroTimeLine .TimelineVerticalWrapper-diysvf{
+  padding: 0!important;
+}
+#faroTimeLine .timeline-main-wrapper{
+  padding: 0!important;
+}
 
 #FaroHeroSile .carousel-item{
   opacity:  0!important;
