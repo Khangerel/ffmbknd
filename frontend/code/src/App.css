@@ -216,7 +216,9 @@ p,a{
 #FaroHeroSile .carousel-control-prev{
   display: none;
 }
-
+#faroTimeLine .timeline-item-title{
+  padding: 0!important;
+}
 
 #FaroHeroSile .carousel-item{
   opacity:  0!important;

@@ -35,31 +35,31 @@ export default function Footer() {
           </div>
           <div className="d-flex pt-5 pb-5">
             <ListGroup className="border-none pe-5 bg-none">
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none">Who We Are</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">About FFM</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">Our impact</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">History timeline</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">Where we work</ListGroup.Item></Link>
+              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span">Who We Are</ListGroup.Item></Link>
+              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">About FFM</ListGroup.Item></Link>
+              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Our impact</ListGroup.Item></Link>
+              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">History timeline</ListGroup.Item></Link>
+              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Where we work</ListGroup.Item></Link>
             </ListGroup>
             <ListGroup className="border-none pe-5 bg-none">
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none">What We Do</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">Projects</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">Programs</ListGroup.Item></Link>
+              <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span">What We Do</ListGroup.Item></Link>
+              <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Projects</ListGroup.Item></Link>
+              <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Programs</ListGroup.Item></Link>
             </ListGroup>
             <ListGroup className="border-none pe-5 bg-none">
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none">Partners</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">Get involved</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">News</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none">Contact us</ListGroup.Item></Link>
+              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span">Partners</ListGroup.Item></Link>
+              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Get involved</ListGroup.Item></Link>
+              <Link to={'/news'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">News</ListGroup.Item></Link>
+              <Link to={'/contact-us'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Contact us</ListGroup.Item></Link>
             </ListGroup>
           </div>
 
         </Container>
         <Container className="d-flex pt-3 pb-3">
-          <span>@2022 Faro Foundation NGO</span>
+          <span className="d-flex align-items-center">@2022 Faro Foundation NGO</span>
           <div className="d-flex ms-auto">
-            <Link className="text-decoration-none text-dark" to={'/privacy-policy'}>
-              Privacy Policy
+            <Link className="text-decoration-none text-dark text-span" to={'/privacy-policy'}>
+              <span>Privacy Policy</span>
             </Link>
           </div>
 

@@ -59,7 +59,7 @@ function Partners() {
   return (
     <div>
       <div className="ps-5 pe-5 m-5">
-        <h1 className="title text-center mb-3">{t("landing.partner_title")}</h1>
+        <h1 className="title text-center m-0 mb-3">{t("landing.partner_title")}</h1>
         <p className="text-gray text-center mb-5">{t("landing.partner_description")}</p>
         <Row className="bg-white d-flex align-items-center justify-content-center w-100">
           {our_main_data.map((partner) => (

@@ -154,13 +154,13 @@ function Home() {
             <h1>{t("menu.what_we_do")}</h1>
             <p className="text-gray ms-auto" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description")}}></p>
           </div>
-          <Row className="pt-5 pb-5 w-100">
+          <Row className="pt-5 pb-5 w-100 m-0">
             {
               light_card_list.map((card, index) => (
-                <Col xl={3} lg={3} sm={12} md={6} className="pb-3" key={index} style={{
+                <Col xl={3} lg={3} sm={12} md={6} className="pb-3 w-100" key={index} style={{
                   display: 'inherit'
                 }}>
-                  <Card className={`border-none position-relative rounded-15`} style={{
+                  <Card className={`border-none position-relative rounded-15 w-100`} style={{
                     backgroundColor: card.color,
                     boxShadow: `-1px -1px 20px 1px ${card.color}`
                   }}>

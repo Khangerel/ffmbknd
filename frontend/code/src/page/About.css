@@ -21,3 +21,6 @@
     line-height: 30px;
     font-weight: normal;
 }
+.text-span{
+    font-size: var(--bs-body-font-size);
+}

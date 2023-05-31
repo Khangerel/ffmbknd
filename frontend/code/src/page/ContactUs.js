@@ -181,19 +181,31 @@ function ContactUs() {
                         </Form.Group>
                         <div className="d-flex  justify-content-end">
                             <Button className="px-4 rounded-pill" onClick={() => {
-                                console.log("=============================================================");
-                                console.log(firstname);
-                                console.log(lastname);
-                                console.log(mail);
-                                console.log(phone);
-                                console.log(message);
-                                console.log("=============================================================");
+                                API.post('contact/create/attendee', {
+                                    message: message,
+                                    first_name: firstname,
+                                    last_name: lastname,
+                                    email: mail,
+                                    phone: phone,
+                                    is_training: is_training,
+                                    is_generail_inquiry: is_generail_inquiry,
+                                    is_partnership_opportunity: is_partnership_opportunity 
+                                }).then((response) => {
+                                    setFirstname("");
+                                    setLastname("");
+                                    setMail("");
+                                    setPhone("");
+                                    setMessage("");
+                                    setIsTraining(false);
+                                    setIsGenerailInquiry(false);
+                                    setIsPartnershipOpportunity(false);
+                                })
                             }}>{t("send_message")}</Button>
-                        </div>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
+                    </div>
+                </Form>
+            </Col>
+        </Row>
+        </Container >
     );
 }
 export default ContactUs;
