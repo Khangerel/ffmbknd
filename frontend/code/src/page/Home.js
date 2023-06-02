@@ -9,28 +9,14 @@ import HorizontalCard from "../components/HorizontalCard";
 import { useState, useEffect } from "react";
 import { API } from "../api/axios";
 import { useTranslation } from 'react-i18next';
+import LoadingPage from "./LoadingPage";
 function Home() {
-  // const light_card_list = [
-  //   {
-  //     description: "We have share our journey and some story",
-  //     name: "Digital Literacy"
-  //   },
-  //   {
-  //     description: "We have share our journey and some story",
-  //     name: "Digital Literacy"
-  //   },
-  //   {
-  //     description: "We have share our journey and some story",
-  //     name: "Digital Literacy"
-  //   },
-  //   {
-  //     description: "We have share our journey and some story",
-  //     name: "Digital Literacy"
-  //   },
-  // ];
+
   const { t } = useTranslation();
   const [light_card_list, setLightCardList] = useState([]);
   const [recent_post_list, setRecentPostList] = useState([]);
+  const [is_loading, setIsLoading ] = useState(true);
+
   const getData = () => {
     API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
       if (response.status === 200) {
@@ -42,6 +28,10 @@ function Home() {
     })
   }
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
     getData();
   }, [])
   const getBgLightColor = ((index) => {
@@ -60,6 +50,7 @@ function Home() {
   })
   return (
     <div>
+      <LoadingPage/>
       <div className="position-relative">
 
         <Container className="min-vh-100 d-flex align-items-center">
@@ -157,7 +148,7 @@ function Home() {
           <Row className="pt-5 pb-5 w-100 m-0">
             {
               light_card_list.map((card, index) => (
-                <Col xl={3} lg={3} sm={12} md={6} className="pb-3 w-100" key={index} style={{
+                <Col xl={3} lg={3} sm={12} md={6} className="pb-3 " key={index} style={{
                   display: 'inherit'
                 }}>
                   <Card className={`border-none position-relative rounded-15 w-100`} style={{
