@@ -6,7 +6,7 @@ import Partners from "./Partners";
 import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png"
 import { Link } from "react-router-dom";
 import HorizontalCard from "../components/HorizontalCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { API } from "../api/axios";
 import { useTranslation } from 'react-i18next';
 import LoadingPage from "./LoadingPage";
@@ -17,21 +17,18 @@ function Home() {
   const [recent_post_list, setRecentPostList] = useState([]);
   const [is_loading, setIsLoading ] = useState(true);
 
-  const getData = () => {
-    API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-      if (response.status === 200) {
-        setLightCardList(response.data);
-      }
-    });
-    API.get(`recent/posts?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-      setRecentPostList(response.data);
-    })
-  }
+  const getData = useCallback( async() => {
+    const card_list_data = await API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`);
+     if (card_list_data.status === 200) {
+      setLightCardList(card_list_data.data);
+    }
+    const recent_post_list_data = await API.get(`recent/posts?lang_id=${localStorage.getItem('lang_id')}`);
+    if(recent_post_list_data.status === 200){
+      setRecentPostList(recent_post_list_data.data);
+    }
+    setIsLoading(false)
+  }, [])
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
     getData();
   }, [])
   const getBgLightColor = ((index) => {
@@ -50,7 +47,10 @@ function Home() {
   })
   return (
     <div>
-      <LoadingPage/>
+      {
+        is_loading ?  <LoadingPage/> : ''
+      }
+      
       <div className="position-relative">
 
         <Container className="min-vh-100 d-flex align-items-center">

@@ -16,6 +16,7 @@ import { API } from "../api/axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import NewsList from "./NewsList";
 import NewsDetails from "./NewsDeatails";
+import LoadingPage from "./LoadingPage";
 
 function News() {
   SwiperCore.use([Autoplay]);
@@ -46,24 +47,24 @@ function News() {
   const [news_data, setNewsData] = useState({});
   const [tags, setTags] = useState([]);
   const [featured_news_list, setFeaturedNewsList] = useState([]);
+  const [is_loading, setIsLoading] = useState(true);
+  const getData = useCallback(async () => {
 
-  const getData = useCallback(() => {
-    API.get(`post/?search=&page=${page_num}&lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-      if (response.status === 200) {
-          setCardList(response.data.results);
-          setPageNum(response.data.current_page);
-      }
-    })
-    API.get(`category/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-      if (response.status === 200) {
-        setCategoryList(response.data);
-      }
-    })
-    API.get(`featured/posts?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-      if (response.status === 200) {
-        setFeaturedNewsList(response.data);
-      }
-    })
+    const post_list_response = await API.get(`post/?search=&page=${page_num}&lang_id=${localStorage.getItem('lang_id')}`);
+    if (post_list_response.status === 200) {
+      setCardList(post_list_response.data.results);
+      setPageNum(post_list_response.data.current_page);
+    }
+
+    const category_list_response = await API.get(`category/?lang_id=${localStorage.getItem('lang_id')}`);
+    if (category_list_response.status === 200) {
+      setCategoryList(category_list_response.data);
+    }
+    const featured_posts_response = await API.get(`featured/posts?lang_id=${localStorage.getItem('lang_id')}`);
+    if (featured_posts_response.status === 200) {
+      setFeaturedNewsList(featured_posts_response.data);
+    }
+    setIsLoading(false);
   }, [news_id, page_num])
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -92,7 +93,10 @@ function News() {
   )
   return (
     <div>
-      <NewsList card_list={card_list} category_list={category_list} featured_card_list={featured_news_list}/>
+      {
+        is_loading ? <LoadingPage/> : ''
+      }
+      <NewsList card_list={card_list} category_list={category_list} featured_card_list={featured_news_list} />
     </div>
   );
 }

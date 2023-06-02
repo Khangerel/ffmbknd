@@ -5,30 +5,35 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { API } from "../api/axios";
 import { useParams } from "react-router-dom";
+import LoadingPage from "./LoadingPage";
 function NewsDetails() {
   const [news_data, setNewsData] = useState({});
   const [tags, setTags] = useState([]);
   const [category_list, setCategoryList] = useState([]);
   const news_id = useParams()['news_id'];
   const [featured_card_list, setRecentPostList] = useState([]);
-
-  const getData = useCallback(() => {
-    API.get(`post/${news_id}`, {}).then((response) => {
-      if (response.status === 200) {
-        setNewsData(response.data);
-        setTags(response.data.tags);
-        setCategoryList(response.data.categories);
-      }
-    });
-    API.get(`recent/posts?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-      setRecentPostList(response.data);
-    })
+  const [is_loading, setIsLoading] = useState(true);
+  const getData = useCallback(async() => {
+    const post_response = await API.get(`post/${news_id}`, {});
+    if (post_response.status === 200) {
+      setNewsData(post_response.data);
+      setTags(post_response.data.tags);
+      setCategoryList(post_response.data.categories);
+    }
+    const recent_news_response  =  await API.get(`recent/posts?lang_id=${localStorage.getItem('lang_id')}`);
+    if(recent_news_response.status === 200) {
+      setRecentPostList(recent_news_response.data);
+    }
+    setIsLoading(false);
   }, [news_data])
   useEffect(() => {
     getData();
   }, []);
   return (
     <Container>
+      {
+        is_loading ? <LoadingPage/> : ''
+      }
       <div className="w-100 min-h-50vh" style={{
         background: `url(${news_data.image_banner})`,
         backgroundPosition: 'center', backgroundSize: 'cover',
