@@ -50,7 +50,7 @@ function Home() {
   })
   return (
     <div>
-      {/* <LoadingPage/> */}
+      <LoadingPage/>
       <div className="position-relative">
 
         <Container className="min-vh-100 d-flex align-items-center">
