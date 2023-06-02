@@ -13,10 +13,11 @@ import frame_39950 from "../assets/images/frame_39950.png";
 import image77534141 from "../assets/images/image77534141.png";
 import education_20_1_icon from "../assets/images/education_20_1_icon.png";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { API } from "../api/axios";
 import { FaAngleDown } from "react-icons/fa";
 import WhatWeDoNews from "../components/WhatWeDoNews";
+import LoadingPage from "./LoadingPage";
 
 function WhatWeDo() {
     const { t } = useTranslation();
@@ -25,6 +26,7 @@ function WhatWeDo() {
     // ];
     const [information_list, setInformationList] = useState([]);
     const [hw_we_do_list, setHwWeDoList] = useState([]);
+    const [is_loading, setIsLoading] = useState(true);
     const getBgLightColor = ((index) => {
         if (index === 0) {
             return 'bg-blue-light';
@@ -39,29 +41,30 @@ function WhatWeDo() {
             return 'bg-yellow-light';
         }
     })
-    const getData = () => {
-        API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-            if (response.status === 200) {
-                setLightCardList(response.data);
-            }
-        });
-        API.get(`project/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-            if (response.status === 200) {
-                setInformationList(response.data);
-            }
-        })
-        API.get(`/howwedo/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-            if (response.status === 200) {
-                setHwWeDoList(response.data);
-            }
-        })
-    }
+    const getData = useCallback(async () => {
+        const card_list_response = await API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`);
+        if (card_list_response.status === 200) {
+            setLightCardList(card_list_response.data);
+        }
+        const information_list_response = await API.get(`project/?lang_id=${localStorage.getItem('lang_id')}`);
+        if (information_list_response.status === 200) {
+            setInformationList(information_list_response.data);
+        }
+        const hwWeDoResponse = await API.get(`/howwedo/?lang_id=${localStorage.getItem('lang_id')}`);
+        if (hwWeDoResponse.status === 200) {
+            setHwWeDoList(hwWeDoResponse.data);
+        }
+        setIsLoading(false);
+    }, [])
 
     useEffect(() => {
         getData();
     }, [])
     return (
         <div>
+            {
+                is_loading ? <LoadingPage/> : ''
+            }
             <Container>
                 <div className="min-h-100vh">
                     <Row className="pt-5 mt-5 m-0 mb-5 pb-5">
@@ -117,7 +120,7 @@ function WhatWeDo() {
                                                     width: 55,
                                                     boxShadow: `-1px -1px 20px 1px ${el.color}`
                                                 }}>
-                                                    <Image src={el.icon} fluid/>
+                                                    <Image src={el.icon} fluid />
                                                 </div>
 
                                                 {/* <TrainingIcon /> */}

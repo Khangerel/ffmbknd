@@ -8,6 +8,7 @@ import { API } from "../api/axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png";
 import { useTranslation } from 'react-i18next';
+import FeaturedNewsCard from '../components/FeaturedNewsCard';
 
 function NewsList({ card_list, category_list, featured_card_list }) {
     const { t } = useTranslation();
@@ -97,14 +98,20 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                             <div className="mt-4">
                                 {
                                     featured_card_list.map((el, index) => (
-                                        <div className='mb-3' key={index}>
-                                            <Image src={el.image_thumbnail} className="w-100"/>
-                                            <h4 className="mt-3">{el.title}</h4>
-                                            <p className="text-gray mt-3">{el.description}</p>
-                                            <div className="d-flex justify-content-end">
-                                                <Link className="text-dark me-4 text-bold"  to={`/news/${el.id}`}>Continue reading</Link>
-                                            </div>
-                                        </div>
+                                        <FeaturedNewsCard id={el.id} 
+                                            description={el.description} 
+                                            image_thumbnail={el.image_thumbnail} 
+                                            title={el.title}
+                                            key={index}
+                                        />
+                                        // <div className='mb-3' key={index}>
+                                        //     <Image src={el.image_thumbnail} className="w-100"/>
+                                        //     <h4 className="mt-3">{el.title}</h4>
+                                        //     <p className="text-gray mt-3">{el.description}</p>
+                                        //     <div className="d-flex justify-content-end">
+                                        //         <Link className="text-dark me-4 text-bold"  to={`/news/${el.id}`}>Continue reading</Link>
+                                        //     </div>
+                                        // </div>
                                     ))
                                 }
 

@@ -11,8 +11,9 @@ import frame_39942 from "../assets/images/frame_39942.png";
 import ic_baseline_local_phone from "../assets/images/ic_baseline_local_phone.svg";
 import solar_letter_unread_bold from "../assets/images/solar_letter_unread_bold.svg";
 import material_symbols_location_on_rounded from "../assets/images/material_symbols_location_on_rounded.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { API } from "../api/axios";
+import LoadingPage from "./LoadingPage";
 
 function ContactUs() {
     const { t } = useTranslation();
@@ -32,23 +33,27 @@ function ContactUs() {
     const [is_training, setIsTraining] = useState(false);
     const [is_generail_inquiry, setIsGenerailInquiry] = useState(false);
     const [is_partnership_opportunity, setIsPartnershipOpportunity] = useState(false);
+    const [is_loading, setIsLoading] = useState(true);
+    const getData = useCallback(async () => {
+        const info_response = await API.get(`info/?lang_id=${localStorage.getItem('lang_id')}`);
 
-    const getData = () => {
-        API.get(`info/?lang_id=${localStorage.getItem('lang_id')}`, {}).then((response) => {
-            if (response.status === 200) {
-                setTitleData(response.data[0].title);
-                setPhoneData(response.data[0].phone);
-                setEmailData(response.data[0].email);
-                setAddressData(response.data[0].address);
-                setHelperData(response.data[0].helper);
-            }
-        })
-    }
+        if (info_response.status === 200){
+            setTitleData(info_response.data[0].title);
+            setPhoneData(info_response.data[0].phone);
+            setEmailData(info_response.data[0].email);
+            setAddressData(info_response.data[0].address);
+            setHelperData(info_response.data[0].helper);
+        }
+        setIsLoading(false);
+    }, [])
     useEffect(() => {
         getData();
     }, [])
     return (
         <Container>
+            {
+                is_loading ? <LoadingPage/> : ''
+            }
             {/* <h1 className="title text-center pt-5">{t("menu.contact_us")}</h1> */}
             <Row className="m-5" id="contactUs">
                 <Col xs="12" lg="5" className="p-0">
@@ -189,7 +194,7 @@ function ContactUs() {
                                     phone: phone,
                                     is_training: is_training,
                                     is_generail_inquiry: is_generail_inquiry,
-                                    is_partnership_opportunity: is_partnership_opportunity 
+                                    is_partnership_opportunity: is_partnership_opportunity
                                 }).then((response) => {
                                     setFirstname("");
                                     setLastname("");
@@ -201,10 +206,10 @@ function ContactUs() {
                                     setIsPartnershipOpportunity(false);
                                 })
                             }}>{t("send_message")}</Button>
-                    </div>
-                </Form>
-            </Col>
-        </Row>
+                        </div>
+                    </Form>
+                </Col>
+            </Row>
         </Container >
     );
 }
