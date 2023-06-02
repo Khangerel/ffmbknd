@@ -13,3 +13,5 @@ WORKDIR /var/www/ffngo/
 # Install dependencies
 COPY /docker/dev/requirements.txt /var/www/ffngo/
 RUN pip install -r requirements.txt
+# Collect static files
+RUN python code/manage.py collectstatic --no-input

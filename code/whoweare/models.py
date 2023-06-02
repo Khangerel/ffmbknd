@@ -70,6 +70,7 @@ class our_team(models.Model):
     position = models.TextField(max_length=100)
     country = models.TextField(max_length=100)
     sequence = models.IntegerField(null=True)
+    is_advisory_board = models.BooleanField(default=False)
 
     class Meta:
         pass

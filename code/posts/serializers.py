@@ -44,6 +44,7 @@ class tagsSerializer(serializers.ModelSerializer):
 class postSerializer(serializers.ModelSerializer):
     tags = tagsSerializer(many=True, read_only=True)
     categories = categorySerializer(many=True, read_only=True)
+    publish_date_formatted = serializers.SerializerMethodField()
     
     class Meta:
         model = models.post
@@ -61,7 +62,10 @@ class postSerializer(serializers.ModelSerializer):
             "description",
             "id",
             "publish_date",
+            "publish_date_formatted",
         ]
+    def get_publish_date_formatted(self, obj):
+        return obj.publish_date.strftime("%d %B %Y")
     # def to_representation(self, instance):
     #     representation = super().to_representation(instance)
     #     lang_id = representation.get("lang_id")

@@ -68,4 +68,5 @@ class our_teamSerializer(serializers.ModelSerializer):
             "country",
             "sequence",
             "lang_id",
+            "is_advisory_board",
         ]

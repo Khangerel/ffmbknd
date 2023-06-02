@@ -48,4 +48,5 @@ class our_teamForm(forms.ModelForm):
             "position",
             "country",
             "sequence",
+            "is_advisory_board"
         ]
