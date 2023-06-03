@@ -88,23 +88,12 @@ function WhoWeAre() {
             is_loading ? <LoadingPage /> : ''
         }
         <Container>
-            <Row className="pt-5 mt-5 m-0">
-                <Col xl={6} lg={6} sm={12} md={6}>
-                    <h1>
-                        {t("ourteam.title")}
-                    </h1>
-                </Col>
-                <Col xl={6} lg={6} sm={12} md={6}>
-                    <p className="text-gray">
-                        {t("ourteam.body")}
-                    </p>
-                </Col>
-            </Row>
-            <div>
-                <Row className="w-100 pt-5 mt-5">
-                    {
-                        out_team_list.map((el, key) => (
-                            <Col xl={3} lg={3} sm={12} md={6}>
+            <h1 className="title">Advisory Board</h1>
+            <Row>
+                {
+                    out_team_list.map((el, key) => (
+                        el.is_advisory_board === true ?
+                            <Col xl={3} lg={3} sm={6} md={6} xs={6}>
                                 <div className="px-1 pb-5">
                                     <div className="d-flex justify-content-center">
                                         <div className="rounded-circle bg-gradient-primary p-1">
@@ -120,7 +109,46 @@ function WhoWeAre() {
                                         <p className="text-gray text-center">{el.position} - {el.country}</p>
                                     </div>
                                 </div>
-                            </Col>
+                            </Col> : ''
+                    ))
+                }
+            </Row>
+
+            <h1 className="title">{t("ourteam.title")}</h1>
+            {/* <Row className="pt-5 mt-5 m-0">
+                <Col xl={6} lg={6} sm={12} md={6}>
+                    <h1>
+                        {t("ourteam.title")}
+                    </h1>
+                </Col>
+                <Col xl={6} lg={6} sm={12} md={6}>
+                    <p className="text-gray">
+                        {t("ourteam.body")}
+                    </p>
+                </Col>
+            </Row> */}
+            <div>
+                <Row className="w-100 pt-5 mt-5">
+                    {
+                        out_team_list.map((el, key) => (
+                            el.is_advisory_board === false ?
+                                <Col xl={3} lg={3} sm={6} md={6} xs={6}>
+                                    <div className="px-1 pb-5">
+                                        <div className="d-flex justify-content-center">
+                                            <div className="rounded-circle bg-gradient-primary p-1">
+                                                <Image src={el.image} width={125} className="rounded-circle"
+                                                    style={{ border: '3px solid #fff' }}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 className="text-center pt-3">
+                                                {el.full_name}
+                                            </h5>
+                                            <p className="text-gray text-center">{el.position} - {el.country}</p>
+                                        </div>
+                                    </div>
+                                </Col> : ''
                         ))
                     }
                 </Row>
