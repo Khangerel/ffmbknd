@@ -395,10 +395,3 @@ a {
   }
 }
 
-.faro-partners-marquee .marquee {
-  justify-content: space-between !important;
-}
-
-.faro-partners-marquee .initial-child-container {
-  justify-content: space-between !important;
-}
