@@ -20,6 +20,7 @@
     "react-bootstrap": "^2.7.0",
     "react-chrono": "^2.2.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.0",
     "react-i18next": "^12.1.1",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.5.0",

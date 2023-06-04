@@ -183,10 +183,7 @@ function Home() {
         </Container>
       </div>
       <div className="pt-5">
-        <Container>
           <Partners />
-        </Container>
-
       </div>
       <div className="pt-5 pb-5">
         <Container>
