@@ -14,14 +14,18 @@ function WhatWeDoNews({ data, index }) {
         <div>
             <div className="position-relative" style={{ background: `url(${data.image_banner})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <Container className="pt-5 pb-5 ">
-                    <h1 className="text-white pt-5 pb-5">{data.title}</h1>
+                    <h1 className="text-white pt-5 pb-5 d-none-sm d-none-small-none d-none-md-none">{data.title}</h1>
                 </Container>
             </div>
             <Container>
                 <Row className="pt-5 mt-5 pb-5 mb-5 w-100">
                     {index%2==1? image_col: ''}
                     <Col xl={6} lg={6} sm={12} md={12} className="d-flex align-items-center">
-                        <div>
+                        <div>   
+                            <Image src={data.image} fluid className=" d-block d-xl-none d-lg-none" style={{marginTop: '-10rem', zIndex: 1, position: 'relative'}}/>
+                            <h1 className="text-center pt-3 pb-3 d-block d-xl-none d-lg-none ">
+                                {data.title}
+                            </h1>
                             <p className="text-align-justify">
                                 {data.description}
                             </p>

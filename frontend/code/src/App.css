@@ -272,7 +272,22 @@ p,a{
     display: none;
   }
   .d-block-sm{
-    display: block;
+    display: block!important;
+  }
+  .bg-hero-sm{
+    background: url('../src/assets/images/heroimage-_sm.png');
+    color: #fff!important;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .bg-hero-sm h1{
+    color: #fff!important;
+    text-align: center;
+  }
+  .bg-hero-sm p{
+    color: #fff!important;
+    text-align: center;
   }
 }
 

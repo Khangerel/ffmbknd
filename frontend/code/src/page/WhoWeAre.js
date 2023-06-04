@@ -157,10 +157,18 @@ function WhoWeAre() {
         <div className="pt-5 mt-5">
             <Row className="w-100 min-vh-50">
                 <Col xl={4} lg={4} md={12} sm={12} className="bg-primary d-flex justify-content-center align-items-center pb-3 mb-5">
-                    <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+                    <div>
+                        <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+                        <div className="d-block d-xl-none d-lg-none">
+                            <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
+                            <p className="text-white text-align-justify px-4">
+                                {t("landing.whoweare_body")}
+                            </p>
+                        </div>
+                    </div>
                 </Col>
                 <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
-                    <div className="px-5 mx-5">
+                    <div className="px-5 mx-5  d-none-sm d-none-small-none d-none-md-none">
                         <h1 className="px-5 mx-5 pb-5">{t("landing.whoweare_title")}</h1>
                         <p className="px-5 text-black mx-5">
                             {main_data.whoweare}

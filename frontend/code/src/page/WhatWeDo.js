@@ -67,7 +67,7 @@ function WhatWeDo() {
             }
             <Container>
                 <div className="min-h-100vh">
-                    <Row className="pt-5 mt-5 m-0 mb-5 pb-5">
+                    <Row className="pt-5 m-0 pb-5">
                         <Col xl={6} lg={6} sm={12} md={6}>
                             <h1>
                                 {t("menu.what_we_do")}
@@ -80,10 +80,10 @@ function WhatWeDo() {
                         </Col>
                     </Row>
                     {/* <h1 className="title text-center pt-5 mt-5 pb-5">{t("menu.what_we_do")}</h1> */}
-                    <Row className="mt-5 pt-5 mb-5 pb-5">
+                    <Row className=" pt-5 mb-5 pb-5">
                         {
                             light_card_list.map((card, index) => (
-                                <Col xl={3} lg={3} sm={12} md={6} className="pb-5" style={{
+                                <Col xl={3} lg={3} sm={12} md={6} className="pb-3" style={{
                                     display: 'inherit'
                                 }}>
                                     <Card className={`border-none position-relative rounded-15 w-100`} style={{
