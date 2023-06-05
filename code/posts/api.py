@@ -78,6 +78,10 @@ def recent_posts(request):
     lang_id = request.GET.get('lang_id')
     recent_posts = models.post.objects.filter(lang_id=lang_id).order_by('-publish_date')[:3]
     serializer = serializers.postSerializer(recent_posts, many=True)
+    data = serializer.data
+    for post in data:
+        post['image_thumbnail'] = "https://farofoundation.org" + str(post['image_thumbnail'])
+        post['image_banner'] = "https://farofoundation.org" + str(post['image_banner'])
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -85,4 +89,8 @@ def featured_posts(request):
     lang_id = request.GET.get('lang_id')
     featured_posts = models.post.objects.filter(is_featured=True, lang_id=lang_id)[:2]
     serializer = serializers.postSerializer(featured_posts, many=True)
-    return Response(serializer.data)
+    data = serializer.data
+    for post in data:
+        post['image_thumbnail'] = "https://farofoundation.org" + str(post['image_thumbnail'])
+        post['image_banner'] = "https://farofoundation.org" + str(post['image_banner'])
+    return Response(data)
