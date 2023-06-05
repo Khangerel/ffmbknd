@@ -76,6 +76,7 @@ function NewsList({ card_list, category_list, featured_card_list }) {
             </Swiper>
             <Container>
                 <h1 className='text-center title d-block d-xl-none d-lg-none'>{t('menu.news')}</h1>
+                <div className='pt-5 d-block d-none-sm d-none-small-none d-none-md-none'></div>
                 <Row>
                     <Col lg={8} >
                         {
