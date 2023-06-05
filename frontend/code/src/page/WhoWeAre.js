@@ -161,7 +161,7 @@ function WhoWeAre() {
                         <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
                         <div className="d-block d-xl-none d-lg-none">
                             <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
-                            <p className="text-white text-align-justify px-4">
+                            <p className="text-white text-align-justify px-4 text-align-justify">
                                 {t("landing.whoweare_body")}
                             </p>
                         </div>
@@ -170,7 +170,7 @@ function WhoWeAre() {
                 <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
                     <div className="px-5 mx-5  d-none-sm d-none-small-none d-none-md-none">
                         <h1 className="px-5 mx-5 pb-5">{t("landing.whoweare_title")}</h1>
-                        <p className="px-5 text-black mx-5">
+                        <p className="px-5 text-black mx-5 text-align-justify">
                             {main_data.whoweare}
                         </p>
                     </div>
@@ -192,10 +192,10 @@ function WhoWeAre() {
         </div>
         <Container className="min-vh-75 d-flex align-items-center justify-content-center">
             <h1 className="text-center px-5 mx-5 with-light-quote position-relative fw-normal">
-                <div style={{ position: 'absolute', top: -50, left: -25 }} className="d-none-sm d-none-small-none"><QuoteOpen style={{ position: 'absolute', top: 0, left: 0 }} /></div>
+                <div style={{ position: 'absolute', top: -50, left: -25 }} className=""><QuoteOpen style={{ position: 'absolute', top: 0, left: 0 }} /></div>
 
                 {main_data.our_vision}
-                <div style={{ position: 'absolute', bottom: -50, right: -25 }} className="d-none-sm d-none-small-none"><QuoteClose style={{ position: 'absolute', bottom: 0, right: 0 }} /></div>
+                <div style={{ position: 'absolute', bottom: -50, right: -25 }} className=""><QuoteClose style={{ position: 'absolute', bottom: 0, right: 0 }} /></div>
 
             </h1>
         </Container>

@@ -343,10 +343,19 @@ a {
     color: #fff !important;
     text-align: center;
   }
+  .text-center-sm {
+    text-align: center!important;
+  }
+  .m-element-center-sm{
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-
+  .text-center-sm {
+    text-align: center;
+  }
   /* CSS styles for small screens */
   .d-none-small-none {
     display: none;
@@ -395,3 +404,9 @@ a {
   }
 }
 
+.fw-normal{
+  font-weight: 700!important;
+}
+.text-right{
+  text-align: right;
+}

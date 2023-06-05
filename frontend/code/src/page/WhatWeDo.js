@@ -63,13 +63,16 @@ function WhatWeDo() {
     return (
         <div>
             {
-                is_loading ? <LoadingPage/> : ''
+                is_loading ? <LoadingPage /> : ''
             }
             <Container>
                 <div className="min-h-100vh">
                     <Row className="pt-5 m-0 pb-5">
                         <Col xl={6} lg={6} sm={12} md={6}>
-                            <h1>
+                            <h1 className="d-none-sm d-none-small-none d-none-md-none">
+                                {t("menu.what_we_do")}
+                            </h1>
+                            <h1 className="text-center d-block d-xl-none d-lg-none">
                                 {t("menu.what_we_do")}
                             </h1>
                         </Col>
@@ -80,10 +83,10 @@ function WhatWeDo() {
                         </Col>
                     </Row>
                     {/* <h1 className="title text-center pt-5 mt-5 pb-5">{t("menu.what_we_do")}</h1> */}
-                    <Row className=" pt-5 mb-5 pb-5">
+                    <Row className=" pt-5 mb-5 pb-5 px-4 mx-4">
                         {
                             light_card_list.map((card, index) => (
-                                <Col xl={3} lg={3} sm={12} md={6} className="pb-3" style={{
+                                <Col xl={3} lg={4} sm={12} md={6} className="pb-3" style={{
                                     display: 'inherit'
                                 }}>
                                     <Card className={`border-none position-relative rounded-15 w-100`} style={{
@@ -91,12 +94,20 @@ function WhatWeDo() {
                                         boxShadow: `-1px -1px 20px 1px ${card.color}`,
                                     }}>
                                         <Card.Body>
-                                            <Card.Text className="text-white">
-                                                {card.description}
-                                            </Card.Text>
-                                            <Card.Title className="text-white pt-5 me-4">
-                                                {card.title}
-                                            </Card.Title>
+                                            <Row className="h-100">
+                                                <Col lg={12} sm={12} xl={12} xxl={12} md={12}>
+                                                    <Card.Text className="text-white">
+                                                        {card.description}
+                                                    </Card.Text>
+                                                </Col>
+                                                <Col lg={12} sm={12} xl={12} xxl={12} md={12} className="d-flex  align-items-end">
+                                                    <h4 className="text-white pt-5 me-4 font-weight-light fw-normal">
+                                                        {card.title}
+                                                    </h4>
+                                                </Col>
+                                            </Row>
+
+
                                             <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
                                         </Card.Body>
                                     </Card>
@@ -105,7 +116,10 @@ function WhatWeDo() {
                         }
                     </Row>
                     <Row className="px-5 pt-5 mt-5 mb-5 pb-5 align-items-center">
-                        <Col xl={3} lg={3} sm={12} md={12} className="d-flex justify-content-end">
+                        <Col xl={3} lg={3} sm={12} md={12} className="d-flex justify-content-end ">
+                            <h1 className="hero-title d-none-sm d-none-small-none d-none-md-none">{t("ourteam.howwedo")}</h1>
+                        </Col>
+                        <Col xl={3} lg={3} sm={12} md={12} className="d-flex justify-content-center  d-block d-xl-none d-lg-none">
                             <h1 className="hero-title">{t("ourteam.howwedo")}</h1>
                         </Col>
                         <Col xl={9} lg={9} sm={12} md={12}>
@@ -126,7 +140,7 @@ function WhatWeDo() {
                                                 {/* <TrainingIcon /> */}
                                                 <h2 className="m-0 ms-3">{el.title}</h2>
                                             </div>
-                                            <p className="mx-4 pe-5 mt-4 text-gray">{el.description}</p>
+                                            <p className="mx-4 pe-5 mt-4 text-gray text-align-justify">{el.description}</p>
                                         </div>
                                     ))
                                 }

@@ -74,7 +74,8 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                     ))
                 }
             </Swiper>
-            <Container className="mt-5 pt-5">
+            <Container>
+                <h1 className='text-center title d-block d-xl-none d-lg-none'>{t('menu.news')}</h1>
                 <Row>
                     <Col lg={8} >
                         {
@@ -85,7 +86,7 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                         }
                     </Col>
                     <Col lg={4}>
-                        <h2>Categories</h2>
+                        <h2>{t('news.category')}</h2>
                         <ListGroup className="border-none mt-4">
                             {
                                 category_list.map((categ, index) => (
@@ -94,7 +95,7 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                             }
                         </ListGroup>
                         <div className="mt-4 mb-4">
-                            <h2>Featured news</h2>
+                            <h2>{t('news.featured_news')}</h2>
                             <div className="mt-4">
                                 {
                                     featured_card_list.map((el, index) => (
