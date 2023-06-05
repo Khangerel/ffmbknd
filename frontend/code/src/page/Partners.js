@@ -60,7 +60,7 @@ function Partners() {
   }, [])
   return (
     <div>
-      <div className="ps-5 pe-5 m-5">
+      <div className="mb-5 mt-5">
         <h1 className="title text-center m-0 mb-3">{t("landing.partner_title")}</h1>
         <p className="text-gray text-center mb-5">{t("landing.partner_description")}</p>
         <Marquee play autoFill>

@@ -86,11 +86,11 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                         }
                     </Col>
                     <Col lg={4}>
-                        <h2>{t('news.category')}</h2>
+                        <h2 className='text-center-sm'>{t('news.category')}</h2>
                         <ListGroup className="border-none mt-4">
                             {
                                 category_list.map((categ, index) => (
-                                    <ListGroup.Item variant="light" className="border-none mb-1 pb-1 pt-1 text-gray">{categ.name}</ListGroup.Item>
+                                    <ListGroup.Item variant="light" className="border-none mb-1 pb-1 pt-1 text-gray text-center-sm">{categ.name}</ListGroup.Item>
                                 ))
                             }
                         </ListGroup>

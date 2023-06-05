@@ -10,6 +10,7 @@ import { useState, useEffect, useCallback } from "react";
 import { API } from "../api/axios";
 import { useTranslation } from 'react-i18next';
 import LoadingPage from "./LoadingPage";
+import FeaturedNewsCard from "../components/FeaturedNewsCard";
 function Home() {
 
   const { t } = useTranslation();
@@ -156,10 +157,10 @@ function Home() {
             <h1>{t("menu.what_we_do")}</h1>
             <p className="text-gray ms-auto" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
           </div>
-          <Row className="pt-5 pb-5 w-100 m-0">
+          <Row className="pt-5 mb-5 pb-5 px-4 mx-4">
             {
               light_card_list.map((card, index) => (
-                <Col xl={3} lg={3} sm={12} md={6} className="pb-3 " key={index} style={{
+                <Col xl={3} lg={4} sm={12} md={6} className="pb-3 " key={index} style={{
                   display: 'inherit'
                 }}>
                   <Card className={`border-none position-relative rounded-15 w-100`} style={{
@@ -167,12 +168,20 @@ function Home() {
                     boxShadow: `-1px -1px 20px 1px ${card.color}`
                   }}>
                     <Card.Body>
-                      <Card.Text className="text-white">
-                        {card.description}
-                      </Card.Text>
-                      <Card.Title className="text-white pt-5 pe-4">
-                        {card.title}
-                      </Card.Title>
+                      <Row className="h-100">
+                        <Col lg={12} sm={12} xl={12} xxl={12} md={12}>
+                          <Card.Text className="text-white">
+                            {card.description}
+                          </Card.Text>
+                        </Col>
+                        <Col lg={12} sm={12} xl={12} xxl={12} md={12} className="d-flex  align-items-end">
+                          <h4 className="text-white pt-5 me-4 font-weight-light fw-normal">
+                            {card.title}
+                          </h4>
+                        </Col>
+                      </Row>
+
+
                       <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
                     </Card.Body>
                   </Card>
@@ -183,7 +192,7 @@ function Home() {
         </Container>
       </div>
       <div className="pt-5">
-          <Partners />
+        <Partners />
       </div>
       <div className="pt-5 pb-5">
         <Container>
@@ -219,7 +228,16 @@ function Home() {
             <Col xl={7} lg={7} sm={12} md={12}>
               {
                 recent_post_list.map((post, index) => (
-                  index !== 0 ? <HorizontalCard data={post} id={post.id} /> : ''
+                  index !== 0 ?
+                    <div>
+                      <div className="d-none-sm d-none-small-none d-none-md-none">
+                        <HorizontalCard data={post} id={post.id} />
+                      </div>
+                      <div className="d-block d-xl-none d-lg-none">
+                        <FeaturedNewsCard description={post.description} id={post.id} title={post.title} image_thumbnail={post.image_thumbnail} key={index}/>
+                      </div>
+                    </div>
+                    : ''
                 ))
               }
             </Col>
