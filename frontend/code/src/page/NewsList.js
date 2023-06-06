@@ -57,7 +57,7 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                                         </h1>
                                         <Row className="mb-5 pb-5 w-100">
                                             <Col lg={8}>
-                                                <p className="text-white swiper-slide__hero-content-hero__description mb-0">
+                                                <p className="text-white swiper-slide__hero-content-hero__description mb-0 sm-small-text">
                                                     {el.description}
                                                 </p>
                                             </Col>

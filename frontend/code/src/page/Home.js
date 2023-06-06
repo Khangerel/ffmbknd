@@ -170,7 +170,7 @@ function Home() {
           <div className="d-none-sm d-none-small-none d-none-md-none">
             <div className="d-flex bd-highlight pb-5">
               <h1 className="title">{t("menu.what_we_do")}</h1>
-              <p className="text-gray ms-auto " dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
+              <p className="text-gray ms-auto align-items-center d-flex" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
             </div>
           </div>
           <div className="d-block d-xl-none d-lg-none">
