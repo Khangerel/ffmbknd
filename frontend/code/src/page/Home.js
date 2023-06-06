@@ -10,20 +10,21 @@ import { useState, useEffect, useCallback } from "react";
 import { API } from "../api/axios";
 import { useTranslation } from 'react-i18next';
 import LoadingPage from "./LoadingPage";
+import FeaturedNewsCard from "../components/FeaturedNewsCard";
 function Home() {
 
   const { t } = useTranslation();
   const [light_card_list, setLightCardList] = useState([]);
   const [recent_post_list, setRecentPostList] = useState([]);
-  const [is_loading, setIsLoading ] = useState(true);
+  const [is_loading, setIsLoading] = useState(true);
 
-  const getData = useCallback( async() => {
+  const getData = useCallback(async () => {
     const card_list_data = await API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`);
-     if (card_list_data.status === 200) {
+    if (card_list_data.status === 200) {
       setLightCardList(card_list_data.data);
     }
     const recent_post_list_data = await API.get(`recent/posts?lang_id=${localStorage.getItem('lang_id')}`);
-    if(recent_post_list_data.status === 200){
+    if (recent_post_list_data.status === 200) {
       setRecentPostList(recent_post_list_data.data);
     }
     setIsLoading(false)
@@ -48,10 +49,10 @@ function Home() {
   return (
     <div>
       {
-        is_loading ?  <LoadingPage/> : ''
+        is_loading ? <LoadingPage /> : ''
       }
-      
-      <div className="position-relative">
+
+      <div className="position-relative bg-hero-sm">
 
         <Container className="min-vh-100 d-flex align-items-center">
           <div>
@@ -66,26 +67,28 @@ function Home() {
               </Col>
               <Col xl={4} lg={4} md={4} sm={12}></Col>
             </Row>
-
-            <div className="d-flex  align-items-center pt-5">
-              {/* <div className="pe-5">
+            <div className="d-none-sm d-none-small-none d-none-md-none">
+              <div className="d-flex  align-items-center pt-5 ">
+                {/* <div className="pe-5">
                 <Button className="bg-primary rounded-15 ps-4 pe-4">{t("landing.read_more")}</Button>
               </div> */}
-              <div className="pe-5">
-                <h1>
-                  44000+
-                </h1>
-                <p className="text-gray">{t("landing.citizens")}</p>
-              </div>
-              <div className="pe-5">
-                <h1>
-                  710+
-                </h1>
-                <p className="text-gray">
-                  {t("landing.trainings")}
-                </p>
+                <div className="pe-5">
+                  <h1>
+                    44000+
+                  </h1>
+                  <p className="text-gray">{t("landing.citizens")}</p>
+                </div>
+                <div className="pe-5">
+                  <h1>
+                    710+
+                  </h1>
+                  <p className="text-gray">
+                    {t("landing.trainings")}
+                  </p>
+                </div>
               </div>
             </div>
+
           </div>
         </Container>
         <div style={{
@@ -105,21 +108,44 @@ function Home() {
       </div>
       <div className="ps-5 pe-5 w-100">
         <Container className="w-100">
-          <Row className="min-vh-50 w-100 m-0">
+          <Row className="min-vh-50 w-100 m-0 pt-4">
             <Col xl={4} lg={4} md={5} sm={12} className=" bg-primary d-flex justify-content-center align-items-center mb-5">
-              <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+
+              <div className="pb-3">
+                <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+                <div className="d-block d-xl-none d-lg-none pb-4">
+                  <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
+                  <div className="text-center px-5 mx-3">
+                    <span className="text-white w-100">
+                      {t("landing.whoweare_body")}
+                    </span>
+                  </div>
+
+                </div>
+
+              </div>
+
             </Col>
-            <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5">
-              <div className="ps-5 pe-5">
+            <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5  d-none-sm d-none-small-none d-none-md-none">
+              <div className="ps-5 pe-5  d-none-sm d-none-small-none d-none-md-none">
                 <h4>{t("landing.whoweare_title")}</h4>
-                <p className="pe-5 text-black text-align-justify">
+                <p className="pe-5 text-black text-align-justify ">
                   {t("landing.whoweare_body")}
                 </p>
               </div>
             </Col>
           </Row>
         </Container>
-
+        <div className="text-center d-block d-xl-none d-lg-none">
+          <div>
+            <h1 className="text-primary">44000+</h1>
+            <p className="text-gray">Citizens trained</p>
+          </div>
+          <div>
+            <h1 className="text-primary">710+</h1>
+            <p className="text-gray">Trainings conducted</p>
+          </div>
+        </div>
         {/* <div className="row w-100 min-vh-50">
           <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 bg-primary d-flex justify-content-center align-items-center p">
             <h1 className="text-white hero-title text-center">Who <br /> We Are</h1>
@@ -141,14 +167,20 @@ function Home() {
       </div>
       <div>
         <Container className="pt-5 pb-5 mt-5">
-          <div className="d-flex bd-highlight pb-5">
-            <h1>{t("menu.what_we_do")}</h1>
-            <p className="text-gray ms-auto" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description")}}></p>
+          <div className="d-none-sm d-none-small-none d-none-md-none">
+            <div className="d-flex bd-highlight pb-5">
+              <h1 className="title">{t("menu.what_we_do")}</h1>
+              <p className="text-gray ms-auto " dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
+            </div>
           </div>
-          <Row className="pt-5 pb-5 w-100 m-0">
+          <div className="d-block d-xl-none d-lg-none">
+            <h1 className="text-center title">{t("menu.what_we_do")}</h1>
+            <p className="text-gray ms-auto text-center" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
+          </div>
+          <Row className="pt-5 mb-5 pb-5 px-4 mx-4">
             {
               light_card_list.map((card, index) => (
-                <Col xl={3} lg={3} sm={12} md={6} className="pb-3 " key={index} style={{
+                <Col xl={3} lg={4} sm={12} md={6} className="pb-3 " key={index} style={{
                   display: 'inherit'
                 }}>
                   <Card className={`border-none position-relative rounded-15 w-100`} style={{
@@ -156,12 +188,20 @@ function Home() {
                     boxShadow: `-1px -1px 20px 1px ${card.color}`
                   }}>
                     <Card.Body>
-                      <Card.Text className="text-white">
-                        {card.description}
-                      </Card.Text>
-                      <Card.Title className="text-white pt-5 pe-4">
-                        {card.title}
-                      </Card.Title>
+                      <Row className="h-100">
+                        <Col lg={12} sm={12} xl={12} xxl={12} md={12}>
+                          <Card.Text className="text-white">
+                            {card.description}
+                          </Card.Text>
+                        </Col>
+                        <Col lg={12} sm={12} xl={12} xxl={12} md={12} className="d-flex  align-items-end">
+                          <h4 className="text-white pt-5 me-4 font-weight-light fw-normal">
+                            {card.title}
+                          </h4>
+                        </Col>
+                      </Row>
+
+
                       <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
                     </Card.Body>
                   </Card>
@@ -172,10 +212,7 @@ function Home() {
         </Container>
       </div>
       <div className="pt-5">
-        <Container>
-          <Partners />
-        </Container>
-
+        <Partners />
       </div>
       <div className="pt-5 pb-5">
         <Container>
@@ -211,7 +248,16 @@ function Home() {
             <Col xl={7} lg={7} sm={12} md={12}>
               {
                 recent_post_list.map((post, index) => (
-                  index !== 0 ? <HorizontalCard data={post} id={post.id} /> : ''
+                  index !== 0 ?
+                    <div>
+                      <div className="d-none-sm d-none-small-none d-none-md-none">
+                        <HorizontalCard data={post} id={post.id} />
+                      </div>
+                      <div className="d-block d-xl-none d-lg-none">
+                        <FeaturedNewsCard description={post.description} id={post.id} title={post.title} image_thumbnail={post.image_thumbnail} key={index} />
+                      </div>
+                    </div>
+                    : ''
                 ))
               }
             </Col>

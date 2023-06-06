@@ -89,7 +89,7 @@ function WhoWeAre() {
         }
         <Container>
             <h1 className="title">Advisory Board</h1>
-            <Row>
+            <Row className="pt-4">
                 {
                     out_team_list.map((el, key) => (
                         el.is_advisory_board === true ?
@@ -115,20 +115,8 @@ function WhoWeAre() {
             </Row>
 
             <h1 className="title">{t("ourteam.title")}</h1>
-            {/* <Row className="pt-5 mt-5 m-0">
-                <Col xl={6} lg={6} sm={12} md={6}>
-                    <h1>
-                        {t("ourteam.title")}
-                    </h1>
-                </Col>
-                <Col xl={6} lg={6} sm={12} md={6}>
-                    <p className="text-gray">
-                        {t("ourteam.body")}
-                    </p>
-                </Col>
-            </Row> */}
             <div>
-                <Row className="w-100 pt-5 mt-5">
+                <Row className="w-100 pt-4">
                     {
                         out_team_list.map((el, key) => (
                             el.is_advisory_board === false ?
@@ -157,19 +145,30 @@ function WhoWeAre() {
         <div className="pt-5 mt-5">
             <Row className="w-100 min-vh-50">
                 <Col xl={4} lg={4} md={12} sm={12} className="bg-primary d-flex justify-content-center align-items-center pb-3 mb-5">
-                    <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+                    <div className="pb-5">
+                        <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+                        <div className="d-block d-xl-none d-lg-none">
+                            <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
+                            <div className="text-center px-5 mx-5">
+                                <span className="text-white w-100">
+                                    {t("landing.whoweare_body")}
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
                 </Col>
                 <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
-                    <div className="px-5 mx-5">
+                    <div className="px-5 mx-5  d-none-sm d-none-small-none d-none-md-none">
                         <h1 className="px-5 mx-5 pb-5">{t("landing.whoweare_title")}</h1>
-                        <p className="px-5 text-black mx-5">
+                        <p className="px-5 text-black mx-5 text-align-justify">
                             {main_data.whoweare}
                         </p>
                     </div>
                 </Col>
             </Row>
         </div>
-        <div className="pt-5 mt-5">
+        <div className="pt-5 mt-5 d-none-sm d-none-small-none d-none-md-none">
             <div className="w-100 position-relative">
                 <Image src={main_data.image_banner} fluid />
                 <div className="image-mask-gradiented-primary position-absolute w-100 h-100" style={{ top: 0, left: 0 }}>
@@ -184,10 +183,10 @@ function WhoWeAre() {
         </div>
         <Container className="min-vh-75 d-flex align-items-center justify-content-center">
             <h1 className="text-center px-5 mx-5 with-light-quote position-relative fw-normal">
-                <div style={{ position: 'absolute', top: -50, left: -25 }} className="d-none-sm d-none-small-none"><QuoteOpen style={{ position: 'absolute', top: 0, left: 0 }} /></div>
+                <div style={{ position: 'absolute', top: -90, left: -25 }} className=""><QuoteOpen style={{ position: 'absolute', top: 0, left: 0 }} /></div>
 
                 {main_data.our_vision}
-                <div style={{ position: 'absolute', bottom: -50, right: -25 }} className="d-none-sm d-none-small-none"><QuoteClose style={{ position: 'absolute', bottom: 0, right: 0 }} /></div>
+                <div style={{ position: 'absolute', bottom: -90, right: -25 }} className=""><QuoteClose style={{ position: 'absolute', bottom: 0, right: 0 }} /></div>
 
             </h1>
         </Container>

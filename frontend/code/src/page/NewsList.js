@@ -36,8 +36,8 @@ function NewsList({ card_list, category_list, featured_card_list }) {
             >
                 {
                     card_list.map((el, index) => (
-                        index === 0?<SwiperSlide className="h-80" key={index}>
-                            <div className="swiper-slide__hero-content w-100 h-80 m-0 d-flex align-items-end"
+                        index === 0?<SwiperSlide key={index}>
+                            <div className="swiper-slide__hero-content w-100  m-0 d-flex align-items-end"
                                 style={{
                                     background: `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)), url(${el.image_banner})`,
                                     backgroundSize: 'cover',
@@ -74,7 +74,9 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                     ))
                 }
             </Swiper>
-            <Container className="mt-5 pt-5">
+            <Container>
+                <h1 className='text-center title d-block d-xl-none d-lg-none'>{t('menu.news')}</h1>
+                <div className='pt-5 d-block d-none-sm d-none-small-none d-none-md-none'></div>
                 <Row>
                     <Col lg={8} >
                         {
@@ -85,16 +87,16 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                         }
                     </Col>
                     <Col lg={4}>
-                        <h2>Categories</h2>
+                        <h2 className='text-center-sm'>{t('news.category')}</h2>
                         <ListGroup className="border-none mt-4">
                             {
                                 category_list.map((categ, index) => (
-                                    <ListGroup.Item variant="light" className="border-none mb-1 pb-1 pt-1 text-gray">{categ.name}</ListGroup.Item>
+                                    <ListGroup.Item variant="light" className="border-none mb-1 pb-1 pt-1 text-gray text-center-sm">{categ.name}</ListGroup.Item>
                                 ))
                             }
                         </ListGroup>
                         <div className="mt-4 mb-4">
-                            <h2>Featured news</h2>
+                            <h2>{t('news.featured_news')}</h2>
                             <div className="mt-4">
                                 {
                                     featured_card_list.map((el, index) => (

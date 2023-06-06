@@ -8,6 +8,8 @@ import heregjuulegch from "../assets/images/partners-heregjuulegch.png";
 import hevlel from "../assets/images/partners-hevlel.png";
 import { Image } from "react-bootstrap";
 import { API } from "../api/axios";
+import Marquee from "react-fast-marquee";
+
 const our_support_data = [
   {
     id: 5,
@@ -46,8 +48,8 @@ function Partners() {
   const handleClick = () => {
     console.log("Clicked");
   };
-  const getData = ()=>{
-    API.get('partner/', {}).then((response)=>{
+  const getData = () => {
+    API.get('partner/', {}).then((response) => {
       if (response.status === 200) {
         setOurMainData(response.data);
       }
@@ -58,20 +60,21 @@ function Partners() {
   }, [])
   return (
     <div>
-      <div className="ps-5 pe-5 m-5">
+      <div className="mb-5 mt-5">
         <h1 className="title text-center m-0 mb-3">{t("landing.partner_title")}</h1>
         <p className="text-gray text-center mb-5">{t("landing.partner_description")}</p>
-        <Row className="bg-white d-flex align-items-center justify-content-center w-100">
-          {our_main_data.map((partner) => (
-            <Col className="align-items-center pb-5" xs={12} sm={12} md={6} lg={4} xl={3}>
-              <Image
-                src={partner.logo}
-                className="w-100 contain p-4"
-                onClick={() => handleClick()}
-              />
-            </Col>
-          ))}
-        </Row>
+        <Marquee play autoFill>
+            {our_main_data.map((partner) => (
+                <Image
+                  src={partner.logo}
+                  fluid
+                  style={{width: '240px'}}
+                  onClick={() => handleClick()}
+                  className="mx-4"
+                />
+            ))}
+        </Marquee>
+
         {/* <h1 className="title text-center">{t("partners.support")}</h1>
         <Row className="bg-white d-flex align-items-center justify-content-center">
           {our_support_data.map((partner) => (

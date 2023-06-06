@@ -45,10 +45,10 @@
 
 
 .swiper-slide__hero{
-    min-height: 80vh;
+    /* min-height: 80vh; */
 }
 .swiper-slide__hero-content{
-    min-height: 90vh;
+    min-height: 60vh;
     width: 100%;
     background-attachment: fixed!important;
     background-size: cover!important;
