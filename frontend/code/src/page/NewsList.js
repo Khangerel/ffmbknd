@@ -36,8 +36,8 @@ function NewsList({ card_list, category_list, featured_card_list }) {
             >
                 {
                     card_list.map((el, index) => (
-                        index === 0?<SwiperSlide className="h-80" key={index}>
-                            <div className="swiper-slide__hero-content w-100 h-80 m-0 d-flex align-items-end"
+                        index === 0?<SwiperSlide key={index}>
+                            <div className="swiper-slide__hero-content w-100  m-0 d-flex align-items-end"
                                 style={{
                                     background: `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)), url(${el.image_banner})`,
                                     backgroundSize: 'cover',

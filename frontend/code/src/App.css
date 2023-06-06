@@ -5,7 +5,7 @@ body,
 ::after {
   font-family: 'Okta Neue', sans-serif !important;
   color: rgba(16, 22, 54, 1);
-
+  position: relative;
 }
 
 body {
@@ -331,7 +331,6 @@ a {
     color: #fff !important;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
   }
 
   .bg-hero-sm h1 {
@@ -350,6 +349,10 @@ a {
     margin-right: auto;
     margin-left: auto;
   }
+  .title {
+    margin: 1rem!important;
+  }
+
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -359,6 +362,9 @@ a {
   /* CSS styles for small screens */
   .d-none-small-none {
     display: none;
+  }
+  .title {
+    margin: 1rem!important;
   }
 }
 
@@ -409,4 +415,19 @@ a {
 }
 .text-right{
   text-align: right;
+}
+
+.blue-under-line::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg,rgba(71, 128, 235, 0), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 0));
+  position: absolute;
+  bottom: 0px;
+}
+.title {
+  text-align: center;
+  margin: 5rem;
+  font-size: 2.5rem;
 }

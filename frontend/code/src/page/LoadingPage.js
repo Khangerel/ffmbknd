@@ -15,7 +15,7 @@ function LoadingPage() {
                     top: '50%',
                     left: '50%',
                     zIndex: 999,
-                    position: 'absolute',
+                    position: 'fixed',
                     height: '40vw',
                     transform: 'translate(-50%, -50%)',
                 }}>

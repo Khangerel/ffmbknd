@@ -11,7 +11,7 @@ function WhatWeDoNews({ data, index }) {
     const [button_state, setButtonState] = useState(false);
 
     return (
-        <div>
+        <div className="blue-under-line">
             <div className="position-relative" style={{ background: `url(${data.image_banner})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <Container className="">
                     <h1 className={`text-white pt-5 pb-5 d-none-sm d-none-small-none d-none-md-none pe-4 ${index % 2 === 1 ? 'text-right' : ''}`}>{data.title}</h1>

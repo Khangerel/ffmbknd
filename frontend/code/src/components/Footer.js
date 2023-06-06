@@ -35,22 +35,12 @@ export default function Footer() {
           </div>
           <div className="d-flex pt-5 pb-5">
             <ListGroup className="border-none pe-5 bg-none">
-              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span">Who We Are</ListGroup.Item></Link>
-              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">About FFM</ListGroup.Item></Link>
-              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Our impact</ListGroup.Item></Link>
-              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">History timeline</ListGroup.Item></Link>
-              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Where we work</ListGroup.Item></Link>
+              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">Who We Are</ListGroup.Item></Link>
+              <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">What We Do</ListGroup.Item></Link>
+              <Link to={'/news'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">News</ListGroup.Item></Link>
             </ListGroup>
             <ListGroup className="border-none pe-5 bg-none">
-              <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span">What We Do</ListGroup.Item></Link>
-              <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Projects</ListGroup.Item></Link>
-              <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Programs</ListGroup.Item></Link>
-            </ListGroup>
-            <ListGroup className="border-none pe-5 bg-none">
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span">Partners</ListGroup.Item></Link>
-              <Link to={'/'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Get involved</ListGroup.Item></Link>
-              <Link to={'/news'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">News</ListGroup.Item></Link>
-              <Link to={'/contact-us'} className="text-decoration-none"><ListGroup.Item className="border-none bg-none text-span">Contact us</ListGroup.Item></Link>
+              <Link to={'/contact-us'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">Contact us</ListGroup.Item></Link>
             </ListGroup>
           </div>
 

@@ -67,26 +67,28 @@ function Home() {
               </Col>
               <Col xl={4} lg={4} md={4} sm={12}></Col>
             </Row>
-
-            <div className="d-flex  align-items-center pt-5">
-              {/* <div className="pe-5">
+            <div className="d-none-sm d-none-small-none d-none-md-none">
+              <div className="d-flex  align-items-center pt-5 ">
+                {/* <div className="pe-5">
                 <Button className="bg-primary rounded-15 ps-4 pe-4">{t("landing.read_more")}</Button>
               </div> */}
-              <div className="pe-5">
-                <h1>
-                  44000+
-                </h1>
-                <p className="text-gray">{t("landing.citizens")}</p>
-              </div>
-              <div className="pe-5">
-                <h1>
-                  710+
-                </h1>
-                <p className="text-gray">
-                  {t("landing.trainings")}
-                </p>
+                <div className="pe-5">
+                  <h1>
+                    44000+
+                  </h1>
+                  <p className="text-gray">{t("landing.citizens")}</p>
+                </div>
+                <div className="pe-5">
+                  <h1>
+                    710+
+                  </h1>
+                  <p className="text-gray">
+                    {t("landing.trainings")}
+                  </p>
+                </div>
               </div>
             </div>
+
           </div>
         </Container>
         <div style={{
@@ -109,13 +111,16 @@ function Home() {
           <Row className="min-vh-50 w-100 m-0 pt-4">
             <Col xl={4} lg={4} md={5} sm={12} className=" bg-primary d-flex justify-content-center align-items-center mb-5">
 
-              <div>
+              <div className="pb-3">
                 <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
-                <div className="d-block d-xl-none d-lg-none">
+                <div className="d-block d-xl-none d-lg-none pb-4">
                   <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
-                  <p className="text-white text-align-justify">
-                    {t("landing.whoweare_body")}
-                  </p>
+                  <div className="text-center px-5 mx-3">
+                    <span className="text-white w-100">
+                      {t("landing.whoweare_body")}
+                    </span>
+                  </div>
+
                 </div>
 
               </div>
@@ -131,7 +136,16 @@ function Home() {
             </Col>
           </Row>
         </Container>
-
+        <div className="text-center d-block d-xl-none d-lg-none">
+          <div>
+            <h1 className="text-primary">44000+</h1>
+            <p className="text-gray">Citizens trained</p>
+          </div>
+          <div>
+            <h1 className="text-primary">710+</h1>
+            <p className="text-gray">Trainings conducted</p>
+          </div>
+        </div>
         {/* <div className="row w-100 min-vh-50">
           <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 bg-primary d-flex justify-content-center align-items-center p">
             <h1 className="text-white hero-title text-center">Who <br /> We Are</h1>
@@ -153,9 +167,15 @@ function Home() {
       </div>
       <div>
         <Container className="pt-5 pb-5 mt-5">
-          <div className="d-flex bd-highlight pb-5">
-            <h1>{t("menu.what_we_do")}</h1>
-            <p className="text-gray ms-auto" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
+          <div className="d-none-sm d-none-small-none d-none-md-none">
+            <div className="d-flex bd-highlight pb-5">
+              <h1 className="title">{t("menu.what_we_do")}</h1>
+              <p className="text-gray ms-auto " dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
+            </div>
+          </div>
+          <div className="d-block d-xl-none d-lg-none">
+            <h1 className="text-center title">{t("menu.what_we_do")}</h1>
+            <p className="text-gray ms-auto text-center" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
           </div>
           <Row className="pt-5 mb-5 pb-5 px-4 mx-4">
             {
@@ -234,7 +254,7 @@ function Home() {
                         <HorizontalCard data={post} id={post.id} />
                       </div>
                       <div className="d-block d-xl-none d-lg-none">
-                        <FeaturedNewsCard description={post.description} id={post.id} title={post.title} image_thumbnail={post.image_thumbnail} key={index}/>
+                        <FeaturedNewsCard description={post.description} id={post.id} title={post.title} image_thumbnail={post.image_thumbnail} key={index} />
                       </div>
                     </div>
                     : ''
