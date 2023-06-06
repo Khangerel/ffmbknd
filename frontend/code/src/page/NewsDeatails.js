@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 import { API } from "../api/axios";
 import { useParams } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
+import { useTranslation } from 'react-i18next';
+
 function NewsDetails() {
+  const { t } = useTranslation();
   const [news_data, setNewsData] = useState({});
   const [tags, setTags] = useState([]);
   const [category_list, setCategoryList] = useState([]);
@@ -54,7 +57,7 @@ function NewsDetails() {
                   </Button>
                 ))
               }
-              <p className="text-gray ms-auto">{news_data.created}</p>
+              <p className="text-gray ms-auto">{news_data.publish_date_formatted}</p>
             </div>
           </Col>
           <Col lg={4}></Col>
@@ -62,11 +65,11 @@ function NewsDetails() {
         <Row className="mb-5 pb-5">
           <Col lg={8} >
             <h1 className="mb-5">{news_data.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: news_data.content }}></div>
+            <div dangerouslySetInnerHTML={{ __html: news_data.content }} className="text-align-justify" style={{ fontSize: '16px !important' }}></div>
           </Col>
           <Col lg={4}>
-            <div className="ps-5">
-              <h2>Categories</h2>
+            <div className="">
+              <h2>{t("news.category")}</h2>
               <ListGroup className="border-none mt-4">
                 {
                   category_list.map((categ, index) => (
@@ -76,16 +79,16 @@ function NewsDetails() {
               </ListGroup>
             </div>
             <div className="mt-4 mb-4">
-              <h2>Featured news</h2>
+              <h2>{t("news.featured_news")}</h2>
               <div className="mt-4">
                 {
                   featured_card_list.map((el, index) => (
                     <div className='mb-3' key={index}>
                       <Image src={el.image_thumbnail} className="w-100" />
                       <h4 className="mt-3">{el.title}</h4>
-                      <p className="text-gray mt-3">{el.description}</p>
+                      <p className="text-gray mt-3 text-align-justify">{el.description}</p>
                       <div className="d-flex justify-content-end">
-                        <Link className="text-dark me-4 text-bold" to={`/news/${el.id}`}>Continue reading</Link>
+                        <Link className="text-dark me-4 text-bold" to={`/news/${el.id}`}>{t("landing.continue_reading")}</Link>
                       </div>
                     </div>
                   ))

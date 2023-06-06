@@ -11,12 +11,12 @@ function LoadingPage() {
         <div className="position-fixed w-100 min-vh-100" style={{ background: '#fff', top: 0, left: 0, zIndex: 9999 }}>
             <Container>
                 <div className="" style={{
-                    width: '40vw',
+                    width: '20vw',
                     top: '50%',
                     left: '50%',
                     zIndex: 999,
                     position: 'fixed',
-                    height: '40vw',
+                    height: '20vw',
                     transform: 'translate(-50%, -50%)',
                 }}>
                     <SVG />

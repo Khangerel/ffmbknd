@@ -16,7 +16,7 @@ const en = {
     title: `Advancing 
       Digital literacy,
       Online safety and more.`,
-    description: `FF aims to promote adequate and accessible use of social media and foster responsible digital citizens.`,
+    description: `Faro Foundation aims to promote adequate and accessible use of social media and foster responsible digital citizens.`,
     citizens: `Citizens trained`,
     trainings: `Trainings conducted`,
     read_more: `Read more`,
@@ -33,6 +33,7 @@ const en = {
     continue_reading: `Continue reading`
   },
   ourteam: {
+    advisory: `Advisory Board`,
     title: `Our Team`,
     body: `Our priority is to implement positive change in the community through the use of social media.`,
     howwedo: `How \nWe Do`,

@@ -88,7 +88,7 @@ function WhoWeAre() {
             is_loading ? <LoadingPage /> : ''
         }
         <Container>
-            <h1 className="title">Advisory Board</h1>
+            <h1 className="title">{t("ourteam.advisory")}</h1>
             <Row className="pt-4">
                 {
                     out_team_list.map((el, key) => (
@@ -144,9 +144,9 @@ function WhoWeAre() {
         </Container>
         <div className="pt-5 mt-5">
             <Row className="w-100 min-vh-50">
-                <Col xl={4} lg={4} md={12} sm={12} className="bg-primary d-flex justify-content-center align-items-center pb-3 mb-5">
+                <Col xl={4} lg={4} md={12} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center pb-3 mb-5">
                     <div className="pb-5">
-                        <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+                        <h1 className="text-white hero-title pt-5 pb-5 mt-5" style={{textAlign: 'left'}}>Who <br /> We Are</h1>
                         <div className="d-block d-xl-none d-lg-none">
                             <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
                             <div className="text-center px-5 mx-5">

@@ -102,12 +102,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 800 !important;
+  font-weight: 700 !important;
 }
 
 p,
 a {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .hero-title {
@@ -148,6 +148,10 @@ a {
 .bg-primary {
   background-color: #4780EB !important;
   border: none;
+}
+
+.bg-gradient-primary-white {
+  background: linear-gradient(to left, #759CFF, #4780EB);
 }
 
 .min-vh-50 {
