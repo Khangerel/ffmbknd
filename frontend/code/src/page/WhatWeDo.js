@@ -67,18 +67,15 @@ function WhatWeDo() {
             }
             <Container>
                 <div className="min-h-100vh">
-                    <Row className="pt-5 m-0 pb-5">
-                        <Col xl={6} lg={6} sm={12} md={6}>
-                            <h1 className="d-none-sm d-none-small-none d-none-md-none">
-                                {t("menu.what_we_do")}
-                            </h1>
-                            <h1 className="text-center d-block d-xl-none d-lg-none">
-                                {t("menu.what_we_do")}
+                    <Row className="pt-5 m-0">
+                        <Col xl={12} lg={12} sm={12} md={12}>
+                            <h1 className="text-center title m-0 pb-5">
+                                Areas of Expertise
                             </h1>
                         </Col>
-                        <Col xl={6} lg={6} sm={12} md={6}>
-                            <p className="text-gray">
-                                {t("ourteam.body")}
+                        <Col xl={12} lg={12} sm={12} md={12}>
+                            <p className="text-gray text-center">
+                                Our priority is to implement positive change in the community through the use of social media.
                             </p>
                         </Col>
                     </Row>

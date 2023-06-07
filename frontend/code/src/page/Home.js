@@ -56,16 +56,16 @@ function Home() {
 
         <Container className="min-vh-100 d-flex align-items-center">
           <div>
-            <h1 className="hero-title">
-              Advancing <br />
-              Digital literacy,<br />
-              Online safety and more.<br />
+            <h1 className="hero-title blue-under-line pb-4">
+              Advancing digital<br />
+              literacy and bridging<br />
+              the digital divide 
             </h1>
             <Row>
-              <Col xl={8} lg={8} md={8} sm={12}>
-                <p className="text-gray pt-5">{t("landing.description")}</p>
+              <Col xl={6} lg={8} md={8} sm={12}>
+                <p className="text-gray pt-4 swiper-slide__hero-content-hero__description">{t("landing.description")}</p>
               </Col>
-              <Col xl={4} lg={4} md={4} sm={12}></Col>
+              <Col xl={6} lg={4} md={4} sm={12}></Col>
             </Row>
             <div className="d-none-sm d-none-small-none d-none-md-none">
               <div className="d-flex  align-items-center pt-5 ">
@@ -94,12 +94,12 @@ function Home() {
         <div style={{
           position: 'absolute',
           /* right: 50%; */
-          width: '45%',
+          width: '42%',
           /* bottom: 51px; */
           zIndex: '-1',
           top: '52%',
           /* left: 50%; */
-          transform: 'translate(120%, -60%)'
+          transform: 'translate(113%, -60%)'
         }} className="d-none-sm
         d-none-small-none
         d-none-md-none">
@@ -108,13 +108,12 @@ function Home() {
       </div>
       <div className="ps-5 pe-5 w-100">
         <Container className="w-100">
-          <Row className="min-vh-50 w-100 m-0 pt-4">
+          <Row className="w-100 m-0 pt-5">
             <Col xl={4} lg={4} md={5} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center mb-5">
-
-              <div className="pb-3">
-                <h1 className="text-white hero-title text-center pt-5 pb-5">Who <br /> We Are</h1>
+              <div className="pb-5 pt-5">
+                <h1 className="text-white hero-title pt-5 pb-5 text-center-sm">Who <br /> We Are</h1>
                 <div className="d-block d-xl-none d-lg-none pb-4">
-                  <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
+                  <h1 className="text-white text-center pb-3">{t("landing.whoweare_title")}</h1>
                   <div className="text-center px-5 mx-3">
                     <span className="text-white w-100">
                       {t("landing.whoweare_body")}
@@ -127,9 +126,12 @@ function Home() {
 
             </Col>
             <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5  d-none-sm d-none-small-none d-none-md-none">
-              <div className="ps-5 pe-5  d-none-sm d-none-small-none d-none-md-none">
+              
+              <div className="ps-5 pe-5 mx-5 d-none-sm d-none-small-none d-none-md-none">
                 <h4>{t("landing.whoweare_title")}</h4>
-                <p className="pe-5 text-black text-align-justify ">
+                <p className="pe-2 pt-2 text-black text-align-justify " style={{
+                  lineHeight: 2
+                }}>
                   {t("landing.whoweare_body")}
                 </p>
               </div>
@@ -217,7 +219,7 @@ function Home() {
       <div className="pt-5 pb-5">
         <Container>
           <h1 className="title mb-5 pb-5" >{t("landing.recent_news")}</h1>
-          <Row className="w-100 pb-5">
+          <Row className="w-100 pb-5 m-0">
             {
               recent_post_list.length > 0 ?
                 <Col xl={5} lg={5} sm={12} md={12} className="pe-4 mb-5">

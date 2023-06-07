@@ -25,10 +25,10 @@ function WhoWeAre() {
         } else {
             style = {}
         }
-        title = <h2 className="text-right text-primary" style={style}>{title}</h2>
-        cardTitle = <h1 className="m-0 mb-3 text-right text-primary" style={style}>{cardTitle}</h1>
-        cardSubtitle = <div style={style}>{cardSubtitle}</div>
-        cardDetailedText = <div className="text-align-justify w-100" style={style}>{cardDetailedText}</div>
+        title = <h2 className="text-right text-primary time-line-title" style={style}>{title}</h2>
+        cardTitle = <h1 className="m-0 mb-3 text-primary sm-text-left" style={style}>{cardTitle}</h1>
+        cardSubtitle = <div style={style} className="sm-text-left ms-1">{cardSubtitle}</div>
+        cardDetailedText = <div className="w-100 ms-2 pe-4 sm-text-left" style={style}>{cardDetailedText}</div>
         if (image != null) {
             const media = {
                 name: "faro",
@@ -116,7 +116,7 @@ function WhoWeAre() {
 
             <h1 className="title">{t("ourteam.title")}</h1>
             <div>
-                <Row className="w-100 pt-4">
+                <Row className="w-100 pt-4 blue-under-line">
                     {
                         out_team_list.map((el, key) => (
                             el.is_advisory_board === false ?
@@ -143,30 +143,33 @@ function WhoWeAre() {
             </div>
         </Container>
         <div className="pt-5 mt-5">
-            <Row className="w-100 min-vh-50">
-                <Col xl={4} lg={4} md={12} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center pb-3 mb-5">
-                    <div className="pb-5">
-                        <h1 className="text-white hero-title pt-5 pb-5 mt-5 text-center">Who <br /> We Are</h1>
-                        <div className="d-block d-xl-none d-lg-none">
-                            <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
-                            <div className="text-center px-5 mx-5">
-                                <span className="text-white w-100">
-                                    {t("landing.whoweare_body")}
-                                </span>
-                            </div>
+            <Container>
+                <Row className="w-100">
+                    <Col xl={4} lg={4} md={12} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center pb-3 mb-5">
+                        <div className="pb-5">
+                            <h1 className="text-white hero-title pt-5 pb-5 mt-5 text-center-sm">Who <br /> We Are</h1>
+                            <div className="d-block d-xl-none d-lg-none">
+                                <h1 className="text-white text-center pb-3">{t("landing.whoweare_title")}</h1>
+                                <div className="text-center px-5 mx-5">
+                                    <span className="text-white w-100">
+                                        {main_data.whoweare}
+                                    </span>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
-                </Col>
-                <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
-                    <div className="px-5 mx-5  d-none-sm d-none-small-none d-none-md-none">
-                        <h1 className="px-5 mx-5 pb-5">{t("landing.whoweare_title")}</h1>
-                        <p className="px-5 text-black mx-5 text-align-justify">
-                            {main_data.whoweare}
-                        </p>
-                    </div>
-                </Col>
-            </Row>
+                    </Col>
+                    <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
+                        <div className="px-5 mx-5  d-none-sm d-none-small-none d-none-md-none">
+                            <h1 className="pb-5">{t("landing.whoweare_title")}</h1>
+                            <p className="text-black text-align-justify" style={{lineHeight: 2}}>
+                                {main_data.whoweare}
+                            </p>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+
         </div>
         <div className="pt-5 mt-5 d-none-sm d-none-small-none d-none-md-none">
             <div className="w-100 position-relative">
