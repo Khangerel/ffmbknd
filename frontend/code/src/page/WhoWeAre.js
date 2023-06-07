@@ -146,7 +146,7 @@ function WhoWeAre() {
             <Row className="w-100 min-vh-50">
                 <Col xl={4} lg={4} md={12} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center pb-3 mb-5">
                     <div className="pb-5">
-                        <h1 className="text-white hero-title pt-5 pb-5 mt-5" style={{textAlign: 'left'}}>Who <br /> We Are</h1>
+                        <h1 className="text-white hero-title pt-5 pb-5 mt-5 text-center">Who <br /> We Are</h1>
                         <div className="d-block d-xl-none d-lg-none">
                             <h4 className="text-white text-center">{t("landing.whoweare_title")}</h4>
                             <div className="text-center px-5 mx-5">
