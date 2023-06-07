@@ -18,6 +18,7 @@ class languageSerializer(serializers.ModelSerializer):
             "name",
             "short_name",
             "id",
+            "logo",
         ]
 
 class privacy_policySerializer(serializers.ModelSerializer):

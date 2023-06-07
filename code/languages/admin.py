@@ -16,6 +16,7 @@ class languageAdmin(admin.ModelAdmin):
     list_display = [
         "name",
         "short_name",
+        "logo",
         "created",
     ]
     readonly_fields = [

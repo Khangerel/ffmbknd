@@ -17,7 +17,7 @@ class main(models.Model):
     our_vision = models.TextField()
 
     class Meta:
-        pass
+        verbose_name_plural = "Main Informations"
 
     def __str__(self):
         return str(self.pk)
@@ -73,7 +73,7 @@ class our_team(models.Model):
     is_advisory_board = models.BooleanField(default=False)
 
     class Meta:
-        pass
+        verbose_name_plural = "Our Team"
 
     def __str__(self):
         return str(self.pk)

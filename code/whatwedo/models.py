@@ -16,7 +16,7 @@ class howwedo(models.Model):
     description = models.TextField(max_length=200)
 
     class Meta:
-        pass
+        verbose_name_plural = "How we do"
 
     def __str__(self):
         return str(self.pk)

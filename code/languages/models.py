@@ -8,6 +8,7 @@ class language(models.Model):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     name = models.TextField(max_length=50)
     short_name = models.TextField(max_length=50, null=True)
+    logo = models.ImageField(upload_to="upload/images/language/", null=True)
 
     class Meta:
         pass
@@ -32,7 +33,7 @@ class privacy_policy(models.Model):
     body = RichTextField()
 
     class Meta:
-        pass
+        verbose_name_plural = "Privacy & Policies"
 
     def __str__(self):
         return str(self.pk)

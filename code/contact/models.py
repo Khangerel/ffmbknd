@@ -17,7 +17,7 @@ class info(models.Model):
     address = models.CharField(max_length=200)
 
     class Meta:
-        pass
+        verbose_name_plural = "Contact Informations"
 
     def __str__(self):
         return str(self.pk)

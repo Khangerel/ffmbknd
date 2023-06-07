@@ -14,7 +14,7 @@ class category(models.Model):
     slug = models.SlugField()
 
     class Meta:
-        pass
+        verbose_name_plural = "Categories"
 
     def __str__(self):
         return str(self.name)
@@ -71,7 +71,7 @@ class tags(models.Model):
     created = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
-        pass
+        verbose_name_plural = "Tags"
 
     def __str__(self):
         return str(self.name)

@@ -8,6 +8,7 @@ class languageForm(forms.ModelForm):
         fields = [
             "name",
             "short_name",
+            "logo",
         ]
 
 class privacy_policyForm(forms.ModelForm):

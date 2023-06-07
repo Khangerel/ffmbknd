@@ -37,7 +37,7 @@ class landing(models.Model):
     image_swipe3 = models.ImageField(upload_to="upload/images/infos/landing/")
 
     class Meta:
-        pass
+        verbose_name_plural = "Home Informations"
 
     def __str__(self):
         return str(self.pk)
