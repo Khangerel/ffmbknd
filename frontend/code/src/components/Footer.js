@@ -43,6 +43,13 @@ export default function Footer() {
               <Link to={'/contact-us'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">Contact us</ListGroup.Item></Link>
             </ListGroup>
           </div>
+          <div>
+            <div className="d-flex w-100 justify-content-end contact-icons">
+              <Link className="ms-3"><FaTwitter style={{ color: 'rgb(71, 125, 226)!important' }} /></Link>
+              <Link className="ms-3"><FaFacebookF style={{ color: 'rgb(71, 125, 226)!important' }} /></Link>
+              <Link className="ms-3"><FaInstagram style={{ color: 'rgb(71, 125, 226)!important' }} /></Link>
+            </div>
+          </div>
 
         </Container>
         <Container className="d-flex pt-3 pb-3">

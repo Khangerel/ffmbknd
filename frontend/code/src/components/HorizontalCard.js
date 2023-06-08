@@ -16,13 +16,13 @@ function HorizontalCard({ data, id}) {
     };
     const baseURI = window.location.protocol.concat("//").concat(window.location.hostname);
     return (
-        <div className="horizontal_card d-flex pe-4 mb-5">
+        <div className="horizontal_card d-flex pe-4 sm-pe-0 mb-5">
             <div className=''>
                 <Image src={data.image_thumbnail} width={190} className='border-none d-none-sm d-none-small-none d-none-md-none'/>
                 <Image src={data.image_thumbnail} width={150} className='border-none  d-block d-xl-none d-lg-none'/>
             </div>
-            <div className="ps-5 pe-5 d-sm-none d-md-block">
-                <div className="pe-5">
+            <div className="ps-5 pe-5 sm-pe-0 d-md-block">
+                <div className="pe-5 sm-pe-0">
                     {
                         data.tags.map((tag, index) => (
                             <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" key={index}>

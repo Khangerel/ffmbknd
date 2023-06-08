@@ -35,7 +35,7 @@ function WhatWeDoNews({ data, index }) {
                                 {data.description}
                             </p>
                             {button_state === false ? <Button
-                                className="bg-none text-dart d-flex align-items-center p-0 m-0 pt-5"
+                                className="bg-none text-dart d-flex align-items-center p-0 m-0 pt-5 sm-ms-auto"
                                 onClick={() => {
                                     setButtonState(!button_state)
                                 }}
@@ -69,7 +69,7 @@ function WhatWeDoNews({ data, index }) {
                         </div>
                     </Collapse>
                     {button_state === true ? <Button
-                        className="bg-none text-dart d-flex align-items-center p-0 m-0 pt-5"
+                        className="bg-none text-dart d-flex align-items-center p-0 m-0 pt-5 sm-ms-auto pb-5"
                         onClick={() => {
                             setButtonState(!button_state)
                         }}

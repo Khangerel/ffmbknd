@@ -44,8 +44,8 @@ function Header() {
 
   return (
     <div className="header">
-      <div className="" style={{ height: document.documentElement.scrollTop == 0 ? '147px' : 0 , transition: '1s all ease' }}></div>
-      <Navbar collapseOnSelect expand="lg" bg="white" variant="white" fixed="top" className="menu w-100 position-fixed pt-5 pb-5">
+      <div className="sm-nav-space" style={{ height: document.documentElement.scrollTop == 0 ? '147px' : 0 , transition: '1s all ease' }}></div>
+      <Navbar collapseOnSelect expand="lg" bg="white" variant="white" fixed="top" className="menu w-100 position-fixed pt-5 pb-5 sm-menu">
         <Container fluid="xxl">
           <Navbar.Brand to="#" onClick={() => {
             setPathname('/')
