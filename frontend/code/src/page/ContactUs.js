@@ -176,7 +176,7 @@ function ContactUs() {
                         </Form.Group>
                         <Form.Group controlId="validationCustom04" className="mb-4">
                             <Form.Label className="text-gray">Message</Form.Label>
-                            <Form.Control type="text" placeholder="State"
+                            <Form.Control type="text" placeholder="Message"
                                 value={message} onChange={e => {
                                     setMessage(e.target.value);
                                 }} required className="border-none border-bottom" />
