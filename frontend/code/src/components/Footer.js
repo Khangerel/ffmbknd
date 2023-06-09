@@ -54,10 +54,10 @@ export default function Footer() {
                 <ListGroup.Item className="text-bold border-none bg-none text-span fw-normal text-center">Follow us</ListGroup.Item>
                 <ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">
                   <div className="contact-icons h-100 d-flex align-items-end mt-1 justify-content-center w-100">
-                    <a className="me-3" href="https://www.twitter.com/"><FaTwitter width="30" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
-                    <a className="me-3" href="https://www.facebook.com/farofoundation"><FaFacebookF width="40" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
-                    <a className="me-3" href="https://www.instagram.com/farofoundation"><FaInstagram width="40" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
-                    <a className="me-3" href="https://www.youtube.com/@farofoundationmongolia"><FaYoutube width="40" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.twitter.com/"><FaTwitter size={20} style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.facebook.com/farofoundation"><FaFacebookF size={20} style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.instagram.com/farofoundation"><FaInstagram size={20} style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.youtube.com/@farofoundationmongolia"><FaYoutube size={20} style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
                   </div>
                 </ListGroup.Item>
               </ListGroup>
