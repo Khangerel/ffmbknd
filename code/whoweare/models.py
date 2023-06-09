@@ -41,7 +41,7 @@ class timeline(models.Model):
     title = models.TextField(max_length=100)
     image = models.ImageField(upload_to="upload/images/timeline/", blank=True)
     year = models.IntegerField()
-    description = models.TextField(max_length=300)
+    description = models.TextField(max_length=600)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     sequence = models.IntegerField(null=True)
 

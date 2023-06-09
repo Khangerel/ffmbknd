@@ -126,7 +126,7 @@ DATABASES = {
         'NAME': 'ffngo',
         'USER': 'ffngo',
         'PASSWORD': 'ffngo',
-        'HOST': 'ffngo_skeleton_db',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
