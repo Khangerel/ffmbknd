@@ -33,24 +33,36 @@ export default function Footer() {
             </div> */}
             </div>
           </div>
-          <div className="d-flex pt-5 pb-5">
-            <ListGroup className="border-none pe-5 bg-none">
-              <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">Who We Are</ListGroup.Item></Link>
-              <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">What We Do</ListGroup.Item></Link>
-              <Link to={'/news'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">News</ListGroup.Item></Link>
-            </ListGroup>
-            <ListGroup className="border-none pe-5 bg-none">
-              <Link to={'/contact-us'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">Contact us</ListGroup.Item></Link>
-            </ListGroup>
-          </div>
-          <div>
-            <div className="d-flex w-100 justify-content-end contact-icons">
-              <Link className="ms-3"><FaTwitter style={{ color: 'rgb(71, 125, 226)!important' }} /></Link>
-              <Link className="ms-3"><FaFacebookF style={{ color: 'rgb(71, 125, 226)!important' }} /></Link>
-              <Link className="ms-3"><FaInstagram style={{ color: 'rgb(71, 125, 226)!important' }} /></Link>
-            </div>
-          </div>
+          <Row className="pt-5 pb-5">
+            <Col xl={4} lg={4} sm={12} md={4} >
+              <ListGroup className="border-none pe-5 bg-none">
+                <Link to={'/who-we-are'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">Who We Are</ListGroup.Item></Link>
+                <Link to={'/projects'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">What We Do</ListGroup.Item></Link>
+                <Link to={'/news'} className="text-decoration-none"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">News</ListGroup.Item></Link>
+              </ListGroup>
+            </Col>
+            <Col xl={4} lg={4} sm={12} md={4} >
+              <ListGroup className="border-none pe-5 bg-none">
+                <Link to={'/contact-us'} className="text-decoration-none text-center"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">Contact us</ListGroup.Item></Link>
+                <Link className="text-center">
+                  <Button className="bg-primary rounded-pill ">info.mn@farofoundation.org</Button>
+                </Link>
+              </ListGroup>
+            </Col>
+            <Col xl={4} lg={4} sm={12} md={4} >
+              <ListGroup className="border-none pe-5 bg-none">
+                <ListGroup.Item className="text-bold border-none bg-none text-span fw-normal text-center">Follow us</ListGroup.Item>
+                <ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">
+                  <div className="contact-icons h-100 d-flex align-items-end mt-1 justify-content-center w-100">
+                    <a className="me-3" href="https://www.facebook.com/farofoundation"><FaTwitter width="30" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.facebook.com/farofoundation"><FaFacebookF width="30" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.instagram.com/farofoundation"><FaInstagram width="30" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                  </div>
+                </ListGroup.Item>
+              </ListGroup>
 
+            </Col>
+          </Row>
         </Container>
         <Container className="d-flex pt-3 pb-3">
           <span className="d-flex align-items-center">@2022 Faro Foundation NGO</span>
