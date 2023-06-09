@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import SplitButton from "react-bootstrap/SplitButton";
 import "./Footer.css";
 import LogoGrey from "./LogoGrey";
-import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import useLocales from "../hooks/useLocales";
 import Logo from "./Logo";
 import { Button, Container, ListGroup } from "react-bootstrap";
@@ -54,9 +54,10 @@ export default function Footer() {
                 <ListGroup.Item className="text-bold border-none bg-none text-span fw-normal text-center">Follow us</ListGroup.Item>
                 <ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">
                   <div className="contact-icons h-100 d-flex align-items-end mt-1 justify-content-center w-100">
-                    <a className="me-3" href="https://www.facebook.com/farofoundation"><FaTwitter width="30" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
-                    <a className="me-3" href="https://www.facebook.com/farofoundation"><FaFacebookF width="30" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
-                    <a className="me-3" href="https://www.instagram.com/farofoundation"><FaInstagram width="30" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.twitter.com/"><FaTwitter width="30" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.facebook.com/farofoundation"><FaFacebookF width="40" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.instagram.com/farofoundation"><FaInstagram width="40" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
+                    <a className="me-3" href="https://www.youtube.com/@farofoundationmongolia"><FaYoutube width="40" style={{ color: 'rgb(71, 125, 226)!important' }} /></a>
                   </div>
                 </ListGroup.Item>
               </ListGroup>
