@@ -1,3 +1,5 @@
+import { useState } from "react";
+import copy from "copy-to-clipboard";
 import { Link, Link as RouterLink } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import Dropdown from "react-bootstrap/Dropdown";
@@ -10,15 +12,23 @@ import LogoGrey from "./LogoGrey";
 import { FaTwitter, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import useLocales from "../hooks/useLocales";
 import Logo from "./Logo";
-import { Button, Container, ListGroup } from "react-bootstrap";
+import { Button, Container, ListGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 export default function Footer() {
   const { allLangs, currentLang, onChangeLang } = useLocales();
   const { t } = useTranslation();
+  const [copied_email, setCopiedEmail] = useState(false);
+
   //   console.log('TTT --> ', i18n)
   const handleclick = (value) => {
     onChangeLang(value);
   }
+  const tooltip = (
+    <Tooltip id="tooltip">
+      {copied_email === false? 'copy' : 'copied'}
+    </Tooltip>
+  );
+
   return (
     <div>
       <div className="footer-basic">
@@ -45,7 +55,12 @@ export default function Footer() {
               <ListGroup className="border-none pe-5 bg-none">
                 <Link to={'/contact-us'} className="text-decoration-none text-center"><ListGroup.Item className="text-bold border-none bg-none text-span fw-normal">Contact us</ListGroup.Item></Link>
                 <Link className="text-center">
-                  <Button className="bg-primary rounded-pill ">info.mn@farofoundation.org</Button>
+                  <OverlayTrigger placement="top" overlay={tooltip}>
+                    <Button className="bg-primary rounded-pill " onClick={()=>{
+                      copy('info.mn@farofoundation.org');
+                      setCopiedEmail(true);
+                    }}>info.mn@farofoundation.org</Button>
+                  </OverlayTrigger>
                 </Link>
               </ListGroup>
             </Col>
