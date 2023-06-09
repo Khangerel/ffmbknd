@@ -1,9 +1,8 @@
 
-import { Button, Card, Col, Row, Image, Container, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Button, Card, Col, Row, Image, Container } from "react-bootstrap";
 import HeroImage from "../components/HeroImage";
 import computer_outline_svg from "../assets/images/symbols_computer-outline.svg"
 import Partners from "./Partners";
-import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png"
 import { Link } from "react-router-dom";
 import HorizontalCard from "../components/HorizontalCard";
 import { useState, useEffect, useCallback } from "react";
@@ -11,14 +10,22 @@ import { API } from "../api/axios";
 import { useTranslation } from 'react-i18next';
 import LoadingPage from "./LoadingPage";
 import FeaturedNewsCard from "../components/FeaturedNewsCard";
+
 function Home() {
 
   const { t } = useTranslation();
   const [light_card_list, setLightCardList] = useState([]);
   const [recent_post_list, setRecentPostList] = useState([]);
   const [is_loading, setIsLoading] = useState(true);
+  const [lading, setLanding] = useState({});
 
   const getData = useCallback(async () => {
+    const landing_response = await API.get('landing/', {})
+    if (landing_response.status === 200) {
+      if (landing_response.data.length > 0) {
+        setLanding(landing_response.data[0]);
+      }
+    }
     const card_list_data = await API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`);
     if (card_list_data.status === 200) {
       setLightCardList(card_list_data.data);
@@ -59,7 +66,7 @@ function Home() {
             <h1 className="hero-title blue-under-line pb-4">
               Advancing digital<br />
               literacy and bridging<br />
-              the digital divide 
+              the digital divide
             </h1>
             <Row>
               <Col xl={6} lg={8} md={8} sm={12}>
@@ -74,13 +81,13 @@ function Home() {
               </div> */}
                 <div className="pe-5">
                   <h1>
-                    44000+
+                    {lading.citizens}+
                   </h1>
                   <p className="text-gray">{t("landing.citizens")}</p>
                 </div>
                 <div className="pe-5">
                   <h1>
-                    710+
+                    {lading.trainings}+
                   </h1>
                   <p className="text-gray">
                     {t("landing.trainings")}
@@ -103,168 +110,154 @@ function Home() {
         }} className="d-none-sm
         d-none-small-none
         d-none-md-none">
-          <HeroImage />
+          <HeroImage image1={lading.image_swipe1} image2={lading.image_swipe2} image3={lading.image_swipe3} />
         </div>
       </div>
-      <div className="ps-5 pe-5 w-100">
-        <Container className="w-100">
-          <Row className="w-100 m-0 pt-5">
-            <Col xl={4} lg={4} md={5} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center mb-5">
-              <div className="pb-5 pt-5">
-                <h1 className="text-white hero-title pt-5 pb-5 text-center-sm">Who <br /> We Are</h1>
-                <div className="d-block d-xl-none d-lg-none pb-4">
-                  <h1 className="text-white text-center pb-3">{t("landing.whoweare_title")}</h1>
-                  <div className="text-center px-5 mx-3">
-                    <span className="text-white w-100">
-                      {t("landing.whoweare_body")}
-                    </span>
+      <div className="background-image">
+
+
+        <div className="ps-5 pe-5 w-100">
+          <Container className="w-100">
+            <Row className="w-100 m-0 pt-5">
+              <Col xl={4} lg={4} md={5} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center mb-5">
+                <div className="pb-5 pt-5">
+                  <h1 className="text-white hero-title pt-5 pb-5 text-center-sm">Who <br /> We Are</h1>
+                  <div className="d-block d-xl-none d-lg-none pb-4">
+                    <h1 className="text-white text-center pb-3">{t("landing.whoweare_title")}</h1>
+                    <div className="text-center px-5 mx-3">
+                      <span className="text-white w-100">
+                        {t("landing.whoweare_body")}
+                      </span>
+                    </div>
+
                   </div>
 
                 </div>
 
-              </div>
+              </Col>
+              <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5  d-none-sm d-none-small-none d-none-md-none">
 
-            </Col>
-            <Col xl={8} lg={8} md={7} sm={12} className="d-flex align-items-center mb-5  d-none-sm d-none-small-none d-none-md-none">
-              
-              <div className="ps-5 pe-5 mx-5 d-none-sm d-none-small-none d-none-md-none">
-                <h4>{t("landing.whoweare_title")}</h4>
-                <p className="pe-2 pt-2 text-black text-align-justify " style={{
-                  lineHeight: 2
-                }}>
-                  {t("landing.whoweare_body")}
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-        <div className="text-center d-block d-xl-none d-lg-none">
-          <div>
-            <h1 className="text-primary">44000+</h1>
-            <p className="text-gray">Citizens trained</p>
-          </div>
-          <div>
-            <h1 className="text-primary">710+</h1>
-            <p className="text-gray">Trainings conducted</p>
+                <div className="ps-5 pe-5 mx-5 d-none-sm d-none-small-none d-none-md-none">
+                  <h4>{t("landing.whoweare_title")}</h4>
+                  <p className="pe-2 pt-2 text-black text-align-justify " style={{
+                    lineHeight: 2
+                  }}>
+                    {t("landing.whoweare_body")}
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+          <div className="text-center d-block d-xl-none d-lg-none">
+            <div>
+              <h1 className="text-primary">{lading.citizens}+</h1>
+              <p className="text-gray">{t("landing.citizens")}</p>
+            </div>
+            <div>
+              <h1 className="text-primary">{lading.trainings}+</h1>
+              <p className="text-gray">{t("landing.trainings")}</p>
+            </div>
           </div>
         </div>
-        {/* <div className="row w-100 min-vh-50">
-          <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 bg-primary d-flex justify-content-center align-items-center p">
-            <h1 className="text-white hero-title text-center">Who <br /> We Are</h1>
-          </div>
-          <div className="col-xl-8 col-lg-8 col-md-7 col-sm-6 d-flex align-items-center">
-            <div className="ps-5 pe-5">
-              <h4>Faro Foundation NGO</h4>
-              <p className="pe-5 text-black">
-                FF is a non-governmental organization that has focused
-                on promoting adequate and accessible use of social media and digital literacy.
-                Our work includes but is not limited to, promoting online safety, digital literacy, child
-                protection programs, proper use of social media, public awareness regarding cyber
-                bullying and such.
-              </p>
+        <div>
+          <Container className="pt-5 pb-5 mt-5">
+            <div className="d-none-sm d-none-small-none d-none-md-none">
+              <div className="d-flex bd-highlight pb-5">
+                <h1 className="title">{t("menu.what_we_do")}</h1>
+                <p className="text-gray ms-auto align-items-center d-flex" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
+              </div>
             </div>
-
-          </div>
-        </div> */}
-      </div>
-      <div>
-        <Container className="pt-5 pb-5 mt-5">
-          <div className="d-none-sm d-none-small-none d-none-md-none">
-            <div className="d-flex bd-highlight pb-5">
-              <h1 className="title">{t("menu.what_we_do")}</h1>
-              <p className="text-gray ms-auto align-items-center d-flex" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
+            <div className="d-block d-xl-none d-lg-none">
+              <h1 className="text-center title">{t("menu.what_we_do")}</h1>
+              <p className="text-gray ms-auto text-center" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
             </div>
-          </div>
-          <div className="d-block d-xl-none d-lg-none">
-            <h1 className="text-center title">{t("menu.what_we_do")}</h1>
-            <p className="text-gray ms-auto text-center" dangerouslySetInnerHTML={{ __html: t("landing.whatwedo_description") }}></p>
-          </div>
-          <Row className="pt-5 mb-5 pb-5 px-4 mx-4">
-            {
-              light_card_list.map((card, index) => (
-                <Col xl={3} lg={4} sm={12} md={6} className="pb-3 " key={index} style={{
-                  display: 'inherit'
-                }}>
-                  <Card className={`border-none position-relative rounded-15 w-100`} style={{
-                    backgroundColor: card.color,
-                    boxShadow: `-1px -1px 20px 1px ${card.color}`
-                  }}>
-                    <Card.Body>
-                      <Row className="h-100">
-                        <Col lg={12} sm={12} xl={12} xxl={12} md={12}>
-                          <Card.Text className="text-white">
-                            {card.description}
-                          </Card.Text>
-                        </Col>
-                        <Col lg={12} sm={12} xl={12} xxl={12} md={12} className="d-flex  align-items-end">
-                          <h4 className="text-white pt-5 me-4 font-weight-light fw-normal">
-                            {card.title}
-                          </h4>
-                        </Col>
-                      </Row>
-
-
-                      <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))
-            }
-          </Row>
-        </Container>
-      </div>
-      <div className="pt-5">
-        <Partners />
-      </div>
-      <div className="pt-5 pb-5">
-        <Container>
-          <h1 className="title mb-5 pb-5" >{t("landing.recent_news")}</h1>
-          <Row className="w-100 pb-5 m-0">
-            {
-              recent_post_list.length > 0 ?
-                <Col xl={5} lg={5} sm={12} md={12} className="pe-4 mb-5">
-                  <div className="p-4 min-vh-50 h-100 position-relative " style={{
-                    background: `linear-gradient(rgba(11, 26, 49, 1), rgba(0,0,0,0)), url(${recent_post_list[0].image_thumbnail})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center center',
-                  }}>
-                    {
-                      recent_post_list[0].tags.map((el, index) => (
-                        <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" key={index} >{el.name}</Button>
-                      ))
-                    }
-
-                    <h3 className="pt-3 text-white">
-                      {recent_post_list[0].title}
-                    </h3>
-                    <p className="pt-3 text-white">
-                      {recent_post_list[0].description}
-                    </p>
-                    <div className="position-absolute" style={{ bottom: 20, right: 20 }}>
-                      <Link className="text-white me-4 text-bold" to={`/news/${recent_post_list[0].id}`}>{t("landing.continue_reading")}</Link>
-                    </div>
-                  </div>
-                </Col> : ''
-            }
-
-            <Col xl={7} lg={7} sm={12} md={12}>
+            <Row className="pt-5 mb-5 pb-5 px-4 mx-4">
               {
-                recent_post_list.map((post, index) => (
-                  index !== 0 ?
-                    <div>
-                      <div className="d-none-sm d-none-small-none d-none-md-none">
-                        <HorizontalCard data={post} id={post.id} />
-                      </div>
-                      <div className="d-block d-xl-none d-lg-none">
-                        <FeaturedNewsCard description={post.description} id={post.id} title={post.title} image_thumbnail={post.image_thumbnail} key={index} />
-                      </div>
-                    </div>
-                    : ''
+                light_card_list.map((card, index) => (
+                  <Col xl={3} lg={4} sm={12} md={6} className="pb-3 " key={index} style={{
+                    display: 'inherit'
+                  }}>
+                    <Card className={`border-none position-relative rounded-15 w-100`} style={{
+                      backgroundColor: card.color,
+                      boxShadow: `-1px -1px 20px 1px ${card.color}`
+                    }}>
+                      <Card.Body>
+                        <Row className="h-100">
+                          <Col lg={12} sm={12} xl={12} xxl={12} md={12}>
+                            <Card.Text className="text-white">
+                              {card.description}
+                            </Card.Text>
+                          </Col>
+                          <Col lg={12} sm={12} xl={12} xxl={12} md={12} className="d-flex  align-items-end">
+                            <h4 className="text-white pt-5 me-4 font-weight-light fw-normal">
+                              {card.title}
+                            </h4>
+                          </Col>
+                        </Row>
+
+
+                        <Image src={computer_outline_svg} style={{ position: 'absolute', bottom: 15, right: 15 }} />
+                      </Card.Body>
+                    </Card>
+                  </Col>
                 ))
               }
-            </Col>
-          </Row>
-        </Container>
+            </Row>
+          </Container>
+        </div>
+        <div className="pt-5">
+          <Partners />
+        </div>
+        <div className="pt-5 pb-5">
+          <Container>
+            <h1 className="title mb-5 pb-5" >{t("landing.recent_news")}</h1>
+            <Row className="w-100 pb-5 m-0">
+              {
+                recent_post_list.length > 0 ?
+                  <Col xl={5} lg={5} sm={12} md={12} className="pe-4 mb-5">
+                    <div className="p-4 min-vh-50 h-100 position-relative " style={{
+                      background: `linear-gradient(rgba(11, 26, 49, 1), rgba(0,0,0,0)), url(${recent_post_list[0].image_thumbnail})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center center',
+                    }}>
+                      {
+                        recent_post_list[0].tags.map((el, index) => (
+                          <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" key={index} >{el.name}</Button>
+                        ))
+                      }
+
+                      <h3 className="pt-3 text-white">
+                        {recent_post_list[0].title}
+                      </h3>
+                      <p className="pt-3 text-white">
+                        {recent_post_list[0].description}
+                      </p>
+                      <div className="position-absolute" style={{ bottom: 20, right: 20 }}>
+                        <Link className="text-white me-4 text-bold" to={`/news/${recent_post_list[0].id}`}>{t("landing.continue_reading")}</Link>
+                      </div>
+                    </div>
+                  </Col> : ''
+              }
+
+              <Col xl={7} lg={7} sm={12} md={12}>
+                {
+                  recent_post_list.map((post, index) => (
+                    index !== 0 ?
+                      <div>
+                        <div className="d-none-sm d-none-small-none d-none-md-none">
+                          <HorizontalCard data={post} id={post.id} />
+                        </div>
+                        <div className="d-block d-xl-none d-lg-none">
+                          <FeaturedNewsCard description={post.description} id={post.id} title={post.title} image_thumbnail={post.image_thumbnail} key={index} />
+                        </div>
+                      </div>
+                      : ''
+                  ))
+                }
+              </Col>
+            </Row>
+          </Container>
+        </div>
       </div>
     </div>
   );

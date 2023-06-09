@@ -87,39 +87,13 @@ function WhoWeAre() {
         {
             is_loading ? <LoadingPage /> : ''
         }
-        <Container>
-            <h1 className="title">{t("ourteam.advisory")}</h1>
-            <Row className="pt-4">
-                {
-                    out_team_list.map((el, key) => (
-                        el.is_advisory_board === true ?
-                            <Col xl={3} lg={3} sm={6} md={6} xs={6}>
-                                <div className="px-1 pb-5">
-                                    <div className="d-flex justify-content-center">
-                                        <div className="rounded-circle bg-gradient-primary p-1">
-                                            <Image src={el.image} width={125} className="rounded-circle"
-                                                style={{ border: '3px solid #fff' }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 className="text-center pt-3">
-                                            {el.full_name}
-                                        </h5>
-                                        <p className="text-gray text-center">{el.position} - {el.country}</p>
-                                    </div>
-                                </div>
-                            </Col> : ''
-                    ))
-                }
-            </Row>
-
-            <h1 className="title">{t("ourteam.title")}</h1>
-            <div>
-                <Row className="w-100 pt-4 blue-under-line">
+        <div className="background-image">
+            <Container>
+                <h1 className="title">{t("ourteam.advisory")}</h1>
+                <Row className="pt-4">
                     {
                         out_team_list.map((el, key) => (
-                            el.is_advisory_board === false ?
+                            el.is_advisory_board === true ?
                                 <Col xl={3} lg={3} sm={6} md={6} xs={6}>
                                     <div className="px-1 pb-5">
                                         <div className="d-flex justify-content-center">
@@ -140,36 +114,64 @@ function WhoWeAre() {
                         ))
                     }
                 </Row>
-            </div>
-        </Container>
-        <div className="pt-5 mt-5">
-            <Container>
-                <Row className="w-100">
-                    <Col xl={4} lg={4} md={12} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center pb-3 mb-5">
-                        <div className="pb-5">
-                            <h1 className="text-white hero-title pt-5 pb-5 mt-5 text-center-sm">Who <br /> We Are</h1>
-                            <div className="d-block d-xl-none d-lg-none">
-                                <h1 className="text-white text-center pb-3">{t("landing.whoweare_title")}</h1>
-                                <div className="text-center px-5 mx-5">
-                                    <span className="text-white w-100">
-                                        {main_data.whoweare}
-                                    </span>
-                                </div>
 
-                            </div>
-                        </div>
-                    </Col>
-                    <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
-                        <div className="px-5 mx-5  d-none-sm d-none-small-none d-none-md-none">
-                            <h1 className="pb-5">{t("landing.whoweare_title")}</h1>
-                            <p className="text-black text-align-justify" style={{lineHeight: 2}}>
-                                {main_data.whoweare}
-                            </p>
-                        </div>
-                    </Col>
-                </Row>
+                <h1 className="title">{t("ourteam.title")}</h1>
+                <div>
+                    <Row className="w-100 pt-4 blue-under-line">
+                        {
+                            out_team_list.map((el, key) => (
+                                el.is_advisory_board === false ?
+                                    <Col xl={3} lg={3} sm={6} md={6} xs={6}>
+                                        <div className="px-1 pb-5">
+                                            <div className="d-flex justify-content-center">
+                                                <div className="rounded-circle bg-gradient-primary p-1">
+                                                    <Image src={el.image} width={125} className="rounded-circle"
+                                                        style={{ border: '3px solid #fff' }}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 className="text-center pt-3">
+                                                    {el.full_name}
+                                                </h5>
+                                                <p className="text-gray text-center">{el.position} - {el.country}</p>
+                                            </div>
+                                        </div>
+                                    </Col> : ''
+                            ))
+                        }
+                    </Row>
+                </div>
             </Container>
+            <div className="pt-5 mt-5">
+                <Container>
+                    <Row className="w-100 m-0">
+                        <Col xl={4} lg={4} md={12} sm={12} className="bg-gradient-primary-white d-flex justify-content-center align-items-center pb-3 mb-5">
+                            <div className="pb-5">
+                                <h1 className="text-white hero-title pt-5 pb-5 mt-5 text-center-sm">Who <br /> We Are</h1>
+                                <div className="d-block d-xl-none d-lg-none">
+                                    <h1 className="text-white text-center pb-3">{t("landing.whoweare_title")}</h1>
+                                    <div className="text-center px-5 mx-5">
+                                        <span className="text-white w-100">
+                                            {main_data.whoweare}
+                                        </span>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </Col>
+                        <Col xl={8} lg={8} md={12} sm={12} className="d-flex pb-3">
+                            <div className="px-5 mx-5  d-none-sm d-none-small-none d-none-md-none">
+                                <h1 className="pb-5">{t("landing.whoweare_title")}</h1>
+                                <p className="text-black text-align-justify" style={{ lineHeight: 2 }}>
+                                    {main_data.whoweare}
+                                </p>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+
+            </div>
         </div>
         <div className="pt-5 mt-5 d-none-sm d-none-small-none d-none-md-none">
             <div className="w-100 position-relative">

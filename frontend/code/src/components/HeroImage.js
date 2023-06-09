@@ -3,29 +3,13 @@ import React, { useEffect, useState } from 'react';
 import image77534141 from "../assets/images/image77534141.png"
 import './HeroImage.css';
 import { API } from '../api/axios';
-export default function HeroImage({ image_list }) {
+export default function HeroImage({ image1, image2, image3 }) {
     const [index, setIndex] = useState(0);
 
     const handleSelect = () => {
         setIndex((prevIndex) => (prevIndex + 1) % 3);
     };
-    const [image1, setImage1] = useState(null);
-    const [image2, setImage2] = useState(null);
-    const [image3, setImage3] = useState(null);
-    const getData = () => {
-        API.get('landing/', {}).then((response) => {
-            if (response.status === 200) {
-                if (response.data.length > 0) {
-                    setImage1(response.data[0].image_swipe1);
-                    setImage2(response.data[0].image_swipe2);
-                    setImage3(response.data[0].image_swipe3);
-                }
-            }
-        })
-    }
-    useEffect(() => {
-        getData();
-    }, [])
+    
     return (
         <div className='position-relative'>
             <svg id="e9Sm4U7fjlI1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" shapeRendering="geometricPrecision" textRendering="geometricPrecision">

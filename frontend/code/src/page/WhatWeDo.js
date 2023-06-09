@@ -65,7 +65,7 @@ function WhatWeDo() {
             {
                 is_loading ? <LoadingPage /> : ''
             }
-            <Container>
+            <Container className="background-image">
                 <div className="min-h-100vh">
                     <Row className="pt-5 m-0">
                         <Col xl={12} lg={12} sm={12} md={12}>

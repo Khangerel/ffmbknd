@@ -291,14 +291,16 @@ a {
 }
 
 @media (max-width: 575.98px) {
-  
-  .sm-menu{
-    padding-top: 1.5rem!important;
-    padding-bottom: 1.5rem!important;
+
+  .sm-menu {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
   }
-  .sm-nav-space{
-    height: 88px!important;
+
+  .sm-nav-space {
+    height: 88px !important;
   }
+
   .hero-title {
     font-size: 44px !important;
   }
@@ -388,20 +390,27 @@ a {
   .sm-text-left {
     text-align: left !important;
   }
-  .sm-pe-0{
-    padding-right: 0!important;
+
+  .sm-pe-0 {
+    padding-right: 0 !important;
   }
-  .sm-ms-auto{
-    margin-left: auto!important;
+
+  .sm-ms-auto {
+    margin-left: auto !important;
+  }
+
+  #faroTimeLine .vertical-item-row:nth-child(even) img {
+    object-position: left !important;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
- 
-  .sm-menu{
-    padding-top: 1.5rem!important;
-    padding-bottom: 1.5rem!important;
+
+  .sm-menu {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
   }
+
   .sm-small-text {
     font-size: var(--bs-body-font-size) !important;
   }
@@ -436,11 +445,17 @@ a {
   .sm-text-left {
     text-align: left !important;
   }
- .sm-pe-0{
-    padding-right: 0!important;
+
+  .sm-pe-0 {
+    padding-right: 0 !important;
   }
-  .sm-ms-auto{
-    margin-left: auto!important;
+
+  .sm-ms-auto {
+    margin-left: auto !important;
+  }
+
+  #faroTimeLine .vertical-item-row:nth-child(even) img {
+    object-position: left !important;
   }
 }
 
@@ -452,7 +467,7 @@ a {
   }
 
   .time-line-title {
-    font-size: 4rem!important;
+    font-size: 4rem !important;
   }
 }
 
@@ -460,14 +475,15 @@ a {
 
   /* CSS styles for large screens */
   .time-line-title {
-    font-size: 4rem!important;
+    font-size: 4rem !important;
   }
 }
 
 @media (min-width: 1200px) {
+
   /* CSS styles for extra large screens */
-  .time-line-title{
-    font-size: 4rem!important;
+  .time-line-title {
+    font-size: 4rem !important;
   }
 }
 
@@ -512,10 +528,22 @@ a {
   font-size: 2.5rem;
 }
 
-.img-shadow{
-  box-shadow: 5px 1px 20px 0px #4780EB;
+.img-shadow {
   transition: .5s all ease;
+  border-right: 51px;
+  overflow: hidden;
+  filter: drop-shadow(6px 3px 4px #4780EB);
+  transform: scale(1.1);
 }
-.contact-icons svg path{
-  color: #4780EB!important;
+
+.contact-icons svg path {
+  color: #4780EB !important;
+}
+
+.background-image {
+  background: url("./assets/images/background_image1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-size: cover;
 }
