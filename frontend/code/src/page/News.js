@@ -1,51 +1,19 @@
-import ExampleToast from "../components/ExampleToast";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperSlide1 from "../assets/images/swiperslide1.png";
-import SwiperSlide2 from "../assets/images/swiperslide2.png";
-import ComponentImage from "../assets/images/component.png";
-import PartnerLogoImg from "../assets/images/partner.png"
 import 'swiper/css';
-import { Button, Col, Row, Image, Container, ListGroup, ListGroupItem, CloseButton } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
-import HorizontalCard from "../components/HorizontalCard";
 import SwiperCore, { Autoplay } from 'swiper'
-import HomePartners from "./HomePartners";
-import HorizontalCardImage1 from "../assets/images/unsplash_nTSvjVD8n-c.png"
-import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png"
 import { API } from "../api/axios";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import NewsList from "./NewsList";
-import NewsDetails from "./NewsDeatails";
 import LoadingPage from "./LoadingPage";
 
 function News() {
   SwiperCore.use([Autoplay]);
-  const slide_data = [
-    {
-      name: "Digital Literacy in Mongolia",
-      description: "(FFM) is a non-governmental organization that has focused on promoting adequate",
-      image: SwiperSlide1,
-      link: ""
-    },
-    {
-      name: "Digital Literacy in Mongolia",
-      description: "(FFM) is a non-governmental organization that has focused on promoting adequate",
-      image: SwiperSlide1,
-      link: ""
-    },
-    {
-      name: "Digital Literacy in Mongolia",
-      description: "(FFM) is a non-governmental organization that has focused on promoting adequate",
-      image: SwiperSlide1,
-      link: ""
-    },
-  ]
+
   const [category_list, setCategoryList] = useState([]);
   const [page_num, setPageNum] = useState(1);
   const [card_list, setCardList] = useState([]);
   const [news_id, setNewsID] = useState(null);
-  const [news_data, setNewsData] = useState({});
-  const [tags, setTags] = useState([]);
+  // const [news_data, setNewsData] = useState({});
+  // const [tags, setTags] = useState([]);
   const [featured_news_list, setFeaturedNewsList] = useState([]);
   const [is_loading, setIsLoading] = useState(true);
   const getData = useCallback(async () => {
@@ -71,26 +39,26 @@ function News() {
     setNewsID(urlParams.get('id'));
     getData();
   }, []);
-  const news_header_component = (
-    <Container>
-      <Image src={SwiperSlide1} fluid />
+  // const news_header_component = (
+  //   <Container>
+  //     <Image src={SwiperSlide1} fluid />
 
-      {/* <Image src={news_data.image_thumbnail} fluid/> */}
+  //     {/* <Image src={news_data.image_thumbnail} fluid/> */}
 
-      <div className="pt-4">
-        <div className="d-flex">
-          {
-            tags.map((tag, tg_index) => (
-              <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" key={tg_index}>
-                {tag.name}
-              </Button>
-            ))
-          }
-        </div>
-        <h1 className="title m-0 p-0">{news_data.title}</h1>
-      </div>
-    </Container>
-  )
+  //     <div className="pt-4">
+  //       <div className="d-flex">
+  //         {
+  //           tags.map((tag, tg_index) => (
+  //             <Button className="px-4 pt-1 pb-1 bg-prime-weak border-none font-weight-bold" key={tg_index}>
+  //               {tag.name}
+  //             </Button>
+  //           ))
+  //         }
+  //       </div>
+  //       <h1 className="title m-0 p-0">{news_data.title}</h1>
+  //     </div>
+  //   </Container>
+  // )
   return (
     <div>
       {

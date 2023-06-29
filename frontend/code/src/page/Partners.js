@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+// import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import factcheck from "../assets/images/partners-fact.png";
 import hamtiin from "../assets/images/partners-hamtiin.png";
@@ -10,36 +10,36 @@ import { Image } from "react-bootstrap";
 import { API } from "../api/axios";
 import Marquee from "react-fast-marquee";
 
-const our_support_data = [
-  {
-    id: 5,
-    name: "Heregjuulegch",
-    body: "partners.heregjuulegch",
-    link: "",
-    image: heregjuulegch,
-  },
-  {
-    id: 6,
-    name: "Printing",
-    body: "partners.printing",
-    link: "",
-    image: hevlel,
-  },
-  {
-    id: 7,
-    name: "MEA",
-    body: "partners.hamtiin",
-    link: "",
-    image: hamtiin,
-  },
-  {
-    id: 8,
-    name: "Factcheck",
-    body: "partners.fact_check",
-    link: "",
-    image: factcheck,
-  },
-];
+// const our_support_data = [
+//   {
+//     id: 5,
+//     name: "Heregjuulegch",
+//     body: "partners.heregjuulegch",
+//     link: "",
+//     image: heregjuulegch,
+//   },
+//   {
+//     id: 6,
+//     name: "Printing",
+//     body: "partners.printing",
+//     link: "",
+//     image: hevlel,
+//   },
+//   {
+//     id: 7,
+//     name: "MEA",
+//     body: "partners.hamtiin",
+//     link: "",
+//     image: hamtiin,
+//   },
+//   {
+//     id: 8,
+//     name: "Factcheck",
+//     body: "partners.fact_check",
+//     link: "",
+//     image: factcheck,
+//   },
+// ];
 
 function Partners() {
   const { t } = useTranslation();

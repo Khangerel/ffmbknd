@@ -1,21 +1,10 @@
-import { Button, Card, Col, Collapse, Container, Row } from "react-bootstrap";
-import CardImage1 from "../assets/images/cardimageg1.png";
+import { Card, Col, Container, Row } from "react-bootstrap";
 // import CardImage2 from "../assets/images/cardimage2.png";
-import ArrowRightCircle from "../components/ArrowRightCircle";
 import { Image } from "react-bootstrap";
-import GetInvolved from "../components/GetInvolved";
 import { useTranslation } from "react-i18next";
-import computer_outline_svg from "../assets/images/symbols_computer-outline.svg"
-import TrainingIcon from "../components/TrainingIcon";
-import frame_39948 from "../assets/images/frame_39948.png";
-import frame_39949 from "../assets/images/frame_39949.png";
-import frame_39950 from "../assets/images/frame_39950.png";
-import image77534141 from "../assets/images/image77534141.png";
-import education_20_1_icon from "../assets/images/education_20_1_icon.png";
-import { Link } from "react-router-dom";
+import computer_outline_svg from "../assets/images/symbols_computer-outline.svg";
 import { useState, useEffect, useCallback } from "react";
 import { API } from "../api/axios";
-import { FaAngleDown } from "react-icons/fa";
 import WhatWeDoNews from "../components/WhatWeDoNews";
 import LoadingPage from "./LoadingPage";
 
@@ -27,20 +16,20 @@ function WhatWeDo() {
     const [information_list, setInformationList] = useState([]);
     const [hw_we_do_list, setHwWeDoList] = useState([]);
     const [is_loading, setIsLoading] = useState(true);
-    const getBgLightColor = ((index) => {
-        if (index === 0) {
-            return 'bg-blue-light';
-        }
-        else if (index === 1) {
-            return 'bg-pink-light';
-        }
-        else if (index === 2) {
-            return 'bg-aqua-light';
-        }
-        else if (index === 3) {
-            return 'bg-yellow-light';
-        }
-    })
+    // const getBgLightColor = ((index) => {
+    //     if (index === 0) {
+    //         return 'bg-blue-light';
+    //     }
+    //     else if (index === 1) {
+    //         return 'bg-pink-light';
+    //     }
+    //     else if (index === 2) {
+    //         return 'bg-aqua-light';
+    //     }
+    //     else if (index === 3) {
+    //         return 'bg-yellow-light';
+    //     }
+    // })
     const getData = useCallback(async () => {
         const card_list_response = await API.get(`card/?lang_id=${localStorage.getItem('lang_id')}`);
         if (card_list_response.status === 200) {

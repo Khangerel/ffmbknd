@@ -1,12 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperSlide1 from "../assets/images/swiperslide1.png";
-import { Button, Col, Row, Image, Container, ListGroup } from "react-bootstrap";
+import { Button, Col, Row, Container, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import HorizontalCard from "../components/HorizontalCard";
 import SwiperCore, { Autoplay } from 'swiper'
-import { API } from "../api/axios";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import VerticalCardImage2 from "../assets/images/unsplash_qZenO_gQ7QA.png";
+import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import FeaturedNewsCard from '../components/FeaturedNewsCard';
 

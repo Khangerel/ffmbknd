@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 import meta from "../assets/images/partner-meta.png";
 import unesco from "../assets/images/partner-nub.png";

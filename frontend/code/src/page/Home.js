@@ -39,20 +39,20 @@ function Home() {
   useEffect(() => {
     getData();
   }, [])
-  const getBgLightColor = ((index) => {
-    if (index === 0) {
-      return 'bg-blue-light';
-    }
-    else if (index === 1) {
-      return 'bg-pink-light';
-    }
-    else if (index === 2) {
-      return 'bg-aqua-light';
-    }
-    else if (index === 3) {
-      return 'bg-yellow-light';
-    }
-  })
+  // const getBgLightColor = ((index) => {
+  //   if (index === 0) {
+  //     return 'bg-blue-light';
+  //   }
+  //   else if (index === 1) {
+  //     return 'bg-pink-light';
+  //   }
+  //   else if (index === 2) {
+  //     return 'bg-aqua-light';
+  //   }
+  //   else if (index === 3) {
+  //     return 'bg-yellow-light';
+  //   }
+  // })
   return (
     <div>
       {

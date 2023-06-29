@@ -1,13 +1,12 @@
 
-import { Button, Col, Row, Image, Container, ListGroup, ListGroupItem, CloseButton } from "react-bootstrap";
-import SwiperSlide1 from "../assets/images/swiperslide1.png";
+import { Button, Col, Row, Image, Container, ListGroup } from "react-bootstrap";
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { API } from "../api/axios";
 import { useParams } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 import { useTranslation } from 'react-i18next';
-
+import { Helmet } from "react-helmet";
 function NewsDetails() {
   const { t } = useTranslation();
   const [news_data, setNewsData] = useState({});
@@ -34,6 +33,14 @@ function NewsDetails() {
   }, []);
   return (
     <Container>
+      <Helmet>
+          <title>{news_data.title}</title>
+          <meta name="description" content={news_data.description} />
+          <meta property="og:title" content={news_data.title} />
+          <meta property="og:description" content={news_data.description} />
+          <meta property="og:image" content={news_data.image_banner} />
+
+      </Helmet>
       {
         is_loading ? <LoadingPage /> : ''
       }

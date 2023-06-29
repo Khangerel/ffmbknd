@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Container, Image } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { ReactComponent as SVG } from '../assets/images/loading-2.svg';
 // import loading_script from "../assets/images/loading.txt"
 

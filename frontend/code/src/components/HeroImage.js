@@ -1,15 +1,7 @@
 import { Carousel } from 'react-bootstrap';
-import React, { useEffect, useState } from 'react';
-import image77534141 from "../assets/images/image77534141.png"
+import React from 'react';
 import './HeroImage.css';
-import { API } from '../api/axios';
 export default function HeroImage({ image1, image2, image3 }) {
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = () => {
-        setIndex((prevIndex) => (prevIndex + 1) % 3);
-    };
-    
     return (
         <div className='position-relative'>
             <svg id="e9Sm4U7fjlI1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" shapeRendering="geometricPrecision" textRendering="geometricPrecision">

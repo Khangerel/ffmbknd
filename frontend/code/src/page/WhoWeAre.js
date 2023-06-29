@@ -1,13 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
-import example_avatar_image from "../assets/images/example_avatar.png";
-import our_banner_image from "../assets/images/our-banner.png";
 import { Chrono } from "react-chrono"
 import QuoteOpen from "../components/QuoteOpen";
 import QuoteClose from "../components/QuoteClose";
 import { useTranslation } from 'react-i18next';
 import "../App.css";
-import { setDefaultNamespace } from "i18next";
 import { API } from "../api/axios";
 import LoadingPage from "./LoadingPage";
 
@@ -18,7 +15,7 @@ function WhoWeAre() {
     const [timeline_list, setTimeLineList] = useState([])
     function timelineFormat(title, cardTitle, image, cardSubtitle, cardDetailedText, index) {
         var style = {}
-        if (index % 2 == 0) {
+        if (index % 2 === 0) {
             style = {
                 textAlign: 'right'
             }
