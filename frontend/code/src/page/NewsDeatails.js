@@ -39,7 +39,7 @@ function NewsDetails() {
           <meta property="og:title" content={news_data.title} />
           <meta property="og:description" content={news_data.description} />
           <meta property="og:image" content={news_data.image_banner} />
-
+          <meta property="og:type" content="website" />
       </Helmet>
       {
         is_loading ? <LoadingPage /> : ''
