@@ -38,6 +38,10 @@ function NewsDetails() {
           <meta name="description" content={news_data.description} />
           <meta property="og:title" content={news_data.title} />
           <meta property="og:description" content={news_data.description} />
+          <meta name="description" content={news_data.description}/>
+
+          <meta property="og:image:secure" content={news_data.title} />
+
           <meta property="og:image" content={news_data.image_banner} />
           <meta property="og:type" content="website" />
       </Helmet>
