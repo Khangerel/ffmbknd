@@ -45,6 +45,7 @@ function NewsDetails() {
           <meta property="og:image" content={news_data.image_banner} />
           <meta property="og:image:secure_url" content={news_data.image_banner} />
           <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <meta property="og:image:alt" content={news_data.title} />
           <meta property="og:image:type" content="image/webp" />
 
