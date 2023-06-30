@@ -49,7 +49,9 @@ function NewsDetails() {
           <meta property="og:image:alt" content={news_data.title} />
           <meta property="og:image:type" content="image/webp" />
 
-          
+          <meta name="twitter:title" content={news_data.title}/>
+          <meta name="twitter:description" content={news_data.description}/>
+          <meta name="twitter:image" content={news_data.image_banner}/>
       </Helmet>
       {
         is_loading ? <LoadingPage /> : ''
