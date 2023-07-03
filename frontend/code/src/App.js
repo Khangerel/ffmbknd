@@ -11,26 +11,30 @@ import Router from "./router/Router";
 import GetInvolved from "./components/GetInvolved";
 import StartModal from "./components/StartModal";
 import Footer from "./components/Footer";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   useEffect(() => {
-    if (localStorage.getItem('lang_id') === undefined || localStorage.getItem('lang_id') === null){
+    if (localStorage.getItem('lang_id') === undefined || localStorage.getItem('lang_id') === null) {
       localStorage.setItem('lang_id', 1);
     }
   }, []);
-  
+
   return (
     <div className="">
-      <div>
-        <StartModal />
-        <Header/>
-        {/* Routes nest inside one another. Nested route paths build upon
+      <HelmetProvider>
+
+        <div>
+          <StartModal />
+          <Header />
+          {/* Routes nest inside one another. Nested route paths build upon
             parent route paths, and nested route elements render inside
             parent route elements. See the note about <Outlet> below. */}
-        <Router />
-        <Footer />
-      </div>
-    </div>
+          <Router />
+          <Footer />
+        </div>
+      </HelmetProvider>
+    </div >
   )
 };
 

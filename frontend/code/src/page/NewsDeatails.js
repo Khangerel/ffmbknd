@@ -2,11 +2,11 @@
 import { Button, Col, Row, Image, Container, ListGroup } from "react-bootstrap";
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { API } from "../api/axios";
+import { API } from "../api/axios"; 
 import { useParams } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 import { useTranslation } from 'react-i18next';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 function NewsDetails() {
   const { t } = useTranslation();
   const [news_data, setNewsData] = useState({});
