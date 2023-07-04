@@ -551,7 +551,7 @@ a {
 .hero-blue-under-line::after{
   content: '';
   display: block;
-  width: 100%;
+  width: 93%;
   height: 4px;
   background: linear-gradient(90deg, rgba(71, 128, 235, 0), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 0));
   position: absolute;
