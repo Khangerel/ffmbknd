@@ -63,7 +63,7 @@ function Home() {
 
         <Container className="min-vh-100 d-flex align-items-center">
           <div>
-            <h1 className="hero-title blue-under-line pb-4">
+            <h1 className="hero-title blue-under-line pb-4 hero-blue-under-line" style={{width: 'fit-content'}}>
               Advancing digital<br />
               literacy and bridging<br />
               the digital divide

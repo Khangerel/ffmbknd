@@ -16,7 +16,7 @@ const en = {
     title: `Advancing 
       Digital literacy,
       Online safety and more.`,
-    description: `Faro Foundation aims to promote adequate and accessible use of social media and foster responsible digital citizens.`,
+    description: `Faro Foundation is a regional non-governmental organization with offices in Central Asia and Mongolia. Faro Foundation was founded in 2018 with the aim of fostering responsible digital citizens and advancing digital literacy level in the region.`,
     citizens: `Citizens trained`,
     trainings: `Trainings conducted`,
     read_more: `Read more`,
