@@ -556,4 +556,6 @@ a {
   background: linear-gradient(90deg, rgba(71, 128, 235, 0), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 1), rgba(71, 128, 235, 0));
   position: absolute;
   bottom: 0px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }

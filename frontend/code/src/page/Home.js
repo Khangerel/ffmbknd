@@ -65,8 +65,8 @@ function Home() {
           <div>
             <h1 className="hero-title blue-under-line pb-4 hero-blue-under-line" style={{width: 'fit-content'}}>
               Advancing digital<br />
-              literacy and bridging<br />
-              the digital divide
+              literacy, online safety<br />
+              and more.
             </h1>
             <Row>
               <Col xl={6} lg={8} md={8} sm={12}>
