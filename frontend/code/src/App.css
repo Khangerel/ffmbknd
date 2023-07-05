@@ -364,7 +364,9 @@ a {
     margin-right: auto;
     margin-left: auto;
   }
-
+  .sm-width-initial{
+    width: initial!important;
+  }
   .title {
     margin: 1rem !important;
   }
