@@ -14,24 +14,71 @@ function NewsDetails() {
   const news_id = useParams()["news_id"];
   const [featured_card_list, setRecentPostList] = useState([]);
   const [is_loading, setIsLoading] = useState(true);
-  const getData = useCallback(async () => {
-    const post_response = await API.get(`post/${news_id}`, {});
-    if (post_response.status === 200) {
-      setNewsData(post_response.data);
-      setTags(post_response.data.tags);
-      setCategoryList(post_response.data.categories);
-    }
-    const recent_news_response = await API.get(
-      `recent/posts?lang_id=${localStorage.getItem("lang_id")}`
-    );
-    if (recent_news_response.status === 200) {
-      setRecentPostList(recent_news_response.data);
-    }
-    setIsLoading(false);
-  }, []);
+
   useEffect(() => {
-    getData();
-  }, []);
+    const fetchData = async () => {
+      try {
+        const post_response = await API.get(`post/${news_id}`, {});
+        if (post_response.status === 200) {
+          setNewsData(post_response.data);
+          setTags(post_response.data.tags);
+          setCategoryList(post_response.data.categories);
+        }
+        const recent_news_response = await API.get(
+          `recent/posts?lang_id=${localStorage.getItem("lang_id")}`
+        );
+        if (recent_news_response.status === 200) {
+          setRecentPostList(recent_news_response.data);
+        }
+        setIsLoading(false);
+      } catch (error) {
+        // Handle error if necessary...
+      }
+    };
+    fetchData();
+  }, [news_id]);
+  useEffect(() => {
+    if (!is_loading) {
+      const updateMetaTags = () => {
+        const metaTags = [
+          { property: "og:type", content: "article" },
+          { property: "og:title", content: news_data.title },
+          { property: "og:description", content: news_data.description },
+          { property: "og:image", content: news_data.image_thumbnail },
+          {
+            property: "og:url",
+            content: `https://farofoundation.org/news/${news_id}`,
+          },
+          // Add other meta tags as needed...
+        ];
+
+        const metaTagElements = metaTags.map((tag) => ({
+          tagName: "meta",
+          attributes: {
+            ...tag,
+          },
+        }));
+
+        // Update meta tags
+        const head = document.querySelector("head");
+        metaTagElements.forEach((tagElement) => {
+          const existingTag = document.querySelector(
+            `meta[property="${tagElement.attributes.property}"]`
+          );
+          if (existingTag) {
+            head.removeChild(existingTag);
+          }
+          const newTag = document.createElement(tagElement.tagName);
+          for (const [attr, value] of Object.entries(tagElement.attributes)) {
+            newTag.setAttribute(attr, value);
+          }
+          head.appendChild(newTag);
+        });
+      };
+      updateMetaTags();
+    }
+  }, [is_loading, news_data, news_id]);
+
   return (
     <Container>
       {is_loading ? (
