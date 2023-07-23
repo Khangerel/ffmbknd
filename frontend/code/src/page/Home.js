@@ -60,21 +60,7 @@ function Home() {
     <div>
       {is_loading ? (
         <LoadingPage />
-      ) : (
-        <Helmet>
-          <meta property="og:type" content="article" />
-          <meta property="og:title" content="FARO INTERNATIONAL" />
-          <meta
-            property="og:description"
-            content="FARO FOUNDATION IS NON GOVERNMENT ORG"
-          />
-          <meta property="og:url" content="https://farofoundation.org/" />
-          <meta
-            property="og:image"
-            content="http://farofoundation.org/media/upload/images/post/thumbnails/unsplash_7hqEx1al0Fk.png"
-          />
-        </Helmet>
-      )}
+      ) : ""}
 
       <div className="position-relative bg-hero-sm">
         <Container className="min-vh-100 d-flex align-items-center">
