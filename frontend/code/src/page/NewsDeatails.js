@@ -41,9 +41,9 @@ function NewsDetails() {
           <meta property="og:description" content={news_data.description} />
           <meta name="description" content={news_data.description}/>
 
-          <meta property="og:url" content={`https://farofoundation.org`} />
-          <meta property="og:image" content={'http://farofoundation.org/media/upload/images/post/thumbnails/61aec76915de8e0c3d192fea_1.webp'} />
-          <meta property="og:image:secure_url" content={news_data.image_banner} />
+          <meta property="og:url" content={`https://farofoundation.org/news/${news_id}`} />
+          <meta property="og:image" content={news_data.image_banner} />
+          {/* <meta property="og:image:secure_url" content={news_data.image_banner} /> */}
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
           <meta property="og:image:alt" content={news_data.title} />
