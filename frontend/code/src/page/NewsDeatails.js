@@ -5,7 +5,7 @@ import { API } from "../api/axios";
 import { useParams } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 import { useTranslation } from "react-i18next";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet, HelmetProvider, HelmetData } from "react-helmet-async";
 function NewsDetails() {
   const { t } = useTranslation();
   const [news_data, setNewsData] = useState({});
@@ -78,10 +78,11 @@ function NewsDetails() {
       updateMetaTags();
     }
   }, [is_loading, news_data, news_id]);
+  const helmetData = new HelmetData({});
 
   return (
-    <HelmetProvider>
-      <Helmet>
+    <HelmetProvider >
+      <Helmet helmetData={helmetData} prioritizeSeoTags>
         <meta property="og:type" content="article" />
         <meta property="og:title" content={news_data.title} />
         <meta property="og:description" content={news_data.description} />
