@@ -34,8 +34,12 @@ app.get("/news/:news_id", (req, res) => {
         if (err) {
           return console.log(err);
         }
+        console.log('-0-0-0-', newsData.image_thumbnail)
+        console.log('-0-0-0-', newsData.title)
+        console.log('-0-0-0-', newsData.description)
+        console.log('URL-> ', `https://farofoundation.org/news/${news_id}`)
         data = data
-          .replace(/__TITLE__/g, `News Page ${newsData.title}`)
+          .replace(/__TITLE__/g, newsData.title)
           .replace(/__DESCRIPTION__/g, newsData.description)
           .replace(/__URL__/g, `https://farofoundation.org/news/${news_id}`)
           .replace(/__IMAGE__/g, newsData.image_thumbnail);
