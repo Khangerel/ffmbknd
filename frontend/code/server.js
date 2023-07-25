@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 });
 app.get("/news/:news_id", (req, res) => {
   const news_id = req.params.news_id;
-
+  console.log('TUVSHUU YAAHWEE');
   // Make an HTTP GET request to the API endpoint
   axios.get(`https://farofoundation.org/api/v1/post/${news_id}`)
     .then(response => {
@@ -34,10 +34,10 @@ app.get("/news/:news_id", (req, res) => {
         if (err) {
           return console.log(err);
         }
-        console.log('-0-0-0-', newsData.image_thumbnail)
-        console.log('-0-0-0-', newsData.title)
-        console.log('-0-0-0-', newsData.description)
-        console.log('URL-> ', `https://farofoundation.org/news/${news_id}`)
+        console.log('-0-0-0-', newsData.image_thumbnail);
+        console.log('-0-0-0-', newsData.title);
+        console.log('-0-0-0-', newsData.description);
+        console.log('URL-> ', `https://farofoundation.org/news/${news_id}`);
         data = data
           .replace(/__TITLE__/g, newsData.title)
           .replace(/__DESCRIPTION__/g, newsData.description)
