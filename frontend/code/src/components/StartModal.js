@@ -8,8 +8,6 @@ import './StartModal.css'
 
 function StartModal() {
   const langStorage = localStorage.getItem('i18nextLng');
-  console.log('langStorage :>> ', langStorage);
-  console.log('langstorage', langStorage)
   const [show, setShow] = useState(langStorage ? false : true);
   const { allLangs, onChangeLang } = useLocales();
 

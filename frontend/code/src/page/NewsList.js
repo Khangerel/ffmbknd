@@ -12,7 +12,7 @@ function NewsList({ card_list, category_list, featured_card_list }) {
     SwiperCore.use([Autoplay]);
     const [slide_data, setSlideData] = useState([]);
     useEffect(() => {
-        if (card_list.length > 0){
+        if (card_list.length > 0) {
             setSlideData([card_list[0]])
         }
     }, [])
@@ -27,13 +27,11 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                 // }}
                 // loop={true}
                 slidesPerView={1}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
                 className="swiper-slide__hero"
             >
                 {
                     card_list.map((el, index) => (
-                        index === 0?<SwiperSlide key={index}>
+                        index === 0 ? <SwiperSlide key={index}>
                             <div className="swiper-slide__hero-content w-100  m-0 d-flex align-items-end"
                                 style={{
                                     background: `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)), url(${el.image_banner})`,
@@ -43,7 +41,7 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                                 <Container className="mb-0">
                                     <div className=" w-100">
                                         {
-                                            el.tags.map((tag, tag_index)=>(
+                                            el.tags.map((tag, tag_index) => (
                                                 <Button bg="secondary" key={tag_index} className="px-4 pt-1 pb-1 bg-primary text-white border-none font-weight-bold">
                                                     {tag.name}
                                                 </Button>
@@ -78,8 +76,8 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                     <Col lg={8} >
                         {
                             card_list.map((el, index) => (
-                                index !== 0?
-                                <HorizontalCard data={el} id={el.id} /> : ''
+                                index !== 0 ?
+                                    <HorizontalCard data={el} id={el.id} /> : ''
                             ))
                         }
                     </Col>
@@ -97,9 +95,9 @@ function NewsList({ card_list, category_list, featured_card_list }) {
                             <div className="mt-4">
                                 {
                                     featured_card_list.map((el, index) => (
-                                        <FeaturedNewsCard id={el.id} 
-                                            description={el.description} 
-                                            image_thumbnail={el.image_thumbnail} 
+                                        <FeaturedNewsCard id={el.id}
+                                            description={el.description}
+                                            image_thumbnail={el.image_thumbnail}
                                             title={el.title}
                                             key={index}
                                         />

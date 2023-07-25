@@ -45,9 +45,7 @@ function Partners() {
   const { t } = useTranslation();
   const [our_main_data, setOurMainData] = useState([])
 
-  const handleClick = () => {
-    console.log("Clicked");
-  };
+  const handleClick = () => { };
   const getData = () => {
     API.get('partner/', {}).then((response) => {
       if (response.status === 200) {
@@ -64,15 +62,15 @@ function Partners() {
         <h1 className="title text-center m-0 mb-3">{t("landing.partner_title")}</h1>
         <p className="text-gray text-center mb-5">{t("landing.partner_description")}</p>
         <Marquee play autoFill>
-            {our_main_data.map((partner) => (
-                <Image
-                  src={partner.logo}
-                  fluid
-                  style={{width: '240px'}}
-                  onClick={() => handleClick()}
-                  className="mx-4"
-                />
-            ))}
+          {our_main_data.map((partner) => (
+            <Image
+              src={partner.logo}
+              fluid
+              style={{ width: '240px' }}
+              onClick={() => handleClick()}
+              className="mx-4"
+            />
+          ))}
         </Marquee>
 
         {/* <h1 className="title text-center">{t("partners.support")}</h1>
