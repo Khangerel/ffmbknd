@@ -39,20 +39,18 @@ function NewsDetails() {
     fetchData();
   }, [news_id]);
 
+
   return (
     <>
       <Helmet>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={news_data.title} />
-        <meta property="og:description" content={news_data.description} />
-        <meta
-          property="og:url"
-          content={`https://farofoundation.org/news/${news_id}`}
-        />
-        <meta property="og:image" content={news_data.image_thumbnail} />
-        <meta name="twitter:title" content={news_data.title} />
-        <meta name="twitter:description" content={news_data.description} />
-        <meta name="twitter:image" content={news_data.image_banner} />
+        <meta property="og:title" content={news_data.title || "Default Title"} />
+        <meta property="og:description" content={news_data.description || "Default Description"} />
+        <meta property="og:url" content={`https://farofoundation.org/news/${news_id}`} />
+        <meta property="og:image" content={news_data.image_thumbnail ? news_data.image_thumbnail : "http://farofoundation.org/media/upload/images/post/banners/SOsh.webp"} />
+        <meta name="twitter:title" content={news_data.title || "Default Title"} />
+        <meta name="twitter:description" content={news_data.description || "Default Description"} />
+        <meta name="twitter:image" content={news_data.image_banner || "Default Image"} />
         {/* Add other meta tags as needed... */}
       </Helmet>
 
@@ -61,7 +59,7 @@ function NewsDetails() {
       ) : (
         <>
           <div
-            className="w-80 min-h-50vh"
+            className="w-100 min-h-50vh"
             style={{
               background: `url(${news_data.image_banner})`,
               backgroundPosition: "center",
