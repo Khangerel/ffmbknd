@@ -8,7 +8,7 @@ import factcheck from "../assets/images/partners-fact.png";
 import hamtiin from "../assets/images/partners-hamtiin.png";
 import heregjuulegch from "../assets/images/partners-heregjuulegch.png";
 import hevlel from "../assets/images/partners-hevlel.png";
-import {Image} from "react-bootstrap";
+import { Image } from "react-bootstrap";
 
 const our_main_data = [
     {
@@ -72,7 +72,6 @@ const our_main_data = [
 function HomePartners() {
     const { t } = useTranslation();
     const handleClick = () => {
-        console.log('Clicked')
     }
     return (
         <div className="m-5">
@@ -86,5 +85,5 @@ function HomePartners() {
             </Row>
         </div>
     );
-  }
+}
 export default HomePartners;

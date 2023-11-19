@@ -19,7 +19,6 @@ export default function Footer() {
   const { t } = useTranslation();
   const [copied_email, setCopiedEmail] = useState(false);
 
-  //   console.log('TTT --> ', i18n)
   const handleclick = (value) => {
     onChangeLang(value);
   }
